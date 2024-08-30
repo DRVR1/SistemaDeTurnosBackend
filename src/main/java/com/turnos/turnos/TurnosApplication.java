@@ -9,8 +9,6 @@ public class TurnosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TurnosApplication.class, args);
-		PacienteService c = new PacienteService();
-		TurnoService t = new TurnoService();
 	}
 
 }

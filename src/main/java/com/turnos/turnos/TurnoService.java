@@ -2,9 +2,10 @@ package com.turnos.turnos;
 import java.util.Date;
 
 public class TurnoService {
-    public void reservarTurno(int id, Date fecha, Paciente paciente){
+    public void reservarTurno(int id, int fecha, Paciente paciente){
         Turno t = new Turno(id, fecha,paciente);
-        System.out.println("Turno reservado con exito");
+        System.out.println("Service: Turno reservado.");
+        t.imprimirDatos();
     }
     public void pruebas(){
         // Obtener la fecha actual
