@@ -1,7 +1,7 @@
 package com.turnos.turnos;
 
 public abstract class Persona {
-    protected int id;
+    protected final int id;
     protected int dni;
     protected int telefono;
     protected String apellido;

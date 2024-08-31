@@ -1,23 +1,29 @@
 package com.turnos.turnos;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-
 @RestController
 public class TurnoController {
-    private TurnoService turnoService = new TurnoService();
+    private final TurnoService turnoService = new TurnoService();
 
-    @PostMapping("/reservar")
+    @PostMapping("/reservarTurno")
     public void reservarTurno(
-            @RequestParam int fecha,
-            @RequestParam String nombre,
-            @RequestParam String apellido,
-            @RequestParam int telefono,
-            @RequestParam int id,
-            @RequestParam int dni
+            @RequestParam int hora,
+            @RequestParam int minuto,
+            @RequestParam int dia,
+            @RequestParam int mes,
+            @RequestParam int año,
+            @RequestParam int pacienteID,
+            @RequestParam int medicoID
             )
     {
-        turnoService.reservarTurno(1,fecha,new Paciente(id,dni,telefono,nombre,apellido));
+        LocalTime time = LocalTime.of(hora,minuto);
+        LocalDate date = LocalDate.of(año,mes,dia);
+        LocalDateTime fecha = LocalDateTime.of(date,time);
+
+        turnoService.reservarTurno(fecha ,pacienteID, medicoID);
     }
 }

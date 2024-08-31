@@ -1,22 +1,24 @@
 package com.turnos.turnos;
 import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class TurnoService {
-    public void reservarTurno(int id, int fecha, Paciente paciente){
-        Turno t = new Turno(id, fecha,paciente);
-        System.out.println("Service: Turno reservado.");
+    public void reservarTurno(LocalDateTime fecha, int pacienteID, int medicoID){
+        int id = 0;
+        Turno t = new Turno(id, fecha, pacienteID, medicoID);
         t.imprimirDatos();
     }
+
+    public void liberarTurno(int id){
+        System.out.println("Eliminando turno " + id);
+    }
+
     public void pruebas(){
-        // Obtener la fecha actual
-        Date fechaActual = new Date();
-
-        // Imprimir la fecha actual en milisegundos desde la época UNIX
-        long milisecs = fechaActual.getTime();
-        System.out.println("Fecha actual en milisegundos desde la época UNIX: " + milisecs);
-
-        // Convertir los milisegundos de vuelta a un objeto Date
-        Date fechaConvertida = new Date(milisecs);
-        System.out.println("Fecha convertida de milisegundos: " + fechaConvertida);
+        // Crear LocalDate y LocalTime
+        LocalDate fecha = LocalDate.of(2024, 8, 30);
+        LocalTime hora = LocalTime.of(15, 30);
+        LocalDateTime fechaHora = LocalDateTime.of(fecha, hora);
     }
 }
