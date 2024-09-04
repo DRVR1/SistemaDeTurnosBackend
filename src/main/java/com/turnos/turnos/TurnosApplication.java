@@ -9,6 +9,7 @@ public class TurnosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TurnosApplication.class, args);
+		SQLServerConnection db = new SQLServerConnection();
 	}
 
 }
