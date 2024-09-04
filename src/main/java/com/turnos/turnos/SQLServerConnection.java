@@ -7,12 +7,13 @@ import java.sql.PreparedStatement;
 
 public class SQLServerConnection {
 
+    private static SQLServerConnection sqlServerConnection;
     private static final String DB_URL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=prueba;encrypt=false";
     private static final String USER = "userServer";
     private static final String PASS = "mrp2YPyqNhcSdAUxmrp2YPyqNhcSdAUx";
     private Connection connection = null;
 
-    public SQLServerConnection(){
+    private SQLServerConnection(){
 
         try {
             // Estableciendo la conexión
@@ -26,16 +27,21 @@ public class SQLServerConnection {
         }
     }
 
-    public void sendQuery(String query) throws SQLException {
+    public void sendQuery(String query){
+        try{
+            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
+            int rowsAffected = preparedStatement.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println("Error al ejecutar query");
+        }
 
-        // Crea un PreparedStatement
-        PreparedStatement preparedStatement = this.connection.prepareStatement(query);
+    }
 
-        // Establece los valores de los parámetros
-        //preparedStatement.setString(1, "valor1");
-        //preparedStatement.setInt(2, 123);
-
-        // Ejecuta la actualización
-        int rowsAffected = preparedStatement.executeUpdate();
+    public static SQLServerConnection getInstance(){
+        if(sqlServerConnection == null){
+            sqlServerConnection = new SQLServerConnection();
+        }
+        return sqlServerConnection;
     }
 }
