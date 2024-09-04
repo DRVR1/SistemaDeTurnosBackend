@@ -11,9 +11,9 @@ public class MedicoController {
             @RequestParam String apellido,
             @RequestParam int telefono,
             @RequestParam int dni,
-            @RequestParam String especialidad
+            @RequestParam int especialidadID
     )
     {
-        medicoService.altaMedico(dni,telefono,nombre,apellido,especialidad);
+        medicoService.altaMedico(dni,telefono,nombre,apellido,especialidadID);
     }
 }
