@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class TurnoService {
 
-    public void reservarTurno(LocalDateTime fecha, int pacienteID, int medicoID) throws SQLException {
+    public void altaTurno(LocalDateTime fecha, int pacienteID, int medicoID) throws SQLException {
         Turno t = new Turno(fecha, pacienteID, medicoID);
 
         TurnoRepository tr = new TurnoRepository();

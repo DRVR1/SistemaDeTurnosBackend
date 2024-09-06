@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 public class TurnoController {
     private final TurnoService turnoService = new TurnoService();
 
-    @PostMapping("/reservarTurno")
-    public void reservarTurno(
+    @PostMapping("/altaTurno")
+    public void altaTurno(
             @RequestParam int hora,
             @RequestParam int minuto,
             @RequestParam int dia,
@@ -24,6 +24,6 @@ public class TurnoController {
         LocalDate date = LocalDate.of(año,mes,dia);
         LocalDateTime fecha = LocalDateTime.of(date,time);
 
-        turnoService.reservarTurno(fecha ,pacienteID, medicoID);
+        turnoService.altaTurno(fecha ,pacienteID, medicoID);
     }
 }
