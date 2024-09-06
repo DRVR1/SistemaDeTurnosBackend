@@ -1,17 +1,15 @@
 package com.turnos.turnos;
 
+import java.sql.SQLException;
+
 public class MedicoService {
 
-    SQLServer db = SQLServer.getInstance();
-
-    public void altaMedico(int dni,int telefono, String nombre, String apellido, int especialidadID){
+    public void altaMedico(int dni,int telefono, String nombre, String apellido, int especialidadID) throws SQLException {
 
         Medico m = new Medico(dni, telefono, nombre, apellido, especialidadID);
 
-        db.sendQuery("insert into Medico values ('"+m.nombre+"','"+m.apellido+"',"+m.telefono+","+m.dni+","+m.especialidadID+")");
+        MedicoRepository repo = new MedicoRepository();
+        repo.guardarMedico(m.dni,m.telefono,m.nombre,m.apellido,m.especialidadID);
+
     }
-
-
-
-
 }

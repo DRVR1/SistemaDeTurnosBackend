@@ -1,4 +1,5 @@
 package com.turnos.turnos;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
@@ -18,8 +19,7 @@ public class TurnoController {
             @RequestParam int año,
             @RequestParam int pacienteID,
             @RequestParam int medicoID
-            )
-    {
+            ) throws SQLException {
         LocalTime time = LocalTime.of(hora,minuto);
         LocalDate date = LocalDate.of(año,mes,dia);
         LocalDateTime fecha = LocalDateTime.of(date,time);
