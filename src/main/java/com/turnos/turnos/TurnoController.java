@@ -3,7 +3,9 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,7 +33,14 @@ public class TurnoController {
             @RequestParam int turnoID,
             @RequestParam int pacienteID
     ) throws SQLException {
-
         turnoService.reservarTurno(turnoID, pacienteID);
+    }
+
+    @RequestMapping("verTurnos")
+    public ResponseEntity<ArrayList<TurnoDTO>> verTurnos(
+            @RequestParam int especialidadID
+    ) throws SQLException {
+        ArrayList<TurnoDTO> listaTurnosDTO = turnoService.verTurnosDisponibles(especialidadID);
+        return ResponseEntity.ok(listaTurnosDTO);
     }
 }

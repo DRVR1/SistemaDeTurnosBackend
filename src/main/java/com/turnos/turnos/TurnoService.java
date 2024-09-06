@@ -12,9 +12,8 @@ public class TurnoService {
         tr.altaTurno(t.fecha,t.medicoID);
     }
 
-    public ArrayList<Turno> verTurnosDisponibles(){
-        ArrayList<Turno> listaTurnos = new ArrayList<>();
-        //repository get turnos
+    public  ArrayList<TurnoDTO> verTurnosDisponibles(int especialidadID) throws SQLException {
+        ArrayList<TurnoDTO> listaTurnos = tr.verTurnos(especialidadID);
         return listaTurnos;
     }
 
