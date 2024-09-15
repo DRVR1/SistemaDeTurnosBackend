@@ -19,7 +19,6 @@ public class TurnoRepository {
     }
 
     public ArrayList<TurnoDTO> verTurnos(int especialidadID) throws SQLException {
-        //exec procedure
         ArrayList<TurnoDTO> turnosDTO = new ArrayList<>();
         String query = "{call verTurnos(?)}";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -37,8 +36,17 @@ public class TurnoRepository {
         return turnosDTO;
     }
 
-    public void reservarTurno(){
-
+    public boolean reservarTurno(int turnoID, int pacienteID) throws SQLException {
+        String query = "{call reservarTurno(?,?)}";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1,turnoID);
+        preparedStatement.setInt(2,pacienteID);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void liberarTurno(){

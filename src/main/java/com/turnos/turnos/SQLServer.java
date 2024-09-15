@@ -8,11 +8,13 @@ import java.sql.PreparedStatement;
 public class SQLServer {
 
     private static SQLServer sqlServer;
+
     private static final String USER = "userServer";
     private static final String PASS = "mrp2YPyqNhcSdAUxmrp2YPyqNhcSdAUx";
     private static final String DB_PORT = "1433";
     private static final String DB_IP = "127.0.0.1";
     private static final String DB_NAME = "turnos";
+
     private static final String DB_URL = "jdbc:sqlserver://"+DB_IP+":"+DB_PORT+";databaseName="+DB_NAME+";encrypt=false";
 
     private Connection connection = null;
@@ -23,7 +25,7 @@ public class SQLServer {
             // Estableciendo la conexión
             System.out.println("Estableciendo la conexion...");
             connection = DriverManager.getConnection(DB_URL, USER, PASS);
-            System.out.println("Conexión exitosa a Microsoft SQL Server!");
+            System.out.println("Conexion exitosa a Microsoft SQL Server!");
 
         } catch (SQLException e) {
             System.out.println("Error al conectar a la base de datos:");

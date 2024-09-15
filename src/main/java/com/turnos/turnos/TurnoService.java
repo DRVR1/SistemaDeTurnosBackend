@@ -17,10 +17,8 @@ public class TurnoService {
         return listaTurnos;
     }
 
-    public void reservarTurno(int turnoID, int pacienteID){
-        //ver si el turno esta disponible
-        //asignar el paciente al turno
-        //devolver una respuesta al front [reservado/no se pudo reservar]
+    public boolean reservarTurno(int turnoID, int pacienteID) throws SQLException {
+        return tr.reservarTurno(turnoID,pacienteID);
     }
 
 }
