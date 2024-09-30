@@ -25,12 +25,12 @@ public class TurnoRepository {
         preparedStatement.setInt(1,especialidadID);
         ResultSet result = preparedStatement.executeQuery();
         while(result.next()){
-            LocalDateTime dateTime = result.getTimestamp(1).toLocalDateTime();
-            String nombreMedico = result.getString(2);
-            String apellidoMedico = result.getString(3);
-            String especialidadMedico = result.getString(4);
-            TurnoDTO turnoDTO = new TurnoDTO(dateTime,nombreMedico,apellidoMedico,especialidadMedico);
-            turnoDTO.verDatos();
+            int id = result.getInt(1);
+            LocalDateTime dateTime = result.getTimestamp(2).toLocalDateTime();
+            String nombreMedico = result.getString(3);
+            String apellidoMedico = result.getString(4);
+            String especialidadMedico = result.getString(5);
+            TurnoDTO turnoDTO = new TurnoDTO(id,dateTime,nombreMedico,apellidoMedico,especialidadMedico);
             turnosDTO.add(turnoDTO);
         }
         return turnosDTO;

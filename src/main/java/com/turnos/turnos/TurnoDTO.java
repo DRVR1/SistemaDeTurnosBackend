@@ -3,12 +3,14 @@ package com.turnos.turnos;
 import java.time.LocalDateTime;
 
 public class TurnoDTO {
+    public int turnoID;
     public LocalDateTime fecha;
     public String nombreMedico;
     public String apellidoMedico;
     public String especialidadMedico;
 
-    public TurnoDTO(LocalDateTime fecha, String nombreMedico, String apellidoMedico, String especialidadMedico){
+    public TurnoDTO(int turnoID, LocalDateTime fecha, String nombreMedico, String apellidoMedico, String especialidadMedico){
+        this.turnoID = turnoID;
         this.fecha = fecha;
         this.nombreMedico = nombreMedico;
         this.apellidoMedico = apellidoMedico;
