@@ -19,8 +19,8 @@ El proyecto se puede abrir desde el intellij idea.
  
 ### Versiones setup:
 
-- Lenguaje java
-- Proyecto gradle
-- Springboot 3.3.3
+- Lenguaje: java
+- Proyecto: gradle
+- Springboot: 3.3.3
 - Packaging: jar
-- Version Java (jdk) 21
+- Version de Java (jdk): 21
