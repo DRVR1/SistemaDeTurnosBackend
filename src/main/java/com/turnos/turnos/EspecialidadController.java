@@ -2,6 +2,10 @@ package com.turnos.turnos;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import org.springframework.http.ResponseEntity;
+
 
 @RestController
 public class EspecialidadController {
@@ -13,4 +17,14 @@ public class EspecialidadController {
     ) throws SQLException {
         especialiadService.altaEspecialidad(nombre);
     }
+
+
+    @RequestMapping("/verEspecialidades")
+    public ResponseEntity<ArrayList<Especialidad>> verEspecialidades(
+    ) throws SQLException {
+        ArrayList<Especialidad> especialidades = especialiadService.verEspecialidades();
+        return ResponseEntity.ok(especialidades);
+    }
+
+
 }
