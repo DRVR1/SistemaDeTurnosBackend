@@ -13,6 +13,28 @@ El script SQL para crear la base de datos se encuentra en `db/schema.sql`. Para 
 3. Ejecutar el script
 4. Ya deberia aparecer la base de datos "turnos" con sus tablas y SP
 
+## Setup login de SQL
+
+- instalar servidor SQL2022-SSEI-Expr
+- instalar administrador de servidores SSMS
+
+En ssms:
+- crear un usuario y contraseña en security/Logins 
+- darle el rol de public y sysadmin
+
+en sql server configuration manager
+-  SQL Server Services /  SQLEXPRESS debe estar corriendo
+-  sql server network configuration / protocols for sqlexpress / TCP/IP activado
+-  en propiedades de TCP/IP configurar puerto (asignar puerto 1433 a IPAII)
+
+Ejemplo en java
+
+
+    private static final String DB_URL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=prueba;encrypt=false";
+    private static final String USER = "dbUser";
+    private static final String PASS = "dbPassword";
+    connection = DriverManager.getConnection(DB_URL, USER, PASS); 
+
 ## Setup java con springboot
 
 - Instalar JDK https://bell-sw.com/pages/downloads/#jdk-21-lts
