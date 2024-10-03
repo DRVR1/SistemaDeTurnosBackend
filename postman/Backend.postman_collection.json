@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "92a1fb6b-78ea-46fd-ae72-08a67e8a778d",
+		"name": "Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38033108"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/altaEspecialidad",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "odontologo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/altaEspecialidad",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"altaEspecialidad"
+					],
+					"query": [
+						{
+							"key": "fecha",
+							"value": "100",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/altaPaciente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "gustavo",
+							"type": "text"
+						},
+						{
+							"key": "apellido",
+							"value": "cerati",
+							"type": "text"
+						},
+						{
+							"key": "telefono",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "dni",
+							"value": "9999999",
+							"type": "text"
+						},
+						{
+							"key": "especialidad",
+							"value": " ",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/altaPaciente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"altaPaciente"
+					],
+					"query": [
+						{
+							"key": "fecha",
+							"value": "100",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/altaMedico",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "taylor",
+							"type": "text"
+						},
+						{
+							"key": "apellido",
+							"value": "swift",
+							"type": "text"
+						},
+						{
+							"key": "telefono",
+							"value": " 113333333",
+							"type": "text"
+						},
+						{
+							"key": "dni",
+							"value": "543643634",
+							"type": "text"
+						},
+						{
+							"key": "especialidadID",
+							"value": " 1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/altaMedico",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"altaMedico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "altaTurno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "hora",
+							"value": "00",
+							"type": "text"
+						},
+						{
+							"key": "minuto",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "dia",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "mes",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "año",
+							"value": "2025",
+							"type": "text"
+						},
+						{
+							"key": "medicoID",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/altaTurno",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"altaTurno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/reservarTurno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "turnoID",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "pacienteID",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/reservarTurno",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reservarTurno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/verTurnos?especialidadID=1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "hawk",
+					"hawk": [
+						{
+							"key": "algorithm",
+							"value": "sha256",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/verTurnos?especialidadID=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"verTurnos"
+					],
+					"query": [
+						{
+							"key": "especialidadID",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verEspecialidades",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "hawk",
+					"hawk": [
+						{
+							"key": "algorithm",
+							"value": "sha256",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/verEspecialidades",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"verEspecialidades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/reservarTurnos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"fecha\": \"2024-09-15T14:30:00\",\r\n        \"medicoID\": \"1\"\r\n    },\r\n    {\r\n        \"fecha\": \"2024-09-16T09:00:00\",\r\n        \"medicoID\": \"1\"\r\n    },\r\n    {\r\n        \"fecha\": \"2024-09-17T11:15:00\",\r\n        \"medicoID\": \"1\"\r\n    },\r\n    {\r\n        \"fecha\": \"2024-09-18T10:30:00\",\r\n        \"medicoID\": \"1\"\r\n    },\r\n    {\r\n        \"fecha\": \"2024-09-19T12:45:00\",\r\n        \"medicoID\": \"1\"\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/altaTurnos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"altaTurnos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
