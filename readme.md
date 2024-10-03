@@ -21,11 +21,16 @@ El script SQL para crear la base de datos se encuentra en `db/schema.sql`. Para 
 - iniciar sesion en SSMS con windows autentication DESKTOP-#######\SQLEXPRESS encryption mandatory, trust server certificate.
 
 ## Configurar el login externo (desde java por ejemplo)
-Una vez en en ssms:
+
+Crear usuario (SSMS):
 - crear un usuario y contraseña en security/Logins
 - seleccionar la opcion SQL server autentication e ingresar las credenciales
 - luego de ser creado, darle el rol de public y sysadmin (en server roles)
 
+Habilitar logins (SSMS):
+- click derecho en root / propiedades (server properties) / security / check sql server and windows auth mode
+
+Configurar servidor (SSCM):
 en sql server configuration manager
 -  SQL Server Services /  SQLEXPRESS debe estar corriendo
 -  sql server network configuration / protocols for sqlexpress / TCP/IP activado
