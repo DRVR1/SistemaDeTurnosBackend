@@ -22,13 +22,15 @@ El script SQL para crear la base de datos se encuentra en `db/schema.sql`. Para 
 
 ## Configurar el login externo (desde java por ejemplo)
 Una vez en en ssms:
-- crear un usuario y contraseña en security/Logins 
-- darle el rol de public y sysadmin
+- crear un usuario y contraseña en security/Logins
+- seleccionar la opcion SQL server autentication e ingresar las credenciales
+- luego de ser creado, darle el rol de public y sysadmin (en server roles)
 
 en sql server configuration manager
 -  SQL Server Services /  SQLEXPRESS debe estar corriendo
 -  sql server network configuration / protocols for sqlexpress / TCP/IP activado
 -  en propiedades de TCP/IP configurar puerto (asignar puerto 1433 a IPAII)
+-  reiniciar el servicio o la PC
 
 Ejemplo conexion desde java:
 
