@@ -55,7 +55,7 @@ public class TurnoController {
         if (reservado) {
             return ResponseEntity.ok("Turno reservado exitosamente.");
         } else {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("No se pudo reservar el turno. Puede que ya esté reservado.");
+            return ResponseEntity.ok("Error al reservar turno, puede que ya esté ocupado.");
         }
     }
 
