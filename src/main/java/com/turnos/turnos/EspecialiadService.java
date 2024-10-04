@@ -14,7 +14,7 @@ public class EspecialiadService {
 
     }
 
-    public ArrayList<Especialidad> verEspecialidades() throws SQLException {
+    public ArrayList<EspecialidadDTO> verEspecialidades() throws SQLException {
         return repo.verEspecialidades();
     }
 }

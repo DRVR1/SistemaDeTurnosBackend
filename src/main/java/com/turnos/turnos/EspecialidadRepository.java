@@ -18,14 +18,15 @@ public class EspecialidadRepository {
         preparedStatement.executeUpdate();
     }
 
-    public ArrayList<Especialidad> verEspecialidades() throws SQLException {
-        ArrayList<Especialidad> listaEspecialidades = new ArrayList<>();
+    public ArrayList<EspecialidadDTO> verEspecialidades() throws SQLException {
+        ArrayList<EspecialidadDTO> listaEspecialidades = new ArrayList<>();
         String query = "{call verEspecialidades}";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         ResultSet result = preparedStatement.executeQuery();
         while(result.next()){
-            String nombreEspecialidad = result.getString(1);
-            Especialidad especialidad = new Especialidad(nombreEspecialidad);
+            int idEspecialidad = result.getInt(1);
+            String nombreEspecialidad = result.getString(2);
+            EspecialidadDTO especialidad = new EspecialidadDTO(idEspecialidad,nombreEspecialidad);
             listaEspecialidades.add(especialidad);
         }
         return listaEspecialidades;

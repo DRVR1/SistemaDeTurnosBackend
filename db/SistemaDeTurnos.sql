@@ -40,7 +40,7 @@ CREATE TABLE Turno (
 CREATE PROCEDURE verEspecialidades
 AS
 BEGIN
-select nombre from Especialidad
+select id, nombre from Especialidad
 END;
 
 CREATE PROCEDURE verTurnos
@@ -97,3 +97,71 @@ DBCC CHECKIDENT ('Medico', RESEED, 0);
 DBCC CHECKIDENT ('Turno', RESEED, 0);
 DBCC CHECKIDENT ('Especialidad', RESEED, 0);
 
+-- crear datos
+
+INSERT INTO Especialidad (nombre) VALUES
+('Pediatría'),
+('Cardiología'),
+('Dermatología'),
+('Ginecología'),
+('Psiquiatría');
+
+INSERT INTO Medico (nombre, apellido, telefono, dni, especialidadID) VALUES
+('Juan', 'Pérez', '123456789', '12345678', 1),  -- Pediatría
+('Ana', 'Gómez', '987654321', '87654321', 2),   -- Cardiología
+('Luis', 'Martínez', '456789123', '11223344', 3), -- Dermatología
+('María', 'López', '321654987', '22334455', 4),  -- Ginecología
+('Carlos', 'Fernández', '654321789', '33445566', 5); -- Psiquiatría
+
+
+INSERT INTO Paciente (nombre, apellido, telefono, dni) VALUES
+('Pedro', 'Sánchez', '555123456', '11122233'),
+('Lucía', 'Rodríguez', '555987654', '22233344'),
+('Javier', 'Moreno', '555654321', '33344455'),
+('Sofía', 'García', '555345678', '44455566'),
+('Diego', 'Hernández', '555456789', '55566677');
+
+-- Insertar turnos en diferentes días y horarios en octubre de 2024 sin pacienteID
+INSERT INTO Turno (fecha, pacienteID, medicoID) VALUES 
+('2024-10-01 09:00:00', NULL, 1),
+('2024-10-01 10:30:00', NULL, 1),
+('2024-10-01 14:00:00', NULL, 2),
+('2024-10-01 15:30:00', NULL, 2),
+('2024-10-01 16:45:00', NULL, 3),
+
+('2024-10-02 09:15:00', NULL, 1),
+('2024-10-02 10:00:00', NULL, 3),
+('2024-10-02 14:45:00', NULL, 2),
+('2024-10-02 16:00:00', NULL, 3),
+
+('2024-10-03 08:30:00', NULL, 2),
+('2024-10-03 12:00:00', NULL, 1),
+('2024-10-03 14:15:00', NULL, 1),
+
+('2024-10-04 09:00:00', NULL, 2),
+('2024-10-04 11:00:00', NULL, 3),
+('2024-10-04 15:00:00', NULL, 2),
+
+('2024-10-05 10:30:00', NULL, 1),
+('2024-10-05 11:30:00', NULL, 1),
+('2024-10-05 15:30:00', NULL, 3),
+
+('2024-10-06 09:45:00', NULL, 2),
+('2024-10-06 13:30:00', NULL, 3),
+('2024-10-06 16:00:00', NULL, 1),
+
+('2024-10-07 08:00:00', NULL, 1),
+('2024-10-07 12:15:00', NULL, 2),
+('2024-10-07 14:00:00', NULL, 3),
+
+('2024-10-08 10:00:00', NULL, 1),
+('2024-10-08 11:00:00', NULL, 2),
+('2024-10-08 15:00:00', NULL, 3),
+
+('2024-10-09 09:30:00', NULL, 1),
+('2024-10-09 13:00:00', NULL, 2),
+('2024-10-09 16:30:00', NULL, 3),
+
+('2024-10-10 10:00:00', NULL, 2),
+('2024-10-10 11:30:00', NULL, 1),
+('2024-10-10 15:15:00', NULL, 1);

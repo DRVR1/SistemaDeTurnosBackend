@@ -20,9 +20,9 @@ public class EspecialidadController {
 
 
     @RequestMapping("/verEspecialidades")
-    public ResponseEntity<ArrayList<Especialidad>> verEspecialidades(
+    public ResponseEntity<ArrayList<EspecialidadDTO>> verEspecialidades(
     ) throws SQLException {
-        ArrayList<Especialidad> especialidades = especialiadService.verEspecialidades();
+        ArrayList<EspecialidadDTO> especialidades = especialiadService.verEspecialidades();
         return ResponseEntity.ok(especialidades);
     }
 
