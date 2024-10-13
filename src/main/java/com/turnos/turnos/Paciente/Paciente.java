@@ -1,6 +1,8 @@
-package com.turnos.turnos;
+package com.turnos.turnos.Paciente;
 
-public class Paciente extends Persona{
+import com.turnos.turnos.Persona;
+
+public class Paciente extends Persona {
 
     protected String mail;
 

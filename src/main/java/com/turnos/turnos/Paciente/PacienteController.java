@@ -1,4 +1,4 @@
-package com.turnos.turnos;
+package com.turnos.turnos.Paciente;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;

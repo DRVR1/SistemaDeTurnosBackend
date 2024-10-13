@@ -1,4 +1,6 @@
-package com.turnos.turnos;
+package com.turnos.turnos.Turno;
+
+import com.turnos.turnos.SQLServer;
 
 import java.sql.*;
 import java.time.LocalDateTime;

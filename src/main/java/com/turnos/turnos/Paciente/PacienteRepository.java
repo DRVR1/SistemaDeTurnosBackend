@@ -1,22 +1,24 @@
-package com.turnos.turnos;
+package com.turnos.turnos.Paciente;
+
+import com.turnos.turnos.SQLServer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class MedicoRepository {
+public class PacienteRepository {
 
     private final SQLServer db = SQLServer.getInstance();
     private final Connection connection = db.getConnection();
 
-    public void guardarMedico(int dni,int telefono, String nombre, String apellido, int especialidadID) throws SQLException {
-        String query = "INSERT INTO Medico (nombre, apellido, telefono, dni, especialidadID) VALUES (?, ?, ?, ?, ?)";
+    public void guardarPaciente(int dni,int telefono, String nombre, String apellido, String mail) throws SQLException {
+        String query = "INSERT INTO Paciente (nombre, apellido, telefono, dni, mail) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, nombre);
         preparedStatement.setString(2, apellido);
         preparedStatement.setInt(3, telefono);
         preparedStatement.setInt(4, dni);
-        preparedStatement.setInt(5, especialidadID);
+        preparedStatement.setString(5, mail);
         preparedStatement.executeUpdate();
     }
 

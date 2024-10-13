@@ -1,4 +1,4 @@
-package com.turnos.turnos;
+package com.turnos.turnos.Especialidad;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

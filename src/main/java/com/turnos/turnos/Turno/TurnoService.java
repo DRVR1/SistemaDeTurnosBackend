@@ -1,4 +1,4 @@
-package com.turnos.turnos;
+package com.turnos.turnos.Turno;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

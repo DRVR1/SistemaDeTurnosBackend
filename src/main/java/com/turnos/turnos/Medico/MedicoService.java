@@ -1,4 +1,4 @@
-package com.turnos.turnos;
+package com.turnos.turnos.Medico;
 
 import java.sql.SQLException;
 

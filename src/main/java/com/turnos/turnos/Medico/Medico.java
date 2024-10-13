@@ -1,6 +1,8 @@
-package com.turnos.turnos;
+package com.turnos.turnos.Medico;
 
-public class Medico extends Persona{
+import com.turnos.turnos.Persona;
+
+public class Medico extends Persona {
 
     public int especialidadID;
 

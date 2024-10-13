@@ -1,4 +1,6 @@
-package com.turnos.turnos;
+package com.turnos.turnos.Especialidad;
+
+import com.turnos.turnos.SQLServer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

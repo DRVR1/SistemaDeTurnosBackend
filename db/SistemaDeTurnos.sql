@@ -18,7 +18,7 @@ CREATE TABLE Medico (
 );
 
 -- Crear la tabla Medico
-drop TABLE Paciente
+
 CREATE TABLE Paciente (
     id INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(100) NOT NULL,
@@ -41,9 +41,11 @@ CREATE TABLE Turno (
 CREATE PROCEDURE verEspecialidades
 AS
 BEGIN
-select id, nombre from Especialidad
+	select id, nombre from Especialidad
 END;
 
+
+-- Ver turnos disponibles
 CREATE PROCEDURE verTurnos
 	@especialidadID INT
 AS
@@ -54,8 +56,15 @@ BEGIN
 	where t.pacienteID is null and m.especialidadID = @especialidadID and t.fecha > GETDATE()
 END;
 
-DROP PROCEDURE verTurnos
-
+CREATE PROCEDURE verTurnosReservados
+	@pacienteID INT
+AS
+BEGIN
+	select T.id, T.fecha, M.nombre, M.apellido, E.nombre as especialidad from Turno T
+	join Medico M on M.id = T.medicoID
+	join Especialidad E on M.especialidadID = E.id
+	where T.pacienteID = @pacienteID
+END;
 
 
 CREATE PROCEDURE reservarTurno
@@ -67,6 +76,14 @@ BEGIN
 	where Turno.id = @turnoID and Turno.pacienteID is null
 END;
 
+
+CREATE PROCEDURE cancelarTurno
+	@turnoID INT
+AS
+BEGIN
+	update Turno set pacienteID = null
+	where Turno.id = @turnoID
+END;
 
 
 -- Herramientas:
@@ -129,50 +146,50 @@ INSERT INTO Paciente (nombre, apellido, telefono, dni,mail) VALUES
 
 -- Insertar turnos en diferentes días y horarios en octubre de 2024 sin pacienteID
 INSERT INTO Turno (fecha, pacienteID, medicoID) VALUES 
-('2024-10-01 09:00:00', NULL, 1),
-('2024-10-01 10:30:00', NULL, 1),
-('2024-10-01 14:00:00', NULL, 2),
-('2024-10-01 15:30:00', NULL, 2),
-('2024-10-01 16:45:00', NULL, 3),
+('2024-10-20 09:00:00', NULL, 1),
+('2024-10-20 10:30:00', NULL, 1),
+('2024-10-20 14:00:00', NULL, 2),
+('2024-10-20 15:30:00', NULL, 2),
+('2024-10-20 16:45:00', NULL, 3),
 
-('2024-10-02 09:15:00', NULL, 1),
-('2024-10-02 10:00:00', NULL, 3),
-('2024-10-02 11:30:00', NULL, 2),
-('2024-10-02 14:45:00', NULL, 2),
-('2024-10-02 16:00:00', NULL, 3),
+('2024-10-21 09:15:00', NULL, 1),
+('2024-10-21 10:00:00', NULL, 3),
+('2024-10-21 11:30:00', NULL, 2),
+('2024-10-21 14:45:00', NULL, 2),
+('2024-10-21 16:00:00', NULL, 3),
 
-('2024-10-03 08:30:00', NULL, 2),
-('2024-10-03 10:30:00', NULL, 1),
-('2024-10-03 12:00:00', NULL, 1),
-('2024-10-03 14:15:00', NULL, 1),
-('2024-10-03 16:00:00', NULL, 3),
+('2024-10-22 08:30:00', NULL, 2),
+('2024-10-22 10:30:00', NULL, 1),
+('2024-10-22 12:00:00', NULL, 1),
+('2024-10-22 14:15:00', NULL, 1),
+('2024-10-22 16:00:00', NULL, 3),
 
-('2024-10-04 09:00:00', NULL, 2),
-('2024-10-04 11:00:00', NULL, 3),
-('2024-10-04 13:30:00', NULL, 1),
-('2024-10-04 15:00:00', NULL, 2),
-('2024-10-04 16:45:00', NULL, 3),
+('2024-10-23 09:00:00', NULL, 2),
+('2024-10-23 11:00:00', NULL, 3),
+('2024-10-23 13:30:00', NULL, 1),
+('2024-10-23 15:00:00', NULL, 2),
+('2024-10-23 16:45:00', NULL, 3),
 
-('2024-10-07 08:00:00', NULL, 1),
-('2024-10-07 09:30:00', NULL, 3),
-('2024-10-07 12:15:00', NULL, 2),
-('2024-10-07 14:00:00', NULL, 3),
-('2024-10-07 15:30:00', NULL, 1),
+('2024-10-24 08:00:00', NULL, 1),
+('2024-10-24 09:30:00', NULL, 3),
+('2024-10-24 12:15:00', NULL, 2),
+('2024-10-24 14:00:00', NULL, 3),
+('2024-10-24 15:30:00', NULL, 1),
 
-('2024-10-08 09:00:00', NULL, 2),
-('2024-10-08 10:00:00', NULL, 1),
-('2024-10-08 11:00:00', NULL, 2),
-('2024-10-08 14:30:00', NULL, 3),
-('2024-10-08 15:30:00', NULL, 2),
+('2024-10-25 09:00:00', NULL, 2),
+('2024-10-25 10:00:00', NULL, 1),
+('2024-10-25 11:00:00', NULL, 2),
+('2024-10-25 14:30:00', NULL, 3),
+('2024-10-25 15:30:00', NULL, 2),
 
-('2024-10-09 09:30:00', NULL, 1),
-('2024-10-09 11:00:00', NULL, 3),
-('2024-10-09 13:00:00', NULL, 2),
-('2024-10-09 14:45:00', NULL, 1),
-('2024-10-09 16:30:00', NULL, 3),
+('2024-10-26 09:30:00', NULL, 1),
+('2024-10-26 11:00:00', NULL, 3),
+('2024-10-26 13:00:00', NULL, 2),
+('2024-10-26 14:45:00', NULL, 1),
+('2024-10-26 16:30:00', NULL, 3),
 
-('2024-10-10 10:00:00', NULL, 2),
-('2024-10-10 11:30:00', NULL, 1),
-('2024-10-10 13:00:00', NULL, 2),
-('2024-10-10 15:15:00', NULL, 1),
-('2024-10-10 16:30:00', NULL, 3);
+('2024-10-27 10:00:00', NULL, 2),
+('2024-10-27 11:30:00', NULL, 1),
+('2024-10-27 13:00:00', NULL, 2),
+('2024-10-27 15:15:00', NULL, 1),
+('2024-10-27 16:30:00', NULL, 3);
