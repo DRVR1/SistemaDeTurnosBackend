@@ -4,10 +4,8 @@ import com.turnos.turnos.Persona;
 
 public class Paciente extends Persona {
 
-    protected String mail;
-
-    public Paciente(int dni, int telefono, String nombre, String apellido, String mail) {
-        super(dni,telefono, nombre, apellido);
+    public Paciente(int dni, int telefono, String nombre, String apellido, String mail, String pass) {
+        super(dni,telefono, nombre, apellido, mail, pass);
         this.mail = mail;
     }
 }

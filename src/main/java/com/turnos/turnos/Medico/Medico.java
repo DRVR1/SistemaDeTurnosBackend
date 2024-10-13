@@ -6,8 +6,8 @@ public class Medico extends Persona {
 
     public int especialidadID;
 
-    public Medico(int dni, int telefono, String nombre, String apellido, int especialidadID) {
-        super(dni, telefono, nombre, apellido);
+    public Medico(int dni, int telefono, String nombre, String apellido, int especialidadID, String mail, String pass) {
+        super(dni, telefono, nombre, apellido, mail, pass);
         this.especialidadID = especialidadID;
     }
 }

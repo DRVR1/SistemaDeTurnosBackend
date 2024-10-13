@@ -13,8 +13,20 @@ public class MedicoController {
             @RequestParam String apellido,
             @RequestParam int telefono,
             @RequestParam int dni,
-            @RequestParam int especialidadID
+            @RequestParam int especialidadID,
+            @RequestParam String mail,
+            @RequestParam String pass
+
     ) throws SQLException {
-        medicoService.altaMedico(dni,telefono,nombre,apellido,especialidadID);
+        medicoService.altaMedico(dni,telefono,nombre,apellido,especialidadID, mail, pass);
+    }
+
+    @PostMapping("/loginMedico")
+    public void altaMedico(
+            @RequestParam String mail,
+            @RequestParam String pass
+
+    ) throws SQLException {
+        medicoService.loginMedico(mail, pass);
     }
 }

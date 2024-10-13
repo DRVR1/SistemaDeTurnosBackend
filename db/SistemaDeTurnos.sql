@@ -14,7 +14,9 @@ CREATE TABLE Medico (
     telefono VARCHAR(15),
     dni VARCHAR(20) UNIQUE NOT NULL,
     especialidadID INT,
-    FOREIGN KEY (especialidadID) REFERENCES Especialidad(id)
+    FOREIGN KEY (especialidadID) REFERENCES Especialidad(id),
+	mail varchar(100) UNIQUE NOT NULL,
+	pass VARCHAR(255) NOT NULL
 );
 
 -- Crear la tabla Medico
@@ -25,7 +27,8 @@ CREATE TABLE Paciente (
     apellido VARCHAR(100) NOT NULL,
     telefono VARCHAR(15),
     dni VARCHAR(25) UNIQUE NOT NULL,
-	mail varchar(100) not null,
+	mail varchar(100) UNIQUE NOT NULL,
+	pass VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Turno (
@@ -38,6 +41,9 @@ CREATE TABLE Turno (
 );
 
 
+-- Procedimientos almacenados
+
+-- Ver especialidades (para el select)
 CREATE PROCEDURE verEspecialidades
 AS
 BEGIN
@@ -45,7 +51,7 @@ BEGIN
 END;
 
 
--- Ver turnos disponibles
+-- Ver turnos disponibles (para el calendario)
 CREATE PROCEDURE verTurnos
 	@especialidadID INT
 AS
@@ -56,7 +62,8 @@ BEGIN
 	where t.pacienteID is null and m.especialidadID = @especialidadID and t.fecha > GETDATE()
 END;
 
-CREATE PROCEDURE verTurnosReservados
+-- Ver turnos reservados por el paciente
+CREATE PROCEDURE verTurnosReservados 
 	@pacienteID INT
 AS
 BEGIN
@@ -67,6 +74,7 @@ BEGIN
 END;
 
 
+--  Reservar turnos para el paciente
 CREATE PROCEDURE reservarTurno
 	@turnoID INT,
 	@pacienteID INT
@@ -76,7 +84,7 @@ BEGIN
 	where Turno.id = @turnoID and Turno.pacienteID is null
 END;
 
-
+--  cancelar turnos para el paciente
 CREATE PROCEDURE cancelarTurno
 	@turnoID INT
 AS
@@ -100,12 +108,13 @@ drop table Turno
 EXEC verTurnos @especialidadID = 1
 EXEC verEspecialidades
 exec reservarTurno @turnoID = 1, @pacienteID = 1
+select * from Medico where email = 
 
 
 -- Selects
 select * from Medico
-select * from Paciente
 select * from Especialidad
+select * from Paciente
 select * from Turno
 
 
@@ -129,15 +138,15 @@ INSERT INTO Especialidad (nombre) VALUES
 ('Ginecología'),
 ('Psiquiatría');
 
-INSERT INTO Medico (nombre, apellido, telefono, dni, especialidadID) VALUES
-('Juan', 'Pérez', '123456789', '12345678', 1),  -- Pediatría
-('Ana', 'Gómez', '987654321', '87654321', 2),   -- Cardiología
-('Luis', 'Martínez', '456789123', '11223344', 3), -- Dermatología
-('María', 'López', '321654987', '22334455', 4),  -- Ginecología
-('Carlos', 'Fernández', '654321789', '33445566', 5); -- Psiquiatría
+INSERT INTO Medico (nombre, apellido, telefono, dni, especialidadID, mail, pass) VALUES
+('Juan', 'Pérez', '123456789', '12345678', 1,'Juanp4@gmail.com.ar', 'pass'),  -- Pediatría
+('Ana', 'Gómez', '987654321', '87654321', 2,'Ana34@gmail.com.ar', 'pass'),   -- Cardiología
+('Luis', 'Martínez', '456789123', '11223344', 3,'124Luis@gmail.com.ar', 'pass'), -- Dermatología
+('María', 'López', '321654987', '22334455', 4,'María1324@gmail.com.ar', 'pass'),  -- Ginecología
+('Carlos', 'Fernández', '654321789', '33445566', 5,'Carlos325@gmail.com.ar', 'pass'); -- Psiquiatría
 
 
-INSERT INTO Paciente (nombre, apellido, telefono, dni,mail) VALUES
+INSERT INTO Paciente (nombre, apellido, telefono, dni, mail) VALUES
 ('Pedro', 'Sánchez', '555123456', '11122233','pedro@gmail.com.ar'),
 ('Lucía', 'Rodríguez', '555987654', '22233344','lucia@gmail.com.ar'),
 ('Javier', 'Moreno', '555654321', '33344455','javier@gmail.com.ar'),
