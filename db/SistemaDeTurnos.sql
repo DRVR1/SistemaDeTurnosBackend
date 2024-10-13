@@ -18,15 +18,17 @@ CREATE TABLE Medico (
 );
 
 -- Crear la tabla Medico
+drop TABLE Paciente
 CREATE TABLE Paciente (
     id INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
     telefono VARCHAR(15),
     dni VARCHAR(20) UNIQUE NOT NULL,
+	mail varchar(25) not null,
 );
 
-
+drop TABLE turno
 CREATE TABLE Turno (
     id INT PRIMARY KEY IDENTITY(1,1),
     fecha DATETIME NOT NULL,
@@ -114,12 +116,12 @@ INSERT INTO Medico (nombre, apellido, telefono, dni, especialidadID) VALUES
 ('Carlos', 'Fernández', '654321789', '33445566', 5); -- Psiquiatría
 
 
-INSERT INTO Paciente (nombre, apellido, telefono, dni) VALUES
-('Pedro', 'Sánchez', '555123456', '11122233'),
-('Lucía', 'Rodríguez', '555987654', '22233344'),
-('Javier', 'Moreno', '555654321', '33344455'),
-('Sofía', 'García', '555345678', '44455566'),
-('Diego', 'Hernández', '555456789', '55566677');
+INSERT INTO Paciente (nombre, apellido, telefono, dni,mail) VALUES
+('Pedro', 'Sánchez', '555123456', '11122233','pedro@gmail.com.ar'),
+('Lucía', 'Rodríguez', '555987654', '22233344','lucia@gmail.com.ar'),
+('Javier', 'Moreno', '555654321', '33344455','javier@gmail.com.ar'),
+('Sofía', 'García', '555345678', '44455566','sofia@gmail.com.ar'),
+('Diego', 'Hernández', '555456789', '55566677','diego@gmail.com.ar');
 
 -- Insertar turnos en diferentes días y horarios en octubre de 2024 sin pacienteID
 INSERT INTO Turno (fecha, pacienteID, medicoID) VALUES 
