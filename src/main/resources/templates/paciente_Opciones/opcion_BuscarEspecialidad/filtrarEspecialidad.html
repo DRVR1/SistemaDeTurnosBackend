@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Turno Médico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Consultorio Médico - Reserva tu Turno</h1>
+    </header>
+    <main>
+        <section class="formulario-turno">
+            <h2>Selecciona tu Especialidad</h2>
+            <form id="form-turno">
+                <label for="especialidad">Especialidad Médica:</label>
+                <select id="especialidad" name="especialidad">
+                    
+                </select>
+
+
+            </form>
+            <button onclick="redirect()">Buscar Turno</button>
+            <div id="resultado"></div>
+        </section>
+    </main>
+    <script src="../../resources/api.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

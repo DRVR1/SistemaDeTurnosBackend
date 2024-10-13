@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selector de Día y Hora</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="controls">
+    <!-- Selector de Mes -->
+    <label for="monthSelect">Mes:</label>
+    <select id="monthSelect" onchange="updateDays()">
+      <option value="0">Enero</option>
+      <option value="1">Febrero</option>
+      <option value="2">Marzo</option>
+      <option value="3">Abril</option>
+      <option value="4">Mayo</option>
+      <option value="5">Junio</option>
+      <option value="6">Julio</option>
+      <option value="7">Agosto</option>
+      <option value="8">Septiembre</option>
+      <option value="9">Octubre</option>
+      <option value="10">Noviembre</option>
+      <option value="11">Diciembre</option>
+    </select>
+
+    <!-- Selector de Año -->
+    <label for="yearSelect">Año:</label>
+    <select id="yearSelect" onchange="updateDays()">
+      <!-- Llenamos los años con JavaScript -->
+    </select>
+  </div>
+
+  <!-- Tabla de días -->
+  <div class="calendar">
+    <table id="daysTable"></table>
+  </div>
+
+  <div class="selected">
+    <span id="selectedValue">Seleccione un día</span>
+  </div>
+
+  <!-- Nueva sección para seleccionar la hora -->
+  <div class="calendar">
+    <h3>Selecciona una hora</h3>
+    <table id="hoursTable"></table>
+  </div>
+
+  <div class="selected">
+    <span id="selectedHour">Seleccione una hora</span>
+  </div>
+
+  <!-- Botón para enviar los datos -->
+  <button onclick="sendDate()">Enviar fecha y hora</button>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

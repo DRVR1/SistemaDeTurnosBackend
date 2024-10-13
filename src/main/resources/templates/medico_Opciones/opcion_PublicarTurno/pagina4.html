@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pagina4.css">
+    <title>tarjeta mila</title>
+    <style>
+        /* Inicialmente ocultamos el formulario */
+        #formularioHorario {
+            display: none;
+        }
+    </style>
+</head>
+
+<header>
+    <img src="../../resources/imagen hospital.png" alt="Logotipo del Hospital" class="logo">
+    <h1 class="titulo-hospital">Hospital General</h1> <!-- Cambia "Hospital General" por el nombre de tu hospital -->
+</header>
+
+<body>
+    <h2>Carga de turno disponible</h2>
+    <h3>Seleccionar Fecha</h3>
+    
+    <!-- Input para seleccionar la fecha -->
+    <input type="date" id="fecha">
+    
+    <!-- Formulario oculto para seleccionar el horario -->
+    <div id="formularioHorario">
+        <h3 >Seleccionar Horario</h3>
+        <form action="#">
+            <select id="hora" name="hora">
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+            </select>
+
+            <select id="minutos" name="minutos">
+                <option value="00">00</option>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+            </select>
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        // Obtener el campo de la fecha y el formulario
+        const inputFecha = document.getElementById('fecha');
+        const formularioHorario = document.getElementById('formularioHorario');
+
+        // Escuchar el evento 'change' en el campo de la fecha
+        inputFecha.addEventListener('change', function() {
+            // Verificar si se ha seleccionado una fecha válida
+            if (inputFecha.value) {
+                // Mostrar el formulario
+                formularioHorario.style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>

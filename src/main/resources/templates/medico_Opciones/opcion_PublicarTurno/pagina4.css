@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Fondo celeste claro */
+    margin: 0;
+
+    text-align: center; /* Centrar texto en el body */
+}
+
+header {
+    background-color: #005f99;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 15px;
+
+}
+
+.titulo-hospital {
+    margin: 0;
+    font-size: 60px;
+    color:#ffffff;
+    
+}
+
+h2{
+    color:#007acc;
+    font-size: 40px;
+}
+
+h3 {
+    color: #007acc; /* Tono celeste oscuro */
+    font-size: 32px;
+}
+
+form, input {
+    background-color: #ffffff;
+    width: 30%;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto; /* Centrar el formulario */
+    border: 3px solid #007acc;
+    font-size: 24px;
+}
+
+select {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #007acc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background-color: #ffffff; 
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #005f99; /* Color al pasar el mouse */
+}
