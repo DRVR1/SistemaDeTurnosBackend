@@ -24,11 +24,10 @@ CREATE TABLE Paciente (
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
     telefono VARCHAR(15),
-    dni VARCHAR(20) UNIQUE NOT NULL,
-	mail varchar(25) not null,
+    dni VARCHAR(25) UNIQUE NOT NULL,
+	mail varchar(100) not null,
 );
 
-drop TABLE turno
 CREATE TABLE Turno (
     id INT PRIMARY KEY IDENTITY(1,1),
     fecha DATETIME NOT NULL,
@@ -72,6 +71,11 @@ END;
 
 -- Herramientas:
 
+-- Eliminar tablas (ejecutar varias veces)
+DROP table Turno
+DROP table Paciente
+DROP table Especialidad
+DROP table Medico
 
 --	Misc
 drop procedure reservarTurno
