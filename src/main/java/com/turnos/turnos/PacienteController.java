@@ -12,8 +12,9 @@ public class PacienteController {
             @RequestParam String nombre,
             @RequestParam String apellido,
             @RequestParam int telefono,
-            @RequestParam int dni
+            @RequestParam int dni,
+            @RequestParam String mail
     ) throws SQLException {
-        pacienteService.altaPaciente(dni,telefono,nombre,apellido);
+        pacienteService.altaPaciente(dni,telefono,nombre,apellido,mail);
     }
 }
