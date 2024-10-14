@@ -9,8 +9,8 @@ public class SQLServer {
 
     private static SQLServer sqlServer;
 
-    private static final String USER = "userServer";
-    private static final String PASS = "mrp2YPyqNhcSdAUxmrp2YPyqNhcSdAUx";
+    private static final String USER = "no";
+    private static final String PASS = "1234";
     private static final String DB_PORT = "1433";
     private static final String DB_IP = "127.0.0.1";
     private static final String DB_NAME = "turnos";

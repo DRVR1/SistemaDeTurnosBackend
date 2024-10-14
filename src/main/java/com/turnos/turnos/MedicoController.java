@@ -13,7 +13,8 @@ public class MedicoController {
             @RequestParam String apellido,
             @RequestParam int telefono,
             @RequestParam int dni,
-            @RequestParam int especialidadID
+            @RequestParam int especialidadID,
+            @RequestParam String mail
     ) throws SQLException {
         medicoService.altaMedico(dni,telefono,nombre,apellido,especialidadID);
     }
