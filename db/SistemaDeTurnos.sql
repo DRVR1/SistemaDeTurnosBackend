@@ -6,7 +6,22 @@ CREATE TABLE Especialidad (
     nombre VARCHAR(100) NOT NULL
 );
 
--- Crear la tabla Medico
+
+CREATE TABLE Persona (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    telefono VARCHAR(15),
+    dni VARCHAR(25) UNIQUE NOT NULL,
+    mail VARCHAR(100) UNIQUE NOT NULL,
+    pass VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Paciente (
+    id INT PRIMARY KEY,
+    FOREIGN KEY (id) REFERENCES Persona(id)
+);
+
 CREATE TABLE Medico (
     id INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(100) NOT NULL,
@@ -15,18 +30,6 @@ CREATE TABLE Medico (
     dni VARCHAR(20) UNIQUE NOT NULL,
     especialidadID INT,
     FOREIGN KEY (especialidadID) REFERENCES Especialidad(id),
-	mail varchar(100) UNIQUE NOT NULL,
-	pass VARCHAR(255) NOT NULL
-);
-
--- Crear la tabla Medico
-
-CREATE TABLE Paciente (
-    id INT PRIMARY KEY IDENTITY(1,1),
-    nombre VARCHAR(100) NOT NULL,
-    apellido VARCHAR(100) NOT NULL,
-    telefono VARCHAR(15),
-    dni VARCHAR(25) UNIQUE NOT NULL,
 	mail varchar(100) UNIQUE NOT NULL,
 	pass VARCHAR(255) NOT NULL
 );
@@ -101,6 +104,7 @@ DROP table Turno
 DROP table Paciente
 DROP table Especialidad
 DROP table Medico
+DROP table Persona
 
 --	Misc
 drop procedure reservarTurno
@@ -115,6 +119,7 @@ select * from Medico where email =
 select * from Medico
 select * from Especialidad
 select * from Paciente
+select * from Persona
 select * from Turno
 
 
@@ -123,11 +128,14 @@ delete from Medico
 delete from Especialidad
 delete from Turno
 delete from Paciente
+delete from Persona
 
 DBCC CHECKIDENT ('Paciente', RESEED, 0);
 DBCC CHECKIDENT ('Medico', RESEED, 0);
 DBCC CHECKIDENT ('Turno', RESEED, 0);
 DBCC CHECKIDENT ('Especialidad', RESEED, 0);
+DBCC CHECKIDENT ('Persona', RESEED, 0);
+
 
 -- crear datos
 

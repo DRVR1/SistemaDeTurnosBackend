@@ -24,15 +24,18 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'  // Para JPA y Hibernate
+	implementation 'org.hibernate.orm:hibernate-core:6.2.7.Final'  // Hibernate Core
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // Añadido para Thymeleaf
+	implementation 'com.auth0:java-jwt:4.4.0'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation 'com.microsoft.sqlserver:mssql-jdbc:10.2.0.jre11'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'com.microsoft.sqlserver:mssql-jdbc:10.2.0.jre11'  // Conector para SQL Server
+	implementation 'org.springframework.boot:spring-boot-starter-security'  // Para seguridad con Spring
 }
 
 tasks.named('test') {

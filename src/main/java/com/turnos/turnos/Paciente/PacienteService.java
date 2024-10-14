@@ -1,12 +1,22 @@
 package com.turnos.turnos.Paciente;
 
-import java.sql.SQLException;
+import com.turnos.turnos.Paciente.Paciente;
+import com.turnos.turnos.Paciente.PacienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PacienteService {
-    public void altaPaciente(int dni,int telefono, String nombre, String apellido, String mail, String pass) throws SQLException {
-        Paciente p = new Paciente(dni, telefono, nombre, apellido, mail, pass);
 
-        PacienteRepository repo = new PacienteRepository();
-        repo.guardarPaciente(p.dni, p.telefono, p.nombre, p.apellido, p.mail, p.pass);
+    @Autowired
+    private PacienteRepository pacienteRepository;
+
+    public Paciente registrarPaciente(String dni, String telefono, String nombre, String apellido, String mail, String pass) {
+        Paciente paciente = new Paciente(dni, telefono, nombre, apellido, mail, pass);
+        return pacienteRepository.save(paciente);
+    }
+
+    public Paciente obtenerPacientePorDni(String dni) {
+        return pacienteRepository.findByDni(dni); // Método a implementar en el repositorio
     }
 }
