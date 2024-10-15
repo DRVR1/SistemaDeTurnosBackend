@@ -11,7 +11,13 @@ public class Paciente extends Persona {
         super();
     }
 
-    public Paciente(String dni, String telefono, String nombre, String apellido, String mail, String pass) {
+    public Paciente(String dni,
+                    String telefono,
+                    String nombre,
+                    String apellido,
+                    String mail,
+                    String pass) {
+
         super(dni, telefono, nombre, apellido, mail, pass);
     }
 
