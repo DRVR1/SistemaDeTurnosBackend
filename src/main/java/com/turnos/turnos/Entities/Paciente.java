@@ -1,11 +1,10 @@
-package com.turnos.turnos.Paciente;
+package com.turnos.turnos.Entities;
 
-import com.turnos.turnos.Persona;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Paciente")  // Nombre de la tabla específica de Paciente
+@Table(name = "Pacientes")  // Nombre de la tabla específica de Paciente
 public class Paciente extends Persona {
 
     public Paciente() {
