@@ -1,9 +1,13 @@
 package com.turnos.turnos.Entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "Medicos")  // Nombre de la tabla específica de Paciente
+@Setter
+@Getter
 public class Medico extends Persona {
 
     @ManyToOne
@@ -14,8 +18,8 @@ public class Medico extends Persona {
         super();
     }
 
-    public Medico(String dni, String telefono, String nombre, String apellido, String mail, String pass, Especialidad especialidad) {
-        super(dni, telefono, nombre, apellido, mail, pass);
+    public Medico(String dni, String telefono, String nombre, String apellido, String email, String password, Especialidad especialidad) {
+        super(dni, telefono, nombre, apellido, email, password);
         this.especialidad = especialidad;
     }
 

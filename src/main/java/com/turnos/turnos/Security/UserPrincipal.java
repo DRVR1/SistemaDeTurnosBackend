@@ -1,5 +1,8 @@
 package com.turnos.turnos.Security;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,11 +12,14 @@ public class UserPrincipal implements UserDetails {
 
     private final Long userId;
     private final String email;
+    private final String password;
+
     private final Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrincipal(Long userId, String email, Collection<? extends GrantedAuthority> authorities) {
+    public UserPrincipal(Long userId, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.userId = userId;
         this.email = email;
+        this.password = password;
         this.authorities = authorities;
     }
 
@@ -24,7 +30,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        return ""; // Devuelve la contraseña si es necesario
+        return password; // Devuelve la contraseña si es necesario
     }
 
     @Override

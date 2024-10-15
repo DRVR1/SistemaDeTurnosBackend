@@ -2,8 +2,12 @@ package com.turnos.turnos.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Setter
+@Getter
 @Table(name = "Pacientes")  // Nombre de la tabla específica de Paciente
 public class Paciente extends Persona {
 
@@ -15,10 +19,10 @@ public class Paciente extends Persona {
                     String telefono,
                     String nombre,
                     String apellido,
-                    String mail,
+                    String email,
                     String pass) {
 
-        super(dni, telefono, nombre, apellido, mail, pass);
+        super(dni, telefono, nombre, apellido, email, pass);
     }
 
     // Métodos adicionales o específicos de Paciente

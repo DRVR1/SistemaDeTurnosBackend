@@ -1,7 +1,11 @@
 package com.turnos.turnos.Entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @MappedSuperclass // O también puedes usar @Entity si Persona también será una entidad concreta
 @Inheritance(strategy = InheritanceType.JOINED)  // Estrategia de herencia
 public abstract class Persona {
@@ -22,10 +26,10 @@ public abstract class Persona {
     protected String telefono;
 
     @Column(nullable = false, unique = true)
-    protected String mail;
+    protected String email;
 
     @Column(nullable = false)
-    protected String pass;
+    protected String password;
 
     public Persona() {}
 
@@ -34,64 +38,8 @@ public abstract class Persona {
         this.telefono = telefono;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.mail = mail;
-        this.pass = pass;
+        this.email = email;
+        this.password = password;
     }
 
-    // Getters y Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
 }

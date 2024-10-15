@@ -16,7 +16,7 @@ public class PacienteController {
     @PostMapping("/altaPaciente")
     public ResponseEntity<Paciente> altaPaciente(@RequestBody Paciente paciente) {
         Paciente nuevoPaciente = pacienteService.altaPaciente(paciente.getDni(), paciente.getTelefono(),
-                paciente.getNombre(), paciente.getApellido(), paciente.getMail(), paciente.getPass());
+                paciente.getNombre(), paciente.getApellido(), paciente.getEmail(), paciente.getPassword());
         return ResponseEntity.ok(nuevoPaciente);
     }
 
