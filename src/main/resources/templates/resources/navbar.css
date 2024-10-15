@@ -1,0 +1,9 @@
+.navbar{
+    background-color: #ebebeb;
+    height:100px;
+    margin:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
