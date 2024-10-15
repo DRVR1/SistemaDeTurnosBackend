@@ -100,7 +100,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n    \"nombre\":\"peluca\"\r\n    },\r\n    {\r\n    \"nombre\":\"sape\"\r\n    }\r\n\r\n]",
+					"raw": "{\r\n    \"nombre\":\"peluca\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"

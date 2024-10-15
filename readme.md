@@ -37,12 +37,10 @@ en sql server configuration manager
 -  en propiedades de TCP/IP configurar puerto (asignar puerto 1433 a IPAII)
 -  reiniciar el servicio o la PC
 
-Ejemplo conexion desde java:
+### Importante: Todos los datos configurados deben coincidir con el archivo src/main/resources/application.properties
 
-    private static final String DB_URL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=prueba;encrypt=false";
-    private static final String USER = "dbUser";
-    private static final String PASS = "dbPassword";
-    connection = DriverManager.getConnection(DB_URL, USER, PASS); 
+## Opcional
+En la carpeta postman hay un json que se puede importar a la aplicacion postman para probar los endpoints.
 
 ## Setup java con springboot
 
