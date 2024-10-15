@@ -23,7 +23,7 @@ El script SQL para crear la base de datos se encuentra en `db/schema.sql`. Para 
 ## Configurar el login externo (desde java por ejemplo)
 
 Crear usuario (SSMS):
-- crear un usuario y contraseña en security/Logins
+- crear un usuario y contraseña en security/Logins (deben coincidir con los de application.properties)
 - seleccionar la opcion SQL server autentication e ingresar las credenciales
 - luego de ser creado, darle el rol de public y sysadmin (en server roles)
 
@@ -36,13 +36,6 @@ en sql server configuration manager
 -  sql server network configuration / protocols for sqlexpress / TCP/IP activado
 -  en propiedades de TCP/IP configurar puerto (asignar puerto 1433 a IPAII)
 -  reiniciar el servicio o la PC
-
-Ejemplo conexion desde java:
-
-    private static final String DB_URL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=prueba;encrypt=false";
-    private static final String USER = "dbUser";
-    private static final String PASS = "dbPassword";
-    connection = DriverManager.getConnection(DB_URL, USER, PASS); 
 
 ## Setup java con springboot
 
