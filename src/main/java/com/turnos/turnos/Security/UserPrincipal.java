@@ -3,11 +3,14 @@ package com.turnos.turnos.Security;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+@Getter
+@Setter
 public class UserPrincipal implements UserDetails {
 
     private final Long userId;

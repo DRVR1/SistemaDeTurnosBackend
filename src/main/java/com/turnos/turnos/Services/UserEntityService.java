@@ -14,7 +14,7 @@ public class UserEntityService {
         if (!Objects.equals(email, "email@email.com")){
             return Optional.empty();
         }
-        UserEntity userEntity = new UserEntity(1L,"email@email.com","encodedpass","admin","no se otra ingo");
+        UserEntity userEntity = new UserEntity(1L,"email@email.com","$2a$12$iI/i/WmbWmIZB/6MxK5/XOvyouAsDuEeYdKcjgyYZBLodUUtm65.q","admin","no se otra ingo");
         return Optional.of(userEntity);
     }
 }
