@@ -39,8 +39,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(registry -> registry
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/auth/login").permitAll()
-                        //.anyRequest().permitAll() //para desarrollo
-                        .anyRequest().authenticated() // para produccion
+                        .anyRequest().permitAll() //para desarrollo
+                        //.anyRequest().authenticated() // para produccion
                 )
 
                 .rememberMe(Customizer.withDefaults());

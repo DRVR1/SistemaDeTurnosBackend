@@ -1,6 +1,11 @@
 package com.turnos.turnos.Services;
+import aj.org.objectweb.asm.Opcodes;
 import com.turnos.turnos.Entities.Medico;
+import com.turnos.turnos.Entities.Paciente;
+import com.turnos.turnos.Entities.Persona;
 import com.turnos.turnos.Entities.UserEntity;
+import com.turnos.turnos.Repositories.MedicoRepository;
+import com.turnos.turnos.Repositories.PacienteRepository;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
@@ -10,12 +15,23 @@ import java.util.Optional;
 @Service
 public class UserEntityService {
 
-    public Optional<UserEntity> findByEmail(String email){
-        //simula consultar el mail a la base de datos
-        if (!Objects.equals(email, "email@email.com")){
-            return Optional.empty();
+    private final PacienteRepository pacienteRepository;
+    private final MedicoRepository medicoRepository;
+
+    public UserEntityService(PacienteRepository pacienteRepository, MedicoRepository medicoRepository) {
+        this.pacienteRepository = pacienteRepository;
+        this.medicoRepository = medicoRepository;
+    }
+
+    public Optional<Persona> findByEmail(String email) {
+        Medico medico = medicoRepository.findByEmail(email);
+        if (medico != null){
+            return Optional.of(medico);
         }
-        UserEntity userEntity = new UserEntity(1L,"email@email.com","$2a$12$iI/i/WmbWmIZB/6MxK5/XOvyouAsDuEeYdKcjgyYZBLodUUtm65.q","admin","no se otra ingo");
-        return Optional.of(userEntity);
+        Paciente paciente = pacienteRepository.findByEmail(email);
+        if (paciente != null){
+            return Optional.of(paciente);
+        }
+        return Optional.empty();
     }
 }

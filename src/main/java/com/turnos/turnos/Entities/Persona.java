@@ -36,7 +36,7 @@ public abstract class Persona {
 
     public Persona() {}
 
-    public Persona(String dni, String telefono, String nombre, String apellido, String mail, String pass, String role) {
+    public Persona(String dni, String telefono, String nombre, String apellido, String email, String password, String role) {
         this.dni = dni;
         this.telefono = telefono;
         this.nombre = nombre;

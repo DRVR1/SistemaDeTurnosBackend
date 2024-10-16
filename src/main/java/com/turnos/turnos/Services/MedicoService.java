@@ -6,6 +6,7 @@ import com.turnos.turnos.Entities.Paciente;
 import com.turnos.turnos.Repositories.MedicoRepository;
 import com.turnos.turnos.Repositories.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service

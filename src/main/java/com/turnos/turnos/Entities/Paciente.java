@@ -20,9 +20,9 @@ public class Paciente extends Persona {
                     String nombre,
                     String apellido,
                     String email,
-                    String pass) {
+                    String password) {
 
-        super(dni, telefono, nombre, apellido, email, pass,"PACIENTE");
+        super(dni, telefono, nombre, apellido, email, password,"PACIENTE");
     }
 
     // Métodos adicionales o específicos de Paciente
