@@ -26,7 +26,11 @@ public class MedicoService {
         return medicoRepository.save(medico);
     }
 
-    public Medico obtenerMedicoPorDni(String dni) {
+    public Medico findByDni(String dni) {
         return medicoRepository.findByDni(dni); // Método a implementar en el repositorio
+    }
+
+    public Medico findByEmail(String email){
+        return medicoRepository.findByEmail(email);
     }
 }

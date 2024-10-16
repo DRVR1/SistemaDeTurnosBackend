@@ -1,4 +1,5 @@
 package com.turnos.turnos.Services;
+import com.turnos.turnos.Entities.Medico;
 import com.turnos.turnos.Entities.UserEntity;
 import org.springframework.stereotype.Service;
 

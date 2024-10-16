@@ -31,15 +31,19 @@ public abstract class Persona {
     @Column(nullable = false)
     protected String password;
 
+    @Column(nullable = false)
+    protected String role;
+
     public Persona() {}
 
-    public Persona(String dni, String telefono, String nombre, String apellido, String mail, String pass) {
+    public Persona(String dni, String telefono, String nombre, String apellido, String mail, String pass, String role) {
         this.dni = dni;
         this.telefono = telefono;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
 }
