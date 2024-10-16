@@ -39,8 +39,13 @@ public class SecurityConfig {
                 .authorizeHttpRequests(registry -> registry
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/auth/login").permitAll()
-                        .anyRequest().permitAll() //para desarrollo
-                        //.anyRequest().authenticated() // para produccion
+                        .requestMatchers("/api/altaEspecialidad").hasRole("ADMIN")
+                        .requestMatchers("/api/altaAdmin").permitAll() //luego de crear un admin, descomentar
+
+                        // Agregar roles a cada punto correspondiente de la api
+
+                        .anyRequest().permitAll() // eliminar esto luego de agregar los roles a cada punto
+
                 )
 
                 .rememberMe(Customizer.withDefaults());

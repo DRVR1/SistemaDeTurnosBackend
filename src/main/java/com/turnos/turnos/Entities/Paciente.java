@@ -22,7 +22,7 @@ public class Paciente extends Persona {
                     String email,
                     String password) {
 
-        super(dni, telefono, nombre, apellido, email, password,"PACIENTE");
+        super(dni, telefono, nombre, apellido, email, password,"ROLE_PACIENTE");
     }
 
     // Métodos adicionales o específicos de Paciente

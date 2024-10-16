@@ -38,13 +38,41 @@
 			"response": []
 		},
 		{
-			"name": "Login",
+			"name": "Login paciente",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"email\":\"paciente@gmail.com\",\r\n    \"password\":\"hola\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"anonimo\",\r\n    \"password\":\"contraseñaMuySegura\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -96,6 +124,16 @@
 		{
 			"name": "alta especialidad",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZXhwIjoxNzI5OTY2MDAzLCJlIjoiYW5vbmltbyIsImEiOlsiUk9MRV9BRE1JTiJdfQ.40I42XypErS_cMTOPBe0nLRbpR2PItUK3gDKqERiTik",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -116,6 +154,34 @@
 					"path": [
 						"api",
 						"altaEspecialidad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"dni\": \"1\",\r\n  \"telefono\": \"1\",\r\n  \"nombre\": \"administrador\",\r\n  \"apellido\": \"anonimo\",\r\n  \"email\": \"anonimo\",\r\n  \"password\": \"contraseñaMuySegura\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/altaAdmin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"altaAdmin"
 					]
 				}
 			},
