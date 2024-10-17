@@ -39,12 +39,6 @@ public class SecurityConfig {
                 .authorizeHttpRequests(registry -> registry
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/auth/login").permitAll()
-                        .requestMatchers("/api/altaEspecialidad").hasRole("ADMIN")
-                        .requestMatchers("api/verEspecialidades").hasRole("PACIENTE")
-                        .requestMatchers("/api/altaAdmin").permitAll() //luego de crear un admin, descomentar
-
-                        // Agregar roles a cada punto correspondiente de la api
-
                         .anyRequest().permitAll() // eliminar esto luego de agregar los roles a cada punto
 
                 )

@@ -15,7 +15,7 @@ async function api_queryTurnos(especialidadID) {
   var listaTurnos = [];
   try {
       // Hacer la solicitud al servidor
-      url = 'http://localhost:8080/verTurnos?especialidadID=' + especialidadID
+      url = 'http://localhost:8080/api/verTurnos?id=' + especialidadID
       const response = await fetch(url,{
         'Authorization': `Bearer ${cargarToken()}`
       });
@@ -40,7 +40,6 @@ async function api_queryEspecialidades() {
         const response = await fetch(url, {
             method: 'GET', // Método GET
             headers: {
-                'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4IiwiZXhwIjoxNzI5OTg4ODMzLCJlIjoicGFjaWVudGVAZ21haWwuY29tIiwiYSI6WyJST0xFX1BBQ0lFTlRFIl19.8zd9UpRoZZPG0kfR1XP1F_tyclQ3q3rgH2-RLDGyViM`,
                 'Content-Type': 'application/json' // Este header es opcional pero recomendable
             }
         });
@@ -64,9 +63,10 @@ function api_reservarTurno(id) {
     data.append('turnoID', id);
     data.append('pacienteID', 2); // Asegúrate de que este ID exista en la base de datos
 
-    fetch('http://localhost:8080/reservarTurno', {
+    fetch('http://localhost:8080/api/reservarTurno', {
         method: 'POST',
         headers: {
+            'Authorization': `Bearer ${cargarToken()}`,
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: data.toString()

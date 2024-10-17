@@ -24,13 +24,18 @@ public class TurnoController {
 
     @PostMapping("/altaTurno")
     public ResponseEntity<Turno> altaTurno(@RequestBody Turno turno) {
-
         Turno nuevoTurno = turnoService.altaTurno(
                 turno.getFecha(),
                 turno.getPaciente(),
                 turno.getMedico());
         return ResponseEntity.ok(nuevoTurno);
     }
+
+    @PostMapping("/reservarTurno")
+    public ResponseEntity<Turno> reservarTurno(@RequestBody Turno turno) {
+        return (ResponseEntity<Turno>) turnoService.reservarTurno(turno);
+    }
+
 
     @GetMapping("/verTurnos")
     public ResponseEntity<List<Turno>> verTurnos(@RequestParam long id){

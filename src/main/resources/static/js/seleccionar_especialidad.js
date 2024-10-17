@@ -42,8 +42,6 @@ function populateSelect(){
 
 cargarEspecialidades();
 
-function redirect(){
+function guardarId(){
     sessionStorage.setItem('especialidadID',select.value);
-    
-    window.location.href = "../opcion_VerTurnosDisponibles/pagina5.html"
 }

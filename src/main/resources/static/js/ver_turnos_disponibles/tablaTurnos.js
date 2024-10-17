@@ -6,26 +6,40 @@ function llenarTurnosDisponibles(turnos){
         // Crear una fila de la tabla
         const row = document.createElement("tr");
 
-        // Declarar variables de fecha
+        const turnoID = turno.id;
         const fechaIso = turno.fecha;
         const fechaDate = new Date(fechaIso);
 
-        //turno id
-        const turnoID = turno.turnoID;
+        const pacienteID = turno.paciente.id;
+        const pacienteDNI = turno.paciente.dni;
+        const pacienteNombre = turno.paciente.nombre;
+        const pacienteApellido = turno.paciente.apellido;
+        const pacienteTelefono = turno.paciente.telefono;
+        const pacienteEmail = turno.paciente.email;
+
+        const medicoID = turno.medico.id;
+        const medicoDNI = turno.medico.dni;
+        const medicoNombre = turno.medico.nombre;
+        const medicoApellido = turno.medico.apellido;
+        const medicoTelefono = turno.medico.telefono;
+        const medicoEmail = turno.medico.email;
+        const especialidadID = turno.medico.especialidad.id;
+        const especialidadNombre = turno.medico.especialidad.nombre;
+
 
         // Nombre
         const nombreMedicoCell = document.createElement("td");
-        nombreMedicoCell.textContent = turno.nombreMedico;
+        nombreMedicoCell.textContent = medicoNombre;
         row.appendChild(nombreMedicoCell);
 
         // Apellido
         const apellidoMedicoCell = document.createElement("td");
-        apellidoMedicoCell.textContent = turno.apellidoMedico;
+        apellidoMedicoCell.textContent = medicoApellido;
         row.appendChild(apellidoMedicoCell);
 
         // Especialidad
         const especialidadCell = document.createElement("td");
-        especialidadCell.textContent = turno.especialidadMedico;
+        especialidadCell.textContent = especialidadNombre;
         row.appendChild(especialidadCell);
 
         // fecha
