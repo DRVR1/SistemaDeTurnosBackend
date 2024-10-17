@@ -16,6 +16,7 @@ async function api_queryTurnos(especialidadID) {
   try {
       // Hacer la solicitud al servidor
       url = 'http://localhost:8080/api/verTurnos?id=' + especialidadID
+
       const response = await fetch(url,{
         'Authorization': `Bearer ${cargarToken()}`
       });
