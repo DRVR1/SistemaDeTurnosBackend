@@ -194,7 +194,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"fecha\": \"2024-10-16T10:00:00\",\r\n  \"paciente\": {\r\n    \"id\":1\r\n  },\r\n  \"medico\": {\r\n    \"id\":1\r\n  }\r\n}\r\n",
+					"raw": "{\r\n  \"fecha\": \"2024-10-30T10:00:00\",\r\n  \"medico\": {\r\n    \"id\":1\r\n  }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -221,6 +221,16 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4IiwiZXhwIjoxNzI5OTg4ODMzLCJlIjoicGFjaWVudGVAZ21haWwuY29tIiwiYSI6WyJST0xFX1BBQ0lFTlRFIl19.8zd9UpRoZZPG0kfR1XP1F_tyclQ3q3rgH2-RLDGyViM",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -278,6 +288,34 @@
 							"key": "id",
 							"value": "1"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reservar turno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"paciente\": {\r\n        \"id\":4\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/reservarTurno",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"reservarTurno"
 					]
 				}
 			},
