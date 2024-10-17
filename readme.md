@@ -37,7 +37,10 @@ en sql server configuration manager
 -  en propiedades de TCP/IP configurar puerto (asignar puerto 1433 a IPAII)
 -  reiniciar el servicio o la PC
 
-### Importante: Todos los datos configurados deben coincidir con el archivo src/main/resources/application.properties
+### Importante: 
+
+- Todos los datos configurados deben coincidir con el archivo src/main/resources/application.properties
+- Cualquier cambio se va a reflejar al reiniciar el servicio
 
 ## Opcional
 En la carpeta postman hay un json que se puede importar a la aplicacion postman para probar los endpoints.
