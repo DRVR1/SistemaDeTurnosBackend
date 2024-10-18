@@ -29,7 +29,6 @@ public abstract class Persona {
     @Column(nullable = false, unique = true)
     protected String email;
 
-    @JsonIgnore
     @Column(nullable = false)
     protected String password;
 

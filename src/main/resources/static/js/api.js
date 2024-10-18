@@ -95,4 +95,26 @@ function api_reservarTurno(id) {
     });
 }
 
+//hardcoded
+function api_cancelarTurno(id) {
+    const turno = {
+        id: id
+    };
+    fetch("http://localhost:8080/api/cancelarTurno", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(turno)
+    })
+    .then(response => response.json()) //Convertir respuesta a json
+    .then(data => {                    //El json.message imprimirlo en el popup
+        popup(data.message);
+        console.log("Respuesta del servidor:", text);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+}
+
 

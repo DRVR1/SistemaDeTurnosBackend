@@ -1,5 +1,6 @@
 package com.turnos.turnos.Controllers;
 
+import com.turnos.turnos.DTOs.ResponseMessage;
 import com.turnos.turnos.Entities.Especialidad;
 import com.turnos.turnos.Entities.Medico;
 import com.turnos.turnos.Entities.Paciente;
@@ -35,6 +36,12 @@ public class TurnoController {
     public ResponseEntity<Turno> reservarTurno(@RequestBody Turno turno) {
         return (ResponseEntity<Turno>) turnoService.reservarTurno(turno);
     }
+
+    @PostMapping("/cancelarTurno")
+    public ResponseEntity<ResponseMessage> cancelarTurno(@RequestBody Turno turno) {
+        return turnoService.cancelarTurno(turno);
+    }
+
 
 
     @GetMapping("/verTurnos")

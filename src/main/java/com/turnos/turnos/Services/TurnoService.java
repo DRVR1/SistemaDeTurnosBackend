@@ -37,6 +37,23 @@ public class TurnoService {
         return turnoRepository.findByPacienteId(id);
     }
 
+    public ResponseEntity<ResponseMessage> cancelarTurno(Turno turnoDado){
+        long id = turnoDado.getId();
+        Optional<Turno> turnoOptional = turnoRepository.findById(id);
+        if (turnoOptional.isPresent()){
+            Turno turno = turnoOptional.get();
+            if (turno.getPaciente() == null){
+                return ResponseEntity.ok(new ResponseMessage("El turno ya fue cancelado"));
+            }
+            turno.setPaciente(null);
+            turnoRepository.save(turno);
+            return ResponseEntity.ok(new ResponseMessage("Turno cancelado con exito"));
+        }else{
+            return ResponseEntity.status(404).body(new ResponseMessage("Turno no encontrado"));
+        }
+
+    }
+
     public ResponseEntity<?> reservarTurno(Turno turnoRecibido) {
         Long pacienteId = turnoRecibido.getPaciente().getId();
         Long turnoId = turnoRecibido.getId();

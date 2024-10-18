@@ -27,9 +27,12 @@ async function buscarTurnos() {
     turnosList.forEach(turno => {
         const li = document.createElement('li');
         li.innerHTML = `
-            <p><strong>Fecha:</strong> ${turno.fecha}</p>
-            <p><strong>Médico:</strong> ${turno.medico.nombre} ${turno.medico.apellido}</p>
-            <p><strong>Especialidad:</strong> ${turno.medico.especialidad.nombre}</p>
+            <p><strong>Turno ID:</strong> ${turno.id}</p>
+            <p><strong>Fecha del turno:</strong> ${turno.fecha}</p>
+            <p><strong>Médico asignado:</strong> ${turno.medico.nombre} ${turno.medico.apellido}</p>
+            <p><strong>Especialidad del Médico:</strong> ${turno.medico.especialidad.nombre}</p>
+            <button class="cancelarBoton" onclick="api_cancelarTurno(${turno.id})">Cancelar turno</button>
+
         `;
         ul.appendChild(li);  // Añadimos el LI a la lista UL
     });
