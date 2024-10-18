@@ -357,6 +357,34 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "cancelarTurno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/cancelarTurno",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cancelarTurno"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
