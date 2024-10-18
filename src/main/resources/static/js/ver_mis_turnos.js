@@ -17,25 +17,20 @@ const turnos = [
 
 document.getElementById('buscarBtn').addEventListener('click', buscarTurnos);
 
-function buscarTurnos() {
+async function buscarTurnos() {
     const pacienteId = parseInt(document.getElementById('pacienteId').value);
-    const turnosList = document.getElementById('turnosList');
-    turnosList.innerHTML = ''; // Limpiar la lista
+    const turnosList = await api_queryTurnosReservados(pacienteId);  // Esperamos la respuesta de los turnos
+    const ul = document.getElementById('turnosList');  // Seleccionamos el elemento UL donde añadiremos los LI
 
-    // Filtrar turnos del paciente
-    const turnosFiltrados = turnos.filter(turno => turno.pacienteId === pacienteId);
+    ul.innerHTML = '';  // Limpiar la lista de turnos anterior
 
-    if (turnosFiltrados.length > 0) {
-        turnosFiltrados.forEach(turno => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <p><strong>Fecha:</strong> ${turno.fecha}</p>
-                <p><strong>Médico:</strong> ${turno.medicoNombre} ${turno.medicoApellido}</p>
-                <p><strong>Especialidad:</strong> ${turno.especialidad}</p>
-            `;
-            turnosList.appendChild(li);
-        });
-    } else {
-        turnosList.innerHTML = '<li>No se encontraron turnos.</li>';
-    }
+    turnosList.forEach(turno => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <p><strong>Fecha:</strong> ${turno.fecha}</p>
+            <p><strong>Médico:</strong> ${turno.medico.nombre} ${turno.medico.apellido}</p>
+            <p><strong>Especialidad:</strong> ${turno.medico.especialidad.nombre}</p>
+        `;
+        ul.appendChild(li);  // Añadimos el LI a la lista UL
+    });
 }
