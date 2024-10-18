@@ -1,14 +1,3 @@
-document.getElementById('showRegister').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.getElementById('loginForm').classList.add('hidden');
-    document.getElementById('registerForm').classList.remove('hidden');
-});
-
-document.getElementById('showLogin').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.getElementById('registerForm').classList.add('hidden');
-    document.getElementById('loginForm').classList.remove('hidden');
-});
 
 document.getElementById('registerBtn').addEventListener('click', function () {
     const dni = document.getElementById('dni').value;
@@ -34,18 +23,12 @@ document.getElementById('registerBtn').addEventListener('click', function () {
         },
         body: JSON.stringify(pacienteData)
     })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-        throw new Error('Error en el registro');
-    })
+    .then(response => response.json())
     .then(data => {
-        console.log('Registro exitoso:', data);
-        // Aquí puedes agregar lógica para manejar el registro exitoso
+        popup(data.message);
     })
     .catch(error => {
-        console.error('Error:', error);
+        popup('Error:', error);
         // Manejo de errores
     });
 });
@@ -68,17 +51,44 @@ document.getElementById('loginBtn').addEventListener('click', function () {
         body: JSON.stringify(loginData)
     })
     .then(response => {
-        if (response.ok) {
-            return response.json();
+        if (response.status === 403) {
+            throw new Error('Credenciales inválidas'); // Lanza un error para manejarlo en el catch
         }
-        throw new Error('Error en el inicio de sesión');
-    })
+        return response.json()})
+
     .then(data => {
-        console.log('Inicio de sesión exitoso:', data);
-        // Aquí puedes agregar lógica para manejar el inicio de sesión exitoso
+        localStorage.setItem('accessToken',data.accessToken);
+        localStorage.setItem('role',data.role);
+        localStorage.setItem('userId',data.userId);
+        location.reload();
     })
     .catch(error => {
-        console.error('Error:', error);
-        // Manejo de errores
+        popup(error)
     });
 });
+
+
+//Diseño de la interfaz LOGIN
+const check = document.getElementById('chk');
+check.checked = true;
+const loginForm = document.getElementById('login');
+
+document.getElementById('signup').addEventListener('click', function() {
+    check.checked = false;
+});
+
+loginForm.addEventListener('click', () => {
+    check.checked = true;
+  });
+
+
+//Si existe un token de acceso, redirigir a la pestaña de medicos o pacientes.
+if(localStorage.getItem('accessToken') != null){
+    var rol = localStorage.getItem('role'); 
+    if(rol === 'ROLE_PACIENTE'){
+        window.location.href = 'http://localhost:8080/html/paciente/opciones.html';
+    }else if(rol === 'ROLE_MEDICO'){
+        window.location.href = 'http://localhost:8080/html/medico/opciones.html';
+    }
+    
+}

@@ -1,5 +1,6 @@
 package com.turnos.turnos.Controllers;
 
+import com.turnos.turnos.DTOs.ResponseMessage;
 import com.turnos.turnos.Entities.Paciente;
 import com.turnos.turnos.Services.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,9 @@ public class PacienteController {
     private PacienteService pacienteService;
 
     @PostMapping("/altaPaciente")
-    public ResponseEntity<Paciente> altaPaciente(@RequestBody Paciente paciente) {
-        Paciente nuevoPaciente = pacienteService.altaPaciente(paciente.getDni(), paciente.getTelefono(),
+    public ResponseEntity<ResponseMessage> altaPaciente(@RequestBody Paciente paciente) {
+        return pacienteService.altaPaciente(paciente.getDni(), paciente.getTelefono(),
                 paciente.getNombre(), paciente.getApellido(), paciente.getEmail(), paciente.getPassword());
-        return ResponseEntity.ok(nuevoPaciente);
     }
 
     @GetMapping("/{dni}")

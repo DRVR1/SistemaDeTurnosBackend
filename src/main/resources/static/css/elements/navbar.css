@@ -7,3 +7,13 @@
     align-items: center;
     font-family: sans-serif;
 }
+
+.navbar button{
+    color:black;
+    margin-left: 50px;
+    height:40px;
+    width:100px;
+    background-color: rgb(207, 207, 207);
+    border-color: rgb(255, 0, 0);
+}
+
