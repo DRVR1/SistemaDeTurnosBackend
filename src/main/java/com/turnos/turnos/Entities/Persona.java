@@ -1,5 +1,6 @@
 package com.turnos.turnos.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,6 +29,7 @@ public abstract class Persona {
     @Column(nullable = false, unique = true)
     protected String email;
 
+    @JsonIgnore
     @Column(nullable = false)
     protected String password;
 

@@ -30,7 +30,11 @@ public class TurnoService {
     }
 
     public List<Turno> verTurnos(long id){
-        return turnoRepository.findByMedicoEspecialidadId(id);
+        return turnoRepository.findByMedicoEspecialidadIdAndPacienteIsNull(id);
+    }
+
+    public List<Turno> verTurnosReservados(long id){
+        return turnoRepository.findByPacienteId(id);
     }
 
     public ResponseEntity<?> reservarTurno(Turno turnoRecibido) {

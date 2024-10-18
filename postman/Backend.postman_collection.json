@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"dni\": \"44888999\",\r\n  \"telefono\": \"113221124\",\r\n  \"nombre\": \"marselo\",\r\n  \"apellido\": \"minecraft\",\r\n  \"email\": \"paciente@gmail.com\",\r\n  \"password\": \"hola\"\r\n}\r\n",
+					"raw": "{\r\n  \"dni\": \"448889939\",\r\n  \"telefono\": \"113221124\",\r\n  \"nombre\": \"marselo\",\r\n  \"apellido\": \"minecraft\",\r\n  \"email\": \"paciente\",\r\n  \"password\": \"123\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -38,13 +38,13 @@
 			"response": []
 		},
 		{
-			"name": "Login paciente",
+			"name": "alta admin",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"paciente@gmail.com\",\r\n    \"password\":\"hola\"\r\n}",
+					"raw": "{\r\n  \"dni\": \"1\",\r\n  \"telefono\": \"1\",\r\n  \"nombre\": \"admin\",\r\n  \"apellido\": \"admin\",\r\n  \"email\": \"admin\",\r\n  \"password\": \"123\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -52,70 +52,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/auth/login",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"auth",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login admin",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"anonimo\",\r\n    \"password\":\"contraseñaMuySegura\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/auth/login",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"auth",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "altaMedico",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"dni\": \"de123\",\r\n  \"telefono\": \"12345647890\",\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Pérez\",\r\n  \"email\": \"juan2.82rpe3sfre4z@example.com\",\r\n  \"password\": \"mypassword123\",\r\n  \"especialidad\":{\r\n    \"id\":\"1\"\r\n  }\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/api/altaMedico",
+					"raw": "localhost:8080/api/altaAdmin",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"altaMedico"
+						"altaAdmin"
 					]
 				}
 			},
@@ -138,7 +82,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\":\"dermatologo\"\r\n}\r\n",
+					"raw": "{\r\n    \"nombre\":\"odontologo\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -160,13 +104,13 @@
 			"response": []
 		},
 		{
-			"name": "alta admin",
+			"name": "altaMedico",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"dni\": \"1\",\r\n  \"telefono\": \"1\",\r\n  \"nombre\": \"administrador\",\r\n  \"apellido\": \"anonimo\",\r\n  \"email\": \"anonimo\",\r\n  \"password\": \"contraseñaMuySegura\"\r\n}\r\n",
+					"raw": "{\r\n  \"dni\": \"de123\",\r\n  \"telefono\": \"12345647890\",\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Pérez\",\r\n  \"email\": \"medico\",\r\n  \"password\": \"123\",\r\n  \"especialidad\":{\r\n    \"id\":\"1\"\r\n  }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -174,14 +118,70 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/altaAdmin",
+					"raw": "localhost:8080/api/altaMedico",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"altaAdmin"
+						"altaMedico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"paciente\",\r\n    \"password\":\"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login post (admin)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"admin\",\r\n    \"password\":\"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
 					]
 				}
 			},
@@ -194,7 +194,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"fecha\": \"2024-10-30T10:00:00\",\r\n  \"medico\": {\r\n    \"id\":1\r\n  }\r\n}\r\n",
+					"raw": "{\r\n  \"fecha\": \"2024-10-30T13:00:00\",\r\n  \"medico\": {\r\n    \"id\":1\r\n  }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -294,13 +294,50 @@
 			"response": []
 		},
 		{
+			"name": "verTurnosReservados",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/verTurnosReservados?pacienteId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"verTurnosReservados"
+					],
+					"query": [
+						{
+							"key": "pacienteId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "reservar turno",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 3,\r\n    \"paciente\": {\r\n        \"id\":4\r\n    }\r\n}",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"paciente\": {\r\n        \"id\":1\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

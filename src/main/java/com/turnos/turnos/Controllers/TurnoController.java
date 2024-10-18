@@ -42,4 +42,9 @@ public class TurnoController {
         return ResponseEntity.ok(turnoService.verTurnos(id));
     }
 
+    @GetMapping("/verTurnosReservados")
+    public ResponseEntity<List<Turno>> verTurnosReservados(@RequestParam long pacienteId){
+        return ResponseEntity.ok(turnoService.verTurnosReservados(pacienteId));
+    }
+
 }

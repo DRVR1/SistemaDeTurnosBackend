@@ -1,17 +1,17 @@
 function llenarTurnosDisponibles(turnos){
     turnos.forEach(turno => {
-        
         // Obtener la tabla donde se insertarán los datos
         const tableBody = document.querySelector("#tablaTurnos tbody");
         // Crear una fila de la tabla
         const row = document.createElement("tr");
 
-        const turnoID = turno.id;
-        const fechaIso = turno.fecha;
-        const fechaDate = new Date(fechaIso);
+        var turnoID = turno.id;
+        var fechaIso = turno.fecha;
+        var fechaDate = new Date(fechaIso);
 
-        const pacienteID = turno.paciente.id;
-        const pacienteDNI = turno.paciente.dni;
+        /*
+        var pacienteID = turno.paciente.id;
+        var pacienteDNI = turno.paciente.dni;
         const pacienteNombre = turno.paciente.nombre;
         const pacienteApellido = turno.paciente.apellido;
         const pacienteTelefono = turno.paciente.telefono;
@@ -19,12 +19,14 @@ function llenarTurnosDisponibles(turnos){
 
         const medicoID = turno.medico.id;
         const medicoDNI = turno.medico.dni;
-        const medicoNombre = turno.medico.nombre;
-        const medicoApellido = turno.medico.apellido;
         const medicoTelefono = turno.medico.telefono;
         const medicoEmail = turno.medico.email;
         const especialidadID = turno.medico.especialidad.id;
-        const especialidadNombre = turno.medico.especialidad.nombre;
+        */
+
+        var medicoNombre = turno.medico.nombre;
+        var medicoApellido = turno.medico.apellido;
+        var especialidadNombre = turno.medico.especialidad.nombre;
 
 
         // Nombre
