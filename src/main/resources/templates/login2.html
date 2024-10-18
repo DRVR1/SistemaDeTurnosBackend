@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/login.css">
+    <link rel="stylesheet" href="/css/login.css">
     <title>Login y Registro</title>
 </head>
 <body>
@@ -18,18 +18,19 @@
             </form>
 
             <form id="registerForm" class="form">
-                <h2>Registrarse</h2>
-                <input type="text" id="dni" placeholder="DNI" required>
-                <input type="text" id="telefono" placeholder="Teléfono" required>
-                <input type="text" id="nombre" placeholder="Nombre" required>
-                <input type="text" id="apellido" placeholder="Apellido" required>
-                <input type="email" id="email" placeholder="Correo Electrónico" required>
-                <input type="password" id="password" placeholder="Contraseña" required>
+                <h2>Registrarse como paciente</h2>
+                <label id="name-label" for="name">Correo Electronico <input type="email" id="email" placeholder="Correo Electrónico" required></label>  
+                <label id="name-label" for="name">Contraseña <input type="password" id="password" placeholder="Contraseña" required></label>   
+                <label id="name-label" for="name">Dni <input class="box" type="text" id="dni" placeholder="DNI" required></label>  
+                <label id="name-label" for="name">Nombre <input type="text" id="nombre" placeholder="Nombre" required></label>  
+                <label id="name-label" for="name">Apellido <input type="text" id="apellido" placeholder="Apellido" required></label>  
+                <label id="name-label" for="name">Telefono <input type="text" id="telefono" placeholder="Teléfono" required></label>  
                 <button type="button" id="registerBtn">Registrarse</button>
                 <p class="switch-form">¿Ya tienes una cuenta? <a href="#" id="showLogin">Inicia Sesión</a></p>
             </form>
         </div>
     </div>
-    <script src="../../js/login.js"></script>
+    <script src="/js/popups.js"></script>
+    <script src="/js/login.js"></script>
 </body>
 </html>

@@ -1,14 +1,3 @@
-document.getElementById('showRegister').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.getElementById('loginForm').classList.add('hidden');
-    document.getElementById('registerForm').classList.remove('hidden');
-});
-
-document.getElementById('showLogin').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.getElementById('registerForm').classList.add('hidden');
-    document.getElementById('loginForm').classList.remove('hidden');
-});
 
 document.getElementById('registerBtn').addEventListener('click', function () {
     const dni = document.getElementById('dni').value;
@@ -17,6 +6,11 @@ document.getElementById('registerBtn').addEventListener('click', function () {
     const apellido = document.getElementById('apellido').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+
+    // Validar campos requeridos
+    if (!dni || !telefono || !nombre || !apellido || !email || !password) {
+        popup("Por favor, completa todos los campos.");
+    }
 
     const pacienteData = {
         dni: dni,
@@ -34,18 +28,12 @@ document.getElementById('registerBtn').addEventListener('click', function () {
         },
         body: JSON.stringify(pacienteData)
     })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-        throw new Error('Error en el registro');
-    })
+    .then(response => response.json())
     .then(data => {
-        console.log('Registro exitoso:', data);
-        // Aquí puedes agregar lógica para manejar el registro exitoso
+        popup(data.message);
     })
     .catch(error => {
-        console.error('Error:', error);
+        popup('Error:', error);
         // Manejo de errores
     });
 });
@@ -67,18 +55,12 @@ document.getElementById('loginBtn').addEventListener('click', function () {
         },
         body: JSON.stringify(loginData)
     })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-        throw new Error('Error en el inicio de sesión');
-    })
+    .then(response => response.json())
     .then(data => {
-        console.log('Inicio de sesión exitoso:', data);
-        // Aquí puedes agregar lógica para manejar el inicio de sesión exitoso
+        sessionStorage.setItem('accessToken',data.accessToken);
+        console.log("access token: " + sessionStorage.getItem('accessToken'));
     })
     .catch(error => {
-        console.error('Error:', error);
-        // Manejo de errores
+        popup(error)
     });
 });

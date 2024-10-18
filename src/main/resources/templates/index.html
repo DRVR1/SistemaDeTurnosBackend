@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+	<head>
+		<title>Hospital Tuna</title>
+		<link rel="stylesheet" type="text/css" href="/css/login.css">
+	</head>
+	<body>
+		<div class="main">  	
+			<input type="checkbox" id="chk" aria-hidden="true">
+				<div class="signup">
+					<form>
+						<label for="chk" aria-hidden="true">Registrarse como paciente</label>
+						<input type="email" id="email" placeholder="Correo Electrónico" required>
+						<input type="password" id="password" placeholder="Contraseña" required>
+						<input class="box" type="text" id="dni" placeholder="DNI" required>
+						<input type="text" id="nombre" placeholder="Nombre" required>
+						<input type="text" id="apellido" placeholder="Apellido" required>
+						<input type="text" id="telefono" placeholder="Teléfono" required>
+						<button type="button" id="registerBtn">Registrarse</button>
+					</form>
+				</div>
 
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/elements/navbar.css">
-    <link rel="stylesheet" href="/css/elements/button.css">
-
-    <title>Bienvenido</title>
-</head>
-<body>
-    <div class="navbar">
-        <h1> ¡Bienvenido! Elija una opción </h1>
-    </div>
-    <div class="container">
-        <div class="column">
-            <div class="button1" onclick="location.href='/html/medico/opciones.html'">Soy medico</div>
-            <div class="button1" onclick="location.href='/html/paciente/opciones.html'">Soy paciente</div>
-        </div>
-    </div>
-</body>
+				<div class="login">
+					<form>
+						<label for="chk" aria-hidden="true">Iniciar Sesion</label>
+						<input id="loginEmail" type="email" name="email" placeholder="Correo electrónico" required>
+						<input id="loginPassword" type="password" name="pswd" placeholder="Contraseña" required>
+						<button type="button" id="loginBtn">Iniciar sesion</button>
+					</form>
+				</div>
+		</div>
+		<script src="/js/popups.js"></script>
+		<script src="/js/login.js"></script>
+	</body>
 </html>
