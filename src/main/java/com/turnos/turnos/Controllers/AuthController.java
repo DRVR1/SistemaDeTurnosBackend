@@ -1,6 +1,9 @@
 package com.turnos.turnos.Login;
 
+import com.turnos.turnos.DTOs.ResponseMessage;
+import com.turnos.turnos.Entities.Turno;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.validation.annotation.Validated;
@@ -32,6 +35,7 @@ public class AuthController {
 
 
         var token = issuer.issue(principal.getUserId(),principal.getEmail(), roles);
-        return new LoginResponse(token);
+        return new LoginResponse(token,roles.getFirst(),principal.getUserId());
     }
+
 }

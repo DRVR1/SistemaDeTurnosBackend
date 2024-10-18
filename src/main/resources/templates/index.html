@@ -3,31 +3,31 @@
 	<head>
 		<title>Hospital Tuna</title>
 		<link rel="stylesheet" type="text/css" href="/css/login.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="main">  	
 			<input type="checkbox" id="chk" aria-hidden="true">
-				<div class="signup">
-					<form>
-						<label for="chk" aria-hidden="true">Registrarse como paciente</label>
-						<input type="email" id="email" placeholder="Correo Electrónico" required>
-						<input type="password" id="password" placeholder="Contraseña" required>
-						<input class="box" type="text" id="dni" placeholder="DNI" required>
-						<input type="text" id="nombre" placeholder="Nombre" required>
-						<input type="text" id="apellido" placeholder="Apellido" required>
-						<input type="text" id="telefono" placeholder="Teléfono" required>
-						<button type="button" id="registerBtn">Registrarse</button>
-					</form>
-				</div>
-
-				<div class="login">
-					<form>
-						<label for="chk" aria-hidden="true">Iniciar Sesion</label>
-						<input id="loginEmail" type="email" name="email" placeholder="Correo electrónico" required>
-						<input id="loginPassword" type="password" name="pswd" placeholder="Contraseña" required>
-						<button type="button" id="loginBtn">Iniciar sesion</button>
-					</form>
-				</div>
+			<div class="signup" id="signup">
+				<form>
+					<label id="reg" for="chk" aria-hidden="true">Registrarse como paciente</label>
+					<input type="email" id="email" placeholder="Correo Electrónico" required>
+					<input type="password" id="password" placeholder="Contraseña" required>
+					<input class="box" type="text" id="dni" placeholder="DNI" required>
+					<input type="text" id="nombre" placeholder="Nombre" required>
+					<input type="text" id="apellido" placeholder="Apellido" required>
+					<input type="text" id="telefono" placeholder="Teléfono" required>
+					<button type="button" id="registerBtn">Registrarse</button>
+				</form>
+			</div>
+			<div class="login" id="login">
+				<form>
+					<label id="ini" for="chk" aria-hidden="true"><i class="bi bi-arrow-down-up"> </i>Iniciar Sesion</label>
+					<input id="loginEmail" type="email" name="email" placeholder="Correo electrónico" required>
+					<input id="loginPassword" type="password" name="pswd" placeholder="Contraseña" required>
+					<button type="button" id="loginBtn">Iniciar sesion</button>
+				</form>
+			</div>
 		</div>
 		<script src="/js/popups.js"></script>
 		<script src="/js/login.js"></script>

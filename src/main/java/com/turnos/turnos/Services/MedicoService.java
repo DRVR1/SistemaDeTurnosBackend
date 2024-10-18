@@ -7,6 +7,7 @@ import com.turnos.turnos.Repositories.MedicoRepository;
 import com.turnos.turnos.Repositories.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,15 +16,19 @@ public class MedicoService {
     @Autowired
     private MedicoRepository medicoRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public Medico altaMedico(String dni,
                              String telefono,
                              String nombre,
                              String apellido,
                              String mail,
-                             String pass,
+                             String password,
                              Especialidad especialidad) {
 
-        Medico medico = new Medico(dni,telefono,nombre,apellido,mail,pass,especialidad);
+        String encodedPass = passwordEncoder.encode(password);
+        Medico medico = new Medico(dni,telefono,nombre,apellido,mail,encodedPass,especialidad);
         return medicoRepository.save(medico);
     }
 

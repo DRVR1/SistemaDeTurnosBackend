@@ -69,7 +69,7 @@ function llenarTurnosDisponibles(turnos){
         button.classList.add("reservarBoton");
         buttonCell.appendChild(button);
         button.addEventListener("click", function() {
-        api_reservarTurno(turnoID);
+        api_reservarTurno(turnoID,localStorage.getItem('userId'));
         });
         row.appendChild(buttonCell);
 

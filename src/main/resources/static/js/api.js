@@ -71,11 +71,11 @@ async function api_queryEspecialidades() {
 
 
 //hardcoded
-function api_reservarTurno(id) {
+function api_reservarTurno(id,pacienteId) {
     const turno = {
         id: id,
         paciente: {
-            id: 1
+            id: pacienteId
         }
     };
     fetch("http://localhost:8080/api/reservarTurno", {

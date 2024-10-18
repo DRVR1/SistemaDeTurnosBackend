@@ -5,14 +5,14 @@ body{
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
+	background-color: #b6b3ff;
 	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
 }
 .main{
 	max-width: 600px;
 	height: 700px;
 	background: #292929;
-	overflow: hidden;
+
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
 }
@@ -34,6 +34,7 @@ label{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
+
 input{
 	width: 60%;
 	height: 20px;
@@ -66,6 +67,10 @@ button{
 button:hover{
 	background: #6d44b8;
 }
+
+.login input{
+
+}
 .login{
 	height: 460px;
 	background: #eee;
@@ -86,4 +91,11 @@ button:hover{
 }
 #chk:checked ~ .signup label{
 	transform: scale(.6);
+}
+#ini{
+    padding-top: 50px;
+	pointer-events: none;
+}
+#reg{
+	pointer-events: none;
 }

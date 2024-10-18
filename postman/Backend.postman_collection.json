@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"dni\": \"448889939\",\r\n  \"telefono\": \"113221124\",\r\n  \"nombre\": \"marselo\",\r\n  \"apellido\": \"minecraft\",\r\n  \"email\": \"paciente\",\r\n  \"password\": \"123\"\r\n}\r\n",
+					"raw": "{\r\n  \"dni\": \"123\",\r\n  \"telefono\": \"113221124\",\r\n  \"nombre\": \"marselo\",\r\n  \"apellido\": \"minecraft\",\r\n  \"email\": \"paciente@gmail.com\",\r\n  \"password\": \"12345\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -110,7 +110,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"dni\": \"de123\",\r\n  \"telefono\": \"12345647890\",\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Pérez\",\r\n  \"email\": \"medico\",\r\n  \"password\": \"123\",\r\n  \"especialidad\":{\r\n    \"id\":\"1\"\r\n  }\r\n}\r\n",
+					"raw": "{\r\n  \"dni\": \"123\",\r\n  \"telefono\": \"12345647890\",\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Pérez\",\r\n  \"email\": \"medico@gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"especialidad\":{\r\n    \"id\":\"1\"\r\n  }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -138,7 +138,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"paciente\",\r\n    \"password\":\"123\"\r\n}",
+					"raw": "{\r\n    \"email\":\"medico@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

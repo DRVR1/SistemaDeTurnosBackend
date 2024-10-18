@@ -7,11 +7,6 @@ document.getElementById('registerBtn').addEventListener('click', function () {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    // Validar campos requeridos
-    if (!dni || !telefono || !nombre || !apellido || !email || !password) {
-        popup("Por favor, completa todos los campos.");
-    }
-
     const pacienteData = {
         dni: dni,
         telefono: telefono,
@@ -55,12 +50,45 @@ document.getElementById('loginBtn').addEventListener('click', function () {
         },
         body: JSON.stringify(loginData)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (response.status === 403) {
+            throw new Error('Credenciales inválidas'); // Lanza un error para manejarlo en el catch
+        }
+        return response.json()})
+
     .then(data => {
-        sessionStorage.setItem('accessToken',data.accessToken);
-        console.log("access token: " + sessionStorage.getItem('accessToken'));
+        localStorage.setItem('accessToken',data.accessToken);
+        localStorage.setItem('role',data.role);
+        localStorage.setItem('userId',data.userId);
+        location.reload();
     })
     .catch(error => {
         popup(error)
     });
 });
+
+
+//Diseño de la interfaz LOGIN
+const check = document.getElementById('chk');
+check.checked = true;
+const loginForm = document.getElementById('login');
+
+document.getElementById('signup').addEventListener('click', function() {
+    check.checked = false;
+});
+
+loginForm.addEventListener('click', () => {
+    check.checked = true;
+  });
+
+
+//Si existe un token de acceso, redirigir a la pestaña de medicos o pacientes.
+if(localStorage.getItem('accessToken') != null){
+    var rol = localStorage.getItem('role'); 
+    if(rol === 'ROLE_PACIENTE'){
+        window.location.href = 'http://localhost:8080/html/paciente/opciones.html';
+    }else if(rol === 'ROLE_MEDICO'){
+        window.location.href = 'http://localhost:8080/html/medico/opciones.html';
+    }
+    
+}
