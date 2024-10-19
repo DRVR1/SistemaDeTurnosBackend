@@ -88,7 +88,6 @@ function api_reservarTurno(id,pacienteId) {
     .then(response => response.json()) //Convertir respuesta a json
     .then(data => {                    //El json.message imprimirlo en el popup
         popup(data.message);
-        console.log("Respuesta del servidor:", text);
     })
     .catch(error => {
         console.error("Error:", error);
@@ -110,7 +109,6 @@ function api_cancelarTurno(id) {
     .then(response => response.json()) //Convertir respuesta a json
     .then(data => {                    //El json.message imprimirlo en el popup
         popup(data.message);
-        console.log("Respuesta del servidor:", text);
     })
     .catch(error => {
         console.error("Error:", error);
