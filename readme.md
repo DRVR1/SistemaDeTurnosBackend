@@ -12,10 +12,6 @@ Sistema de turnos medicos que permite registrarse, iniciar sesion, seleccionar u
    - abrir un cmd y posicionarse en la carpeta raiz del proyecto clonado
    - ejecutar los siguientes comandos
 
-### descargar sql server:
-
-`docker pull mcr.microsoft.com/mssql/server:2022-latest`
-
 ### Construir la imagen del backend
 
 `docker build -t turnosbackend .`
