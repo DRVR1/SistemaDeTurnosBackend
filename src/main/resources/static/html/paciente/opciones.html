@@ -11,9 +11,11 @@
 
 </head>
 <body>
-    <div class="navbar">
-        <h1> Opciones para el paciente </h1>
-        <button onclick=cerrarSesion()> Cerrar sesion </button>
+    <div id="navBar" class="navbar">
+        <h1 id="navTitulo">Bienvenido</h1>
+        <button id="botonReservarTurno"> Reservar un turno</button>
+        <button id="botonVerTurnosReservados"> Ver turnos reservados</button>
+        <button id="cerrarSesion" onclick=cerrarSesion()> Cerrar sesion </button>
     </div>
     <div class="container">
         <div class="column">
@@ -22,6 +24,7 @@
         </div>
 
     </div>
-    <script src="/js/opciones.js"></script>
+    <script src="/js/popups.js"></script>
+    <script src="/js/navBar.js"></script>
 </body>
 </html>

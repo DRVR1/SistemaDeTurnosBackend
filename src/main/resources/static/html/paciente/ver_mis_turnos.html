@@ -6,17 +6,25 @@
     <title>Buscar Mis Turnos</title>
     <link rel="stylesheet" href="../../css/paciente/ver_mis_turnos.css">
     <link rel="stylesheet" href="../../css/paciente/ver_turnos_disponibles/tablaTurnos.css">
+    <link rel="stylesheet" href="../../css/elements/navbar.css">
+    <link rel="stylesheet" href="../../css/elements/button.css">
 </head>
 <body>
-
+    <div id="navBar" class="navbar">
+        <h1 id="navTitulo">Bienvenido</h1>
+        <button id="botonReservarTurno"> Reservar un turno</button>
+        <button id="botonVerTurnosReservados"> Ver turnos reservados</button>
+        <button id="cerrarSesion" onclick=cerrarSesion()> Cerrar sesion </button>
+    </div>
 <div class="container">
-    <h1>Buscar Mis Turnos Reservados</h1>
-    <button id="buscarBtn">Buscar</button>
+    <h1>Mis Turnos Reservados:</h1>
     <ul id="turnosList"></ul>
 </div>
 
 <script src="../../js/popups.js"></script>
-<script src="../../js/ver_mis_turnos.js"></script>
 <script src="../../js/api.js"></script>
+<script src="../../js/ver_mis_turnos.js"></script>
+<script src="/js/navBar.js"></script>
+
 </body>
 </html>

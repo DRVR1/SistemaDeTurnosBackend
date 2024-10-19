@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
+    overflow: hidden;
 }
 
 header {
@@ -14,8 +15,7 @@ header {
 }
 
 h1, h2 {
-    margin: 0;
-    padding-bottom: 20px;
+
 }
 
 main {
