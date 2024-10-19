@@ -1,8 +1,42 @@
-# Sistema de turnos backend
+# Sistema de turnos medicos
 
 ## Descripcion
 
-Es el backend de un sistema de turnos medicos. El paciente puede visualizar turnos disponibles y reservarlos. El medico puede cargar los turnos en los que quiere trabajar.
+Sistema de turnos medicos que permite registrarse, iniciar sesion, seleccionar una especialidad medica, reservar un turno y visualizarlos o cancelarlos. Los medicos pueden dar de alta turnos para indicar disponibilidad los cuales seran reservados por los pacientes.
+
+## Correr el proyecto usando docker
+
+### Requerimientos:
+   - Docker instalado
+   - Proyecto clonado
+   - abrir un cmd y posicionarse en la carpeta raiz del proyecto clonado
+   - ejecutar los siguientes comandos
+
+### descargar sql server:
+
+`docker pull mcr.microsoft.com/mssql/server:2022-latest`
+
+### Construir la imagen del backend
+
+`docker build -t turnosbackend .`
+
+### Una vez se hayan creado las imagenes, en la carpeta raiz del proyecto ejecutar:
+  
+`docker-compose up -d`
+
+### Cuando la base de datos este corriendo ejecutar:
+
+`sqlcmd -S localhost -U sa -P YourStrong@Passw0rd -Q "CREATE DATABASE turnos;"`
+
+### Ya deberia estar funcionando el sistema en localhost:80 y en la red lan. 192.168.X.X:80
+
+### Comandos utiles (no obligatorios): 
+
+`docker ps # mostrar los contenedores que estan corriendo`
+
+`docker stop [nombre del proceso] # detener un contenedor`
+
+# Correr el proyecto manualmente sin docker
 
 ## Setup Base de Datos (Microsoft SSMS)
 
@@ -45,7 +79,9 @@ en sql server configuration manager
 ## Opcional
 En la carpeta postman hay un json que se puede importar a la aplicacion postman para probar los endpoints.
 
-## Setup java con springboot
+## Crear un proyecto java springboot
+
+- (Opcional) Instalar IDE intellij idea
 
 - Instalar JDK https://bell-sw.com/pages/downloads/#jdk-21-lts
 
@@ -53,10 +89,14 @@ En la carpeta postman hay un json que se puede importar a la aplicacion postman 
 Al proyecto añadirle las siguientes dependencias
 {lombok, Thymeleaf, devtools, Spring Web, Spring Boot DevTools}
 
+## Abrir el proyecto desde un ide
+
 - El proyecto se puede abrir desde el intellij idea.
 
 - Para abrir el sistema de turnos, clonar el git y abrirlo desde algun IDE
-   
+
+
+
 ### Versiones setup:
 
 - Lenguaje: java
