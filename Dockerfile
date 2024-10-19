@@ -12,6 +12,9 @@ RUN chmod +x gradlew
 # Copia el código fuente
 COPY . .
 
+# Asegúrate de dar permisos de ejecución después de copiar todo
+RUN chmod +x gradlew
+
 # Compila el proyecto
 RUN ./gradlew clean build -x test
 
