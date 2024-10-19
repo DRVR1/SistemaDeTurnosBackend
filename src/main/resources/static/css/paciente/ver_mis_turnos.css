@@ -1,5 +1,7 @@
 body { 
     font-family: Arial, sans-serif; 
+    padding: 0;
+    margin: 0;
 }
 
 .container { 
@@ -24,8 +26,11 @@ ul {
 }
 
 li { 
+    text-align: center;
     background: #f4f4f4; 
-    margin: 5px 0; 
+    margin: 20px 0; 
     padding: 10px; 
-    border-radius: 5px; 
+    border-radius: 30px; 
+    border: 1px solid #000000;
 }
+

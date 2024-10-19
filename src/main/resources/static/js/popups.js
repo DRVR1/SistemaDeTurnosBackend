@@ -76,7 +76,8 @@ function popup(message) {
     document.head.appendChild(style);
 
     // Mostrar el mensaje en el popup
-    document.getElementById("popup-message").textContent = message;
+    text = document.getElementById("popup-message");
+    text.textContent = message;
     
     // Mostrar el popup
     document.getElementById("custom-popup").style.display = "flex";
