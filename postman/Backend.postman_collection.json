@@ -24,7 +24,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/altaPaciente",
+					"raw": "localhost:8080/api/altaPaciente",
 					"host": [
 						"localhost"
 					],
@@ -52,7 +52,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/altaAdmin",
+					"raw": "localhost:8080/api/altaAdmin",
 					"host": [
 						"localhost"
 					],
@@ -90,7 +90,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/altaEspecialidad",
+					"raw": "localhost:8080/api/altaEspecialidad",
 					"host": [
 						"localhost"
 					],
@@ -118,7 +118,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/altaMedico",
+					"raw": "localhost:8080/api/altaMedico",
 					"host": [
 						"localhost"
 					],
@@ -146,7 +146,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/auth/login",
+					"raw": "localhost:8080/auth/login",
 					"host": [
 						"localhost"
 					],
@@ -174,7 +174,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/auth/login",
+					"raw": "localhost:8080/auth/login",
 					"host": [
 						"localhost"
 					],
@@ -202,7 +202,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/altaTurno",
+					"raw": "localhost:8080/api/altaTurno",
 					"host": [
 						"localhost"
 					],
@@ -236,7 +236,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/verEspecialidades",
+					"raw": "localhost:8080/api/verEspecialidades",
 					"host": [
 						"localhost"
 					],
@@ -267,7 +267,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/verTurnos?id=1",
+					"raw": "localhost:8080/api/verTurnos?id=1",
 					"host": [
 						"localhost"
 					],
@@ -304,7 +304,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/verTurnosReservados?pacienteId=1",
+					"raw": "localhost:8080/api/verTurnosReservados?pacienteId=1",
 					"host": [
 						"localhost"
 					],
@@ -338,7 +338,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/reservarTurno",
+					"raw": "localhost:8080/api/reservarTurno",
 					"host": [
 						"localhost"
 					],
@@ -366,7 +366,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/cancelarTurno",
+					"raw": "localhost:8080/api/cancelarTurno",
 					"host": [
 						"localhost"
 					],

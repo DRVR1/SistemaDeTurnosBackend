@@ -16,7 +16,7 @@ document.getElementById('registerBtn').addEventListener('click', function () {
         password: password
     };
 
-    fetch('http://localhost:80/api/altaPaciente', {
+    fetch('http://localhost:8080/api/altaPaciente', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ document.getElementById('loginBtn').addEventListener('click', function () {
         password: password
     };
 
-    fetch('http://localhost:80/auth/login', {
+    fetch('http://localhost:8080/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -86,9 +86,9 @@ loginForm.addEventListener('click', () => {
 if(localStorage.getItem('accessToken') != null){
     var rol = localStorage.getItem('role'); 
     if(rol === 'ROLE_PACIENTE'){
-        window.location.href = 'http://localhost:80/html/paciente/opciones.html';
+        window.location.href = 'http://localhost:8080/html/paciente/opciones.html';
     }else if(rol === 'ROLE_MEDICO'){
-        window.location.href = 'http://localhost:80/html/medico/opciones.html';
+        window.location.href = 'http://localhost:8080/html/medico/opciones.html';
     }
     
 }
