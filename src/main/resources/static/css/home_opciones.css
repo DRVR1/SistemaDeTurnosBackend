@@ -4,6 +4,7 @@
 .container {
     margin-top:40px;
     display: flex;
+    
     justify-content: center;
     align-items: center;
 }
@@ -23,4 +24,10 @@
     text-align: center;
     line-height: 100px;
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .column{
+        flex-direction: column;
+    }
 }

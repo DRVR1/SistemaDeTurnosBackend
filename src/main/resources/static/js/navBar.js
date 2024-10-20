@@ -1,6 +1,13 @@
 
 function cerrarSesion(){
-    localStorage.clear(); window.location.href = app_url;
+    pop1("¿Desea cerrar sesion?").then((result) => {
+        if (result) {
+            localStorage.clear(); window.location.href = app_url;
+        }else{
+            
+        }
+    });
+    
 }
 
 

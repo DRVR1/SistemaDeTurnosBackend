@@ -68,19 +68,6 @@ document.getElementById('loginBtn').addEventListener('click', function () {
 });
 
 
-//Diseño de la interfaz LOGIN
-const check = document.getElementById('chk');
-check.checked = true;
-const loginForm = document.getElementById('login');
-
-document.getElementById('signup').addEventListener('click', function() {
-    check.checked = false;
-});
-
-loginForm.addEventListener('click', () => {
-    check.checked = true;
-  });
-
 
 //Si existe un token de acceso, redirigir a la pestaña de medicos o pacientes.
 if(localStorage.getItem('accessToken') != null){

@@ -1,44 +1,78 @@
 body {
     text-align: center;
     margin:0;
-    background-color:#e2e2e2;
+    background-color:#f2f2f2;
     font-family: sans-serif;
 }
 
 /* navbar */
 
+/* Estilos generales */
 .navbar{
-    background-color: #005804;
-    height:100px;
-    margin:0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    font-family: sans-serif;
+  background-color: #006004;
+  height:100px;
+  margin:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-family: sans-serif;
 }
 
 .navbar h1{
-    color:#ffffff;
-    font-size: 50px;
+  color:#ffffff;
+  font-size: 50px;
 }
 
 .navbar button {
-    font-size: 20px;
-    height: 60px;
-    width:200px;
-    margin-left: 50px;
-    border: none;
-    background-color: #064e00;
-    color:#ffffff;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 5px 5px #a0a0a0; 
-    cursor:pointer;
+  font-size: 20px;
+  height: 60px;
+  width:200px;
+  margin-left: 50px;
+  border: none;
+  background-color: #ffffff;
+  color:#000000;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 10px;
+  box-shadow: 5px 5px #000000; 
+  cursor: pointer;
 }
 
 .navbar button:hover {
-    background-color: #0a8400;
+  background-color: #0a8400;
+}
+
+/* Media queries para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .navbar {
+      flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
+      height: auto;    /* Ajusta la altura dinámica según el contenido */
+      justify-content: space-around;
+      padding: 10px;
+  }
+
+  .navbar h1 {
+      font-size: 30px; /* Reduce el tamaño del título */
+      margin-bottom: 10px; /* Añade espacio entre el título y los botones */
+  }
+
+  .navbar button {
+
+      margin-left: 0;
+      margin-bottom: 10px; /* Añade espacio entre botones */
+  }
+}
+
+/* Media queries para pantallas extra pequeñas (menos de 480px) */
+@media (max-width: 480px) {
+  .navbar h1 {
+
+  }
+
+  .navbar button {
+
+  }
 }
 
 
@@ -59,6 +93,8 @@ body {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    border: 3px solid rgb(0, 0, 0);
+    box-shadow: 10px 10px 1px rgb(0, 0, 0);
     border-radius: 10px;
     font-family: sans-serif;
 }
@@ -103,3 +139,8 @@ body {
     transition: background-color 0.3s ease;
 }
 
+@media (max-width: 600px) {
+    .boton_opciones_home{
+        
+    }
+}

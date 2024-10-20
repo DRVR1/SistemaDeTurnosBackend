@@ -72,6 +72,10 @@ function popup(message) {
         #popup-close-btn:hover {
             background-color: #45a049;
         }
+        #popup-message{
+            font-family: sans-serif;
+            font-size: 20px;
+        }
     `;
     document.head.appendChild(style);
 

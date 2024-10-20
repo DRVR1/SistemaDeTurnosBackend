@@ -85,13 +85,10 @@ async function buscarTurnos() {
 function cancelarTurno(turnoId){
     pop1("¿Desea cancelar el turno?").then((result) => {
         if (result) {
-            console.log("cancelando turno " + turnoId);
             api_cancelarTurno(turnoId);
         }else{
-            console.log("salir");
         }
     });
-        
 }
 
 buscarTurnos();

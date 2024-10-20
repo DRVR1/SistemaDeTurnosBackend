@@ -28,7 +28,6 @@ select{
     justify-content: space-between;
     align-items: center;
     font-size: 24px;
-    font-family: sans-serif;
   }
   
   .calendar-grid {
