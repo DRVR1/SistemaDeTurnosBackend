@@ -16,7 +16,7 @@ powershell -Command "docker-compose up -d"
 
 echo =======^
 =======^
-Cuando la base de datos se este ejecutando, presionar enter.^
+Primera ejecucion? cuando la base de datos se este ejecutando, presionar enter.^
 =======^
 =======
 

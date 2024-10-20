@@ -1,4 +1,47 @@
 
+/**
+ * Presionar login en el register
+ */
+document.getElementById('toggleLogin').addEventListener('click', function () {
+    var login_form = document.getElementById('loginBox');
+    login_form.classList.remove('hidden');
+
+    var register_form = document.getElementById('registerBox');
+    register_form.classList.add('hidden');
+});
+
+
+/**
+ * Presionar registrarse en el login
+ */
+document.getElementById('toggleRegister').addEventListener('click', function () {
+    var login_form = document.getElementById('loginBox');
+    login_form.classList.add('hidden');
+
+    var register_form = document.getElementById('registerBox');
+    register_form.classList.remove('hidden');
+});
+
+/**
+ * Mostrar y ocultar contraseña en el formulario de login
+ */
+var loginShowingPassword = false;
+document.getElementById('loginShowPasswordDiv').addEventListener('click', function () {
+    var checkbox = document.getElementById('loginShowPasswordInput');
+    var pass = document.getElementById('loginPassword')
+    if(!loginShowingPassword){
+        checkbox.checked = true;
+        loginShowingPassword = true;
+        pass.type = 'text'
+    }else{
+        checkbox.checked = false;
+        loginShowingPassword = false;
+        pass.type = 'password'
+    }
+    
+});
+
+
 document.getElementById('registerBtn').addEventListener('click', function () {
     const dni = document.getElementById('dni').value;
     const telefono = document.getElementById('telefono').value;
@@ -6,6 +49,12 @@ document.getElementById('registerBtn').addEventListener('click', function () {
     const apellido = document.getElementById('apellido').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    const passwordReplay = document.getElementById('passwordReplay').value;
+
+    if (password != passwordReplay){
+        popup("Las contraseñas no coinciden");
+        return;
+    }
 
     const pacienteData = {
         dni: dni,

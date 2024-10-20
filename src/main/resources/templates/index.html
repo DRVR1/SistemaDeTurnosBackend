@@ -2,54 +2,73 @@
 <html>
 	<head>
 		<title>Hospital Tuna</title>
-		<link rel="stylesheet" type="text/css" href="css/login.css">
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+		
+		<link rel="stylesheet" type="text/css" href="../static/css/login/login.css">
 	</head>
 	<body>
-        <div class="box">
-            <h2>Iniciar sesion</h2>
-			<div class="login" id="login">
+        <div class="box" id="loginBox">
+			<div class="form_container">
 				<form>
+					<h2>Iniciar sesión</h2>
 					<label id="ini" for="loginEmail">Correo electrónico</label>
 					<input id="loginEmail" type="email" name="email" placeholder="Correo electrónico" required>
 
 					<label for="loginPassword">Contraseña</label>
 					<input id="loginPassword" type="password" name="pswd" placeholder="Contraseña" required>
+					<div id="loginShowPasswordDiv" class="showPasswordDiv">
+						<input id="loginShowPasswordInput" class="form-check-input" type="checkbox" value="ver">					
+						<label id="showPasswordLabel" for="loginShowPasswordInput">Mostrar contraseña</label>
+					</div>
+
 
 					<button type="button" id="loginBtn">Iniciar sesión</button>
+					<button type="button" class="toggler" id="toggleRegister">Registrarse</button>
 				</form>
 			</div>
         </div>
 
-        <div class="box">
-            <h2>Registrarse</h2>
-			<div class="signup" id="signup">
+        <div class="box hidden" id="registerBox">
+			<div class="form_container">
 				<form>
-					<label id="reg" for="email">Correo Electrónico</label>
-					<input type="email" id="email" placeholder="Correo Electrónico" required>
+					<h2>Registrarse</h2>
 
-					<label for="password">Contraseña</label>
-					<input type="password" id="password" placeholder="Contraseña" required>
-
-					<label for="dni">DNI</label>
-					<input type="text" id="dni" placeholder="DNI" required>
-
-					<label for="nombre">Nombre</label>
+					<label for="nombre">Nombre*</label>
 					<input type="text" id="nombre" placeholder="Nombre" required>
 
-					<label for="apellido">Apellido</label>
+					<label for="apellido">Apellido*</label>
 					<input type="text" id="apellido" placeholder="Apellido" required>
 
-					<label for="telefono">Teléfono</label>
+					<label for="dni">DNI*</label>
+					<input type="text" id="dni" placeholder="DNI" required>
+
+
+					<label for="telefono">Teléfono*</label>
 					<input type="text" id="telefono" placeholder="Teléfono" required>
 
+					<label id="reg" for="email">Correo Electrónico*</label>
+					<input type="email" id="email" placeholder="Correo Electrónico" required>
+
+					<label for="password">Contraseña*</label>
+					<input type="password" id="password" placeholder="Contraseña" required>
+
+					<label for="passwordReplay">Repetir contraseña*</label>
+					<input type="password" id="passwordReplay" placeholder="Repetir contraseña" required>
+
+
 					<button type="button" id="registerBtn">Registrarse</button>
+					<button type="button" class="toggler" id="toggleLogin">Iniciar sesion</button>
+
 				</form>
 			</div>
+
         </div>
  	
-		<script src="/js/api.js"></script>
-		<script src="/js/popups.js"></script>
-		<script src="/js/login.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<script src="../static/js/api.js"></script>
+		<script src="../static/js/popups.js"></script>
+		<script src="../static/js/login.js"></script>
 	</body>
 </html>
