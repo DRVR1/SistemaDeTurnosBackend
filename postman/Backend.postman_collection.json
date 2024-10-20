@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c6facfa9-b124-4916-b490-4f9d58619afd",
+		"_postman_id": "cebbe726-9a6f-46c4-ab64-0f8dbf5e1588",
 		"name": "Back hibernate",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38033108"
@@ -24,11 +24,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/altaPaciente",
+					"raw": "localhost:8080/api/altaPaciente",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"api",
 						"altaPaciente"
@@ -52,11 +52,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/altaAdmin",
+					"raw": "localhost:8080/api/altaAdmin",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"api",
 						"altaAdmin"
@@ -69,14 +69,7 @@
 			"name": "alta especialidad",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZXhwIjoxNzI5OTY2MDAzLCJlIjoiYW5vbmltbyIsImEiOlsiUk9MRV9BRE1JTiJdfQ.40I42XypErS_cMTOPBe0nLRbpR2PItUK3gDKqERiTik",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [],
@@ -90,11 +83,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/altaEspecialidad",
+					"raw": "localhost:8080/api/altaEspecialidad",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"api",
 						"altaEspecialidad"
@@ -118,11 +111,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/altaMedico",
+					"raw": "localhost:8080/api/altaMedico",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"api",
 						"altaMedico"
@@ -146,11 +139,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/auth/login",
+					"raw": "localhost:8080/auth/login",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"auth",
 						"login"
@@ -174,11 +167,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/auth/login",
+					"raw": "localhost:8080/auth/login",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"auth",
 						"login"
@@ -202,11 +195,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/altaTurno",
+					"raw": "localhost:8080/api/altaTurno",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"api",
 						"altaTurno"
@@ -236,11 +229,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/verEspecialidades",
+					"raw": "localhost:8080/api/verEspecialidades",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"api",
 						"verEspecialidades"
@@ -267,11 +260,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/verTurnos?id=1",
+					"raw": "localhost:8080/api/verTurnos?id=1",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"api",
 						"verTurnos"
@@ -304,11 +297,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/verTurnosReservados?pacienteId=1",
+					"raw": "localhost:8080/api/verTurnosReservados?pacienteId=1",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"api",
 						"verTurnosReservados"
@@ -338,11 +331,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/reservarTurno",
+					"raw": "localhost:8080/api/reservarTurno",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"api",
 						"reservarTurno"
@@ -366,11 +359,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:80/api/cancelarTurno",
+					"raw": "localhost:8080/api/cancelarTurno",
 					"host": [
 						"localhost"
 					],
-					"port": "80",
+					"port": "8080",
 					"path": [
 						"api",
 						"cancelarTurno"

@@ -19,5 +19,5 @@ RUN ./gradlew clean build -x test
 FROM eclipse-temurin:21
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar /app/app.jar
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]

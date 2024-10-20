@@ -1,6 +1,6 @@
 
 function cerrarSesion(){
-    localStorage.clear(); window.location.href = 'http://localhost:80';
+    localStorage.clear(); window.location.href = app_url;
 }
 
 
@@ -10,16 +10,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const botonVerTurnosReservados = document.getElementById('botonVerTurnosReservados');
 
     titulo.addEventListener('click', function() {
-        window.location.href = 'http://localhost:80';
+        window.location.href = app_url;
     });
 
 
     botonReservarTurno.addEventListener('click', function() {
-        window.location.href = 'http://localhost:80/html/paciente/seleccionar_especialidad.html';
+        window.location.href = app_url+'/html/paciente/seleccionar_especialidad.html';
     });
 
     botonVerTurnosReservados.addEventListener('click', function() {
-        window.location.href = 'http://localhost:80/html/paciente/ver_mis_turnos.html';
+        window.location.href = app_url+'/html/paciente/ver_mis_turnos.html';
     });
 
 });

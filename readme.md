@@ -12,10 +12,6 @@ Sistema de turnos medicos que permite registrarse, iniciar sesion, seleccionar u
    - abrir un cmd y posicionarse en la carpeta raiz del proyecto clonado
    - ejecutar los siguientes comandos
 
-### descargar sql server:
-
-`docker pull mcr.microsoft.com/mssql/server:2022-latest`
-
 ### Construir la imagen del backend
 
 `docker build -t turnosbackend .`
@@ -28,7 +24,7 @@ Sistema de turnos medicos que permite registrarse, iniciar sesion, seleccionar u
 
 `sqlcmd -S localhost -U sa -P YourStrong@Passw0rd -Q "CREATE DATABASE turnos;"`
 
-### Ya deberia estar funcionando el sistema en localhost:80 y en la red lan. 192.168.X.X:80
+### Ya deberia estar funcionando el sistema en localhost:8080 y en la red lan. 192.168.X.X:8080
 
 ### Comandos utiles (no obligatorios): 
 
@@ -71,7 +67,10 @@ en sql server configuration manager
 -  en propiedades de TCP/IP configurar puerto (asignar puerto 1433 a IPAII)
 -  reiniciar el servicio o la PC
 
-### Importante: Todos los datos configurados deben coincidir con el archivo src/main/resources/application.properties
+### Importante: 
+
+- Todos los datos configurados deben coincidir con el archivo src/main/resources/application.properties
+- Cualquier cambio se va a reflejar al reiniciar el servicio
 
 ## Opcional
 En la carpeta postman hay un json que se puede importar a la aplicacion postman para probar los endpoints.
