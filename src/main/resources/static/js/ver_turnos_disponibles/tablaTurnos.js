@@ -66,7 +66,7 @@ function llenarTurnosDisponibles(turnos){
         const buttonCell = document.createElement("td");
         const button = document.createElement("button");
         button.textContent = "Reservar"
-        button.classList.add("reservarBoton");
+        button.classList.add("aceptarBoton");
         buttonCell.appendChild(button);
         button.addEventListener("click", function() {
         api_reservarTurno(turnoID,localStorage.getItem('userId'));

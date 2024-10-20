@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>opciones medico</title>
-    <link rel="stylesheet" href="../../css/medico/opciones.css">
-    <link rel="stylesheet" href="../../css/elements/navbar.css">
-    <link rel="stylesheet" href="../../css/elements/button.css">
+    <link rel="stylesheet" href="../../css/home_opciones.css">
+    <link rel="stylesheet" href="../../css/base.css">
 
 
 
 </head>
 <body>
-    <div class="navbar">
-        <h1> Opciones para el medico </h1>
-        <button onclick=cerrarSesion()> Cerrar sesion </button>
+    <div id="navBar" class="navbar">
+        <h1 id="navTitulo">Bienvenido</h1>
+        <button id="botonReservarTurno"> Reservar un turno</button>
+        <button id="botonVerTurnosReservados"> Ver turnos reservados</button>
+        <button id="cerrarSesion" onclick=cerrarSesion()> Cerrar sesion </button>
     </div>
     <div class="container">
         <div class="column">
-            <div class="button1" onclick="location.href='publicar_turno.html'">publicar turno</div>
-            <div class="button1" onclick="location.href='ver_turnos.html'">ver mis turnos por fecha</div>
+            <div class="boton_opciones_home" onclick="location.href='publicar_turno.html'">publicar turno</div>
+            <div class="boton_opciones_home" onclick="location.href='../paciente/ver_turnos_disponibles.html'">ver mis turnos por fecha</div>
         </div>
     </div>
     <script src="../../js/popups.js"></script>

@@ -2,71 +2,21 @@
 <html lang="es">
 <head>
 	<title>tarjeta camila</title>
-<style>
-body {
-  background-color: #CDD;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  height: 100vh;
-}
-
-header {
-    background-color: #005f99;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    justify-content: flex-start;
-}
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.logo {
-    width: 50px;
-    height: auto;
-    margin-right: 15px;
-
-}
-
-.titulo-hospital {
-    margin: 0;
-    font-size: 60px;
-    color:#ffffff; 
-}
-.tabla-turnos{
-    border-collapse: collapse;
-    margin: 0 auto;
-    background-color: white;
-}
-.tabla-turnos th, .tabla-turnos td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-.tabla-turnos th {
-    background-color: white;
-}
-
-</style>
+    <link rel="stylesheet" href="../../css/base.css">
 </head>
-<header>
-    <img src="../../images/hospital.png" alt="Logotipo del Hospital" class="logo">
-    <h1 class="titulo-hospital">Hospital General</h1> <!-- Cambia "Hospital General" por el nombre de tu hospital -->
-</header>
+
 <body>
+    <div id="navBar" class="navbar">
+        <h1 id="navTitulo">Bienvenido</h1>
+        <button id="botonReservarTurno"> Reservar un turno</button>
+        <button id="botonVerTurnosReservados"> Ver turnos reservados</button>
+        <button id="cerrarSesion" onclick=cerrarSesion()> Cerrar sesion </button>
+    </div>
   <div class="container">
     </div>
 
-	<h1>ver mis turnos como medico</h1>
-<h2>elija una fecha</h2>
-<input type="date" name="fecha_elegida" id="fecha" style="width: 200px; height: 30px; font-size: 16px;">
-<p id="mostrarFecha"></p>
-<h4>nota: seleccionar fecha 18/10/2024</h4>
+	<h1>Turnos publicados</h1>
+
 
   <script>
 	// Obtener una referencia al elemento input de tipo date
