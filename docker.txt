@@ -15,11 +15,8 @@ docker build -t turnosbackend .
 # En la carpeta raiz del proyecto ejecutar:
 docker-compose up -d
 
-# Ya deberia estar funcionando el sistema en localhost:8080 y en la red lan. 192.168.X.X:8080
+# Ya deberia estar funcionando el sistema en localhost:80 y en la red lan. 192.168.X.X:80
 
 #Comandos utiles (no obligatorios): 
 docker ps # mostrar los contenedores que estan corriendo 
 docker stop [nombre del proceso] # detener un contenedor
-docker rm # borrar contenedor
-docker images # ver imagenes
-docker rmi [nombre] # borrar imagenes
