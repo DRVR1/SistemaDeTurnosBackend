@@ -2,7 +2,7 @@
 // depurar con agregarFilaTabla("medicoNombre","medicoApellido","especialidadNombre","fechaFormateada","horaFormateada");
 
 /*
-
+<h1 id="indicadorDisponibilidad">Turnos disponibles:</h1>
 <div class="listaTurnos">
     <table id="tablaTurnos" class="medic-table">
         <thead>
@@ -87,6 +87,7 @@ function agregarFilaTabla(turnoId, medicoNombre,medicoApellido,especialidadNombr
         row.appendChild(buttonCell);
 
         tableBody.appendChild(row);
+        actualizarIndicador();
 }
 
 
@@ -103,10 +104,10 @@ function filtrarPorFecha(fechaCompleta) {
 
         // Si la fecha no coincide con el filtro, ocultamos la fila
         if (fecha !== fechaFiltro) {
-            console.log("la fecha buscada " + fechaFiltro + "no coincide con la fecha " + fecha )
             filas[i].style.display = "none"; // Ocultar la fila
         } else {
             filas[i].style.display = ""; // Mostrar la fila
+            actualizarIndicador();
         }
     }
 }
@@ -120,4 +121,19 @@ function getfechaDDMMAAAA(day,month,year){ // Estandarizar el formato fecha en D
     year = String(year);
     final = day + "/" + month + "/" + year;
     return final
+}
+
+
+function actualizarIndicador(){
+// Selecciona el tbody de la tabla
+const tbody = document.querySelector('#tablaTurnos tbody');
+const visibleRows = Array.from(tbody.rows).filter(row => getComputedStyle(row).display !== 'none');
+
+title = document.getElementById("indicadorDisponibilidad");
+if (visibleRows.length === 0) {
+    title.textContent = "No hay turnos disponibles para el dia seleccionado.";
+} else {    
+    title.textContent = `Hay ${visibleRows.length} turno/s disponibles para el dia seleccionado.`;
+}
+
 }

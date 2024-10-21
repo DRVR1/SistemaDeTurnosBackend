@@ -1,7 +1,6 @@
 
 
 app_url = 'http://localhost:8080'
-//app_url = 'https://'
 
 
 function guardarToken(token) {

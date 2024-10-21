@@ -32,26 +32,26 @@ public class PacienteService {
                 apellido == null || apellido.isBlank() ||
                 email == null || email.isBlank() ||
                 password == null || password.isBlank()) {
-            return ResponseEntity.badRequest().body(new ResponseMessage("Todos los campos son obligatorios"));
+            return ResponseEntity.badRequest().body(new ResponseMessage("Por favor completar todos los campos."));
         }
 
         // Validar que el email tenga al menos un valor antes y después del arroba
         if (!email.matches("^[^@]+@[^@]+$")) {
-            return ResponseEntity.badRequest().body(new ResponseMessage("Formato de email inválido"));
+            return ResponseEntity.badRequest().body(new ResponseMessage("Formato de email inválido. EJemplo: ejemplo@gmail.com"));
         }
 
         // Verificar que la contraseña tenga al menos 5 caracteres
         if (password.length() < 5) {
-            return ResponseEntity.badRequest().body(new ResponseMessage("La contraseña debe tener al menos 5 caracteres"));
+            return ResponseEntity.badRequest().body(new ResponseMessage("Por su seguridad, la contraseña debe tener al menos 5 caracteres"));
         }
 
         try{
             String encodedPass = passwordEncoder.encode(password);
             Paciente paciente = new Paciente(dni, telefono, nombre, apellido, email, encodedPass);
             pacienteRepository.save(paciente);
-            return ResponseEntity.ok().body(new ResponseMessage("Paciente creado con exito"));
+            return ResponseEntity.ok().body(new ResponseMessage("Registro exitoso, ya puede iniciar sesion con su mail y contraseña."));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new ResponseMessage("Error al crear paciente: Correo existente"));
+            return ResponseEntity.badRequest().body(new ResponseMessage("Error al registrarse: El correo ya fue registrado."));
         }
 
     }

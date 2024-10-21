@@ -136,7 +136,8 @@ function selectDay(cell, day) {
   
     // Mostrar el día seleccionado
     document.getElementById("selectedValue").textContent = "Día seleccionado: " + day;
-  }
+    
+}
   
 
 // revisa la tabla para colorear el calendario con los turnos de la tabla
