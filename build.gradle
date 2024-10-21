@@ -36,6 +36,9 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'com.microsoft.sqlserver:mssql-jdbc:10.2.0.jre11'  // Conector para SQL Server
 	implementation 'org.springframework.boot:spring-boot-starter-security'  // Para seguridad con Spring
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
 }
 
 tasks.named('test') {
