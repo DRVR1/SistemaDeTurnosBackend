@@ -26,10 +26,19 @@ const calendarGrid = document.getElementById('calendar');
 const monthSelect = document.getElementById('month');
 const yearSelect = document.getElementById('year');
 
+let turnosList = null;
+function setCalendarioTurnosList(newTurnosList) {
+    turnosList = newTurnosList; // Asignas el nuevo valor a la variable global turnosList
+}
 
 
 // Inicializar filtros de año y mes
 function generarCalendario() {
+    if(!turnosList){
+        turnosList = turnosDePruebaList;
+        popup("Turnos no cargados. el calendario no va a funcionar correctamente.")
+    }
+
     for (let i = currentYear; i <= currentYear + 5; i++) {
         const option = document.createElement('option');
         option.value = i;
@@ -83,8 +92,7 @@ function generateCalendar(year, month) {
 
         //agregar un listener al div
         dayDiv.onclick = function(){
-            document.querySelector("#tablaTurnos").scrollIntoView({ behavior: "smooth" });
-            filtrarPorFecha(getfechaDDMMAAAA(dayDiv.innerText,currentMonth,currentYear));
+            
         }
 
         calendarGrid.appendChild(dayDiv);
@@ -140,20 +148,7 @@ function selectDay(cell, day) {
 }
   
 
-// revisa la tabla para colorear el calendario con los turnos de la tabla
-function isAvaliable(fechaDDMMAAAA){ //formato DD/MM/AAAA
-    const fechaFiltro = fechaDDMMAAAA;
-    const tabla = document.getElementById("tablaTurnos");
-    const filas = tabla.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-
-    for (let i = 0; i < filas.length; i++) {
-        const celdaFecha = filas[i].getElementsByTagName("td")[3];
-        const fecha = celdaFecha.innerText;
-
-        // Si la fecha coincide con la solicitada, devolver true
-        if (fecha == fechaFiltro) {
-            return true;
-        }else{
-        }
-    }
+// revisa los turnos para colorear el calendario con los turnos disponibles
+function isAvaliable(fechaDDMMAAAA) { // formato DD/MM/AAAA
+    return turnosList.some(turno => convertirFecha(turno.fecha) === fechaDDMMAAAA);
 }

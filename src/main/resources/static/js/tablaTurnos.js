@@ -113,15 +113,7 @@ function filtrarPorFecha(fechaCompleta) {
 }
 
 
-function getfechaDDMMAAAA(day,month,year){ // Estandarizar el formato fecha en DD/MM/AAAA
-    day = String(day).padStart(2, '0');
-    month = String(month).padStart(2, '0');
-    month = Number(month) + 1;
-    month = month.toString()
-    year = String(year);
-    final = day + "/" + month + "/" + year;
-    return final
-}
+
 
 
 function actualizarIndicador(){

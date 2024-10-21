@@ -23,5 +23,5 @@ function populateSelect(){
 cargarEspecialidades();
 
 function guardarId(){
-    sessionStorage.setItem('especialidadId',select.value);
+    localStorage.setItem('especialidadId',select.value);
 }

@@ -144,3 +144,18 @@ body {
         
     }
 }
+
+
+#turnosList { 
+  list-style-type: none; 
+  padding: 0; 
+}
+
+#turnosList li { 
+  text-align: center;
+  background: #f4f4f4; 
+  margin: 20px 0; 
+  padding: 10px; 
+  border-radius: 30px; 
+  border: 1px solid #000000;
+}

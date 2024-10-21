@@ -12,7 +12,7 @@ public interface TurnoRepository extends JpaRepository<Turno, Long> {
 
     List<Turno> findByMedicoEspecialidadId(Long especialidadId);
 
-    List<Turno> findByMedicoEspecialidadIdAndPacienteIsNull(Long especialidadId);
+    List<Turno> findByMedicoEspecialidadIdAndPacienteIsNullOrderByFechaAsc(Long especialidadId);
 
     List<Turno> findByPacienteId(Long pacienteId);
 
