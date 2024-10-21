@@ -25,6 +25,10 @@ body {
     height:100%;
 }
 
+#icono_hosital_img{
+    height: 3rem;
+}
+
 .box h2 {
     text-align: center;
     margin: 10px;
@@ -52,7 +56,7 @@ form {
 
 @media (max-width: 490px) {
     .form_container{
-        height: 100%;
+        height: 55rem;
         border-radius: 0;
     }
 }

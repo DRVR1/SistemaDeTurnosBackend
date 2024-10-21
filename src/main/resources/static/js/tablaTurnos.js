@@ -1,33 +1,54 @@
+// tabla con info de turnos para reservar
+// depurar con agregarFilaTabla("medicoNombre","medicoApellido","especialidadNombre","fechaFormateada","horaFormateada");
+
+/*
+
+<div class="listaTurnos">
+    <table id="tablaTurnos" class="medic-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Especialidad</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+*/
+
 function llenarTurnosDisponibles(turnos){
     turnos.forEach(turno => {
-        // Obtener la tabla donde se insertarán los datos
-        const tableBody = document.querySelector("#tablaTurnos tbody");
-        // Crear una fila de la tabla
-        const row = document.createElement("tr");
 
-        var turnoID = turno.id;
+        var turnoId = turno.id;
         var fechaIso = turno.fecha;
         var fechaDate = new Date(fechaIso);
-
-        /*
-        var pacienteID = turno.paciente.id;
-        var pacienteDNI = turno.paciente.dni;
-        const pacienteNombre = turno.paciente.nombre;
-        const pacienteApellido = turno.paciente.apellido;
-        const pacienteTelefono = turno.paciente.telefono;
-        const pacienteEmail = turno.paciente.email;
-
-        const medicoID = turno.medico.id;
-        const medicoDNI = turno.medico.dni;
-        const medicoTelefono = turno.medico.telefono;
-        const medicoEmail = turno.medico.email;
-        const especialidadID = turno.medico.especialidad.id;
-        */
-
         var medicoNombre = turno.medico.nombre;
         var medicoApellido = turno.medico.apellido;
         var especialidadNombre = turno.medico.especialidad.nombre;
 
+        // Formato día/mes/año
+        const dia = fechaDate.getDate()
+        const mes = fechaDate.getMonth()
+        const año = fechaDate.getFullYear();
+        fechaFormateada = getfechaDDMMAAAA(dia,mes,año);
+
+        // hora
+        const horaFormateada = convertirFecha(fechaIso); 
+        agregarFilaTabla(turnoId,medicoNombre,medicoApellido,especialidadNombre,fechaFormateada,horaFormateada);
+    });
+}
+
+function agregarFilaTabla(turnoId, medicoNombre,medicoApellido,especialidadNombre,fechaFormateada,horaFormateada){
+        // Obtener la tabla donde se insertarán los datos
+        const tableBody = document.querySelector("#tablaTurnos tbody");
+        // Crear una fila de la tabla
+        const row = document.createElement("tr");
 
         // Nombre
         const nombreMedicoCell = document.createElement("td");
@@ -46,19 +67,11 @@ function llenarTurnosDisponibles(turnos){
 
         // fecha
         const fechaCell = document.createElement("td");
-        // Formato día/mes/año
-        const dia = fechaDate.getDate()
-        const mes = fechaDate.getMonth()
-        const año = fechaDate.getFullYear();
-        fechaFormateada = getFechaCompleta(dia,mes,año);
         fechaCell.textContent = fechaFormateada;
         row.appendChild(fechaCell);
 
-        // hora
+
         const horaCell = document.createElement("td");
-        const horas = fechaDate.getHours().toString().padStart(2, '0');
-        const minutos = fechaDate.getMinutes().toString().padStart(2, '0');
-        const horaFormateada = `${horas}:${minutos}`;
         horaCell.textContent = horaFormateada;
         row.appendChild(horaCell);
 
@@ -69,33 +82,15 @@ function llenarTurnosDisponibles(turnos){
         button.classList.add("aceptarBoton");
         buttonCell.appendChild(button);
         button.addEventListener("click", function() {
-        api_reservarTurno(turnoID,localStorage.getItem('userId'));
+        api_reservarTurno(turnoId,localStorage.getItem('userId'));
         });
         row.appendChild(buttonCell);
 
-
-        // Añadir la fila a la tabla
-        console.log("generando row de turno")
         tableBody.appendChild(row);
-    });
 }
 
-function isAvaliable(fechaCompleta){ //formato DD/MM/AAAA
-    const fechaFiltro = fechaCompleta;
-    const tabla = document.getElementById("tablaTurnos");
-    const filas = tabla.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
 
-    for (let i = 0; i < filas.length; i++) {
-        const celdaFecha = filas[i].getElementsByTagName("td")[3];
-        const fecha = celdaFecha.innerText;
 
-        // Si la fecha coincide con la solicitada, devolver true
-        if (fecha == fechaFiltro) {
-            return true;
-        }else{
-        }
-    }
-}
 
 function filtrarPorFecha(fechaCompleta) {
     const fechaFiltro = fechaCompleta;
@@ -114,4 +109,15 @@ function filtrarPorFecha(fechaCompleta) {
             filas[i].style.display = ""; // Mostrar la fila
         }
     }
+}
+
+
+function getfechaDDMMAAAA(day,month,year){ // Estandarizar el formato fecha en DD/MM/AAAA
+    day = String(day).padStart(2, '0');
+    month = String(month).padStart(2, '0');
+    month = Number(month) + 1;
+    month = month.toString()
+    year = String(year);
+    final = day + "/" + month + "/" + year;
+    return final
 }

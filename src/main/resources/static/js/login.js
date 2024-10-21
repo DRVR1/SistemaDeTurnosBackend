@@ -122,9 +122,9 @@ document.getElementById('loginBtn').addEventListener('click', function () {
 if(localStorage.getItem('accessToken') != null){
     var rol = localStorage.getItem('role'); 
     if(rol === 'ROLE_PACIENTE'){
-        window.location.href = app_url+'/html/paciente/opciones.html';
+        window.location.href = app_url+'/html/paciente/home_opciones.html';
     }else if(rol === 'ROLE_MEDICO'){
-        window.location.href = app_url+'/html/medico/opciones.html';
+        window.location.href = app_url+'/html/medico/home_opciones.html';
     }
     
 }

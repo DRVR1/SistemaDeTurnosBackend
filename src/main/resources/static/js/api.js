@@ -1,6 +1,8 @@
 
 
 app_url = 'http://localhost:8080'
+//app_url = 'https://'
+
 
 function guardarToken(token) {
     localStorage.setItem('bearerToken', token);
@@ -94,25 +96,32 @@ function api_reservarTurno(id,pacienteId) {
     });
 }
 
+
 //hardcoded
 function api_cancelarTurno(id) {
-    const turno = {
-        id: id
-    };
-    fetch(app_url+"/api/cancelarTurno", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(turno)
-    })
-    .then(response => response.json()) //Convertir respuesta a json
-    .then(data => {                    //El json.message imprimirlo en el popup
-        popup(data.message);
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    });
+    pop1("¿Desea cancelar el turno?","Si","No").then((result) => {
+        if (result) {
+                const turno = {
+                    id: id
+                };
+                fetch(app_url+"/api/cancelarTurno", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(turno)
+                })
+                .then(response => response.json()) //Convertir respuesta a json
+                .then(data => {                    //El json.message imprimirlo en el popup
+                    popup(data.message);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+            }
+        else{}
+});
+
 }
 
 
