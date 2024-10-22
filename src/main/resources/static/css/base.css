@@ -1,7 +1,7 @@
 body {
     text-align: center;
     margin:0;
-    background-color:#f2f2f2;
+    background-color:#e4e4e4;
     font-family: sans-serif;
 }
 
@@ -9,44 +9,47 @@ body {
 
 /* Estilos generales */
 .navbar{
-  background-color: #006004;
-  height:100px;
+  background-color: #112210;
+  height:6rem;
   margin:0;
+  padding-left: 4rem;
+  padding-right: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
   font-family: sans-serif;
+  
 }
 
 .navbar h1{
   color:#ffffff;
-  font-size: 50px;
+  font-size: 3rem;
+  cursor:pointer;
 }
 
 .navbar button {
   font-size: 20px;
   height: 60px;
   width:200px;
-  margin-left: 50px;
   border: none;
-  background-color: #ffffff;
+  margin:1rem;
+  background-color: #dddddd;
   color:#000000;
   border-radius: 10px;
   border: 2px solid black;
   padding: 10px;
-  box-shadow: 5px 5px #000000; 
+  box-shadow: 0.1rem 0.1rem #000000; 
   cursor: pointer;
 }
 
 .navbar button:hover {
-  background-color: #0a8400;
+  background-color: #ffffff;
 }
 
 /* Media queries para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
+@media (max-width: 970px) {
   .navbar {
-      flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
+      flex-direction: column;
       height: auto;    /* Ajusta la altura dinámica según el contenido */
       justify-content: space-around;
       padding: 10px;
@@ -126,14 +129,14 @@ body {
 }
 
 .aceptarBoton{
-    background-color: #4CAF50;
+    background-color: #175c1a;
     color: white;
     border: none;
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 1.4rem;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -153,9 +156,10 @@ body {
 
 #turnosList li { 
   text-align: center;
+  font-size: 1.1rem;
   background: #f4f4f4; 
   margin: 20px 0; 
   padding: 10px; 
-  border-radius: 30px; 
-  border: 1px solid #000000;
+  border-radius: 2rem; 
+  border: 0.1rem solid #000000;
 }
