@@ -34,21 +34,18 @@ Sistema de turnos medicos que permite registrarse, iniciar sesion, seleccionar u
 
 # Correr el proyecto manualmente sin docker
 
-## Setup Base de Datos (Microsoft SSMS)
-
-El script SQL para crear la base de datos se encuentra en `db/schema.sql`. Para ejecutar el script, seguir estos pasos:
-
-1. Abrir SQL Server Management Studio (SSMS).
-2. Cargar el script: `db/schema.sql` (ctrl + o) para abrir archivos en ssms
-3. Ejecutar el script
-4. Ya deberia aparecer la base de datos "turnos" con sus tablas y SP
-
 ## Primer arranque de SQL server
 
 - instalar servidor SQL2022-SSEI-Expr.
 - instalar administrador de servidores SSMS.
 - el servicio SQLEXPRESS debe estar corriendo (ver desde sql configuration manager o windows services).
 - iniciar sesion en SSMS con windows autentication DESKTOP-#######\SQLEXPRESS encryption mandatory, trust server certificate.
+- 
+## Setup Base de Datos (Microsoft SSMS)
+
+1. Abrir SQL Server Management Studio (SSMS).
+2. Crear la base de datos llamada "turnos"
+3. Ya deberia aparecer la base de datos "turnos"
 
 ## Configurar el login externo (desde java por ejemplo)
 
