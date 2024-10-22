@@ -1,3 +1,5 @@
+/* lista de turnos de prueba para probar el front sin el back */
+
 const turnosDePruebaList = [
     {
         id: 1,

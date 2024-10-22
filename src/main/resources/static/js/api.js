@@ -73,7 +73,7 @@ async function api_queryEspecialidades() {
 
 //hardcoded
 function api_reservarTurno(id,pacienteId) {
-    pop1("¿Desea reservar el turno?","Reservar","Cancelar").then((result) => {
+    popup("¿Desea reservar el turno?","Reservar","Cancelar").then((result) => {
         const turno = {
             id: id,
             paciente: {
@@ -100,7 +100,7 @@ function api_reservarTurno(id,pacienteId) {
 
 //hardcoded
 function api_cancelarTurno(id) {
-    pop1("¿Desea cancelar el turno?","Si","No").then((result) => {
+    popup("¿Desea cancelar el turno?","Si","No").then((result) => {
         if (result) {
                 const turno = {
                     id: id
