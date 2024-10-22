@@ -68,7 +68,7 @@ public class TurnoService {
             if (pacienteOptional.isPresent()) {
                 turno.setPaciente(pacienteOptional.get());
                 turnoRepository.save(turno);
-                return ResponseEntity.ok(new ResponseMessage("Turno reservado con éxito."));
+                return ResponseEntity.ok(new ResponseMessage("Turno reservado con éxito. Puede visualizarlo en la pestaña de turnos reservados."));
             } else {
                 return ResponseEntity.status(404).body(new ResponseMessage("Paciente no encontrado."));
             }

@@ -74,27 +74,30 @@ async function api_queryEspecialidades() {
 //hardcoded
 function api_reservarTurno(id,pacienteId) {
     popup("¿Desea reservar el turno?","Reservar","Cancelar").then((result) => {
-        const turno = {
-            id: id,
-            paciente: {
-                id: pacienteId
-            }
-        };
-        fetch(app_url+"/api/reservarTurno", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(turno)
-        })
-        .then(response => response.json()) //Convertir respuesta a json
-        .then(data => {                    //El json.message imprimirlo en el popup
-            popup(data.message);
-        })
-        .catch(error => {
-            console.error("Error:", error);
-        });
+        if (result) {
+            const turno = {
+                id: id,
+                paciente: {
+                    id: pacienteId
+                }
+            };
+            fetch(app_url+"/api/reservarTurno", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(turno)
+            })
+            .then(response => response.json()) //Convertir respuesta a json
+            .then(data => {                    //El json.message imprimirlo en el popup
+                popup(data.message);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        }
     });
+    
 }
 
 
