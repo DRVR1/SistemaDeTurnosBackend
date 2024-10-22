@@ -3,7 +3,7 @@
 const turnosDePruebaList = [
     {
         id: 1,
-        fecha: '2024-10-20T10:00:00',
+        fecha: '2024-10-17T10:00:00',
         medico: {
             nombre: 'Juan',
             apellido: 'Pérez',

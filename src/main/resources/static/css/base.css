@@ -1,3 +1,6 @@
+/* Estilos que se aplican en muchos html y js a la vez */
+
+/* cuerpo de todos los html */
 body {
     text-align: center;
     margin:0;
@@ -5,9 +8,10 @@ body {
     font-family: sans-serif;
 }
 
-/* navbar */
 
-/* Estilos generales */
+
+
+/* navbar */
 .navbar{
   background-color: #112210;
   height:6rem;
@@ -46,41 +50,31 @@ body {
   background-color: #ffffff;
 }
 
-/* Media queries para pantallas pequeñas (móviles) */
 @media (max-width: 970px) {
   .navbar {
       flex-direction: column;
-      height: auto;    /* Ajusta la altura dinámica según el contenido */
+      height: auto;    
       justify-content: space-around;
       padding: 10px;
   }
 
   .navbar h1 {
-      font-size: 30px; /* Reduce el tamaño del título */
-      margin-bottom: 10px; /* Añade espacio entre el título y los botones */
+      font-size: 30px; 
+      margin-bottom: 10px; 
   }
 
   .navbar button {
 
       margin-left: 0;
-      margin-bottom: 10px; /* Añade espacio entre botones */
-  }
-}
-
-/* Media queries para pantallas extra pequeñas (menos de 480px) */
-@media (max-width: 480px) {
-  .navbar h1 {
-
-  }
-
-  .navbar button {
-
+      margin-bottom: 10px; 
   }
 }
 
 
-/* botones */
 
+
+
+/* home_opciones.html */
 .boton_opciones_home{
     border-left: 10px solid rgba(255, 255, 255, 0);
     justify-content: center;
@@ -114,42 +108,77 @@ body {
   transform: scale(1);
 }
 
-.cancelarBoton{
-  background-color: rgb(199, 0, 0);
-  color: white;
+
+
+
+/*popups.js, boxsTurnos.js*/
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-content {
+  font-size: 1.4rem;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  max-width: 80%;
+  border: 0.2rem solid black;
+}
+
+
+/*Botones de cancelar y de aceptar*/
+.cancelarAceptarBoton{
+  font-size: 1.4rem;
   border: none;
   padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
 }
 
 .aceptarBoton{
     background-color: #175c1a;
     color: white;
-    border: none;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.4rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+}
+.aceptarBoton:hover{
+  background-color: #479549;
+}
+.cancelarBoton{
+  background-color: #670000;
+  color: white;
+  margin-left: 1rem;
+}
+.cancelarBoton:hover{
+  background-color: #b60707;
+}
+@media(max-width:400px){
+  .popup-content{
+    display: flex;
+    flex-direction: column;
+  }
+  .cancelarBoton{
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+
 }
 
 
-@media (max-width: 600px) {
-    .boton_opciones_home{
-        
-    }
-}
-
-
+/*boxsTurnos.js*/
 #turnosList { 
   list-style-type: none; 
   padding: 0; 

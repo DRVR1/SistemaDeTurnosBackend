@@ -25,7 +25,7 @@ async function generarTurnos(turnosList, reservar) {
             <p><strong>Hora del turno:</strong> ${convertirHora(turno.fecha)}</p>
             <p><strong>Médico asignado:</strong> ${turno.medico.nombre} ${turno.medico.apellido}</p>
             <p><strong>Especialidad del Médico:</strong> ${turno.medico.especialidad.nombre}</p>
-            <button class="cancelarBoton" onclick="api_cancelarTurno(${turno.id})">Cancelar turno</button>
+            <button class="cancelarBoton cancelarAceptarBoton" onclick="api_cancelarTurno(${turno.id})">Cancelar turno</button>
         `;
         }else{
             li.innerHTML = `
@@ -34,7 +34,7 @@ async function generarTurnos(turnosList, reservar) {
             <p><strong>Hora del turno:</strong> ${convertirHora(turno.fecha)}</p>
             <p><strong>Médico asignado:</strong> ${turno.medico.nombre} ${turno.medico.apellido}</p>
             <p><strong>Especialidad del Médico:</strong> ${turno.medico.especialidad.nombre}</p>
-            <button class="aceptarBoton" onclick="api_reservarTurno(${turno.id},${localStorage.getItem("userId")})">Reservar turno</button>
+            <button class="aceptarBoton cancelarAceptarBoton" onclick="api_reservarTurno(${turno.id},${localStorage.getItem("userId")})">Reservar turno</button>
         `;
         }
 
