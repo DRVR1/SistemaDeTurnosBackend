@@ -6,15 +6,13 @@ async function main(){
   }catch(e){
     
   }
-  if(turnos){
+  if(turnos != null){
     generarTurnos(turnos,true);
+    setCalendarioTurnosList(turnos);
   }else{
     popup("No hay turnos disponibles, vuelva en otro momento.");
   }
-  
-  // Inicializar todo
-  setCalendarioTurnosList(turnos);
   generarCalendario();
-  }
+}
   
 main();

@@ -35,7 +35,7 @@ public class TurnoController {
     }
 
     @PostMapping("/altaTurnos")
-    public ResponseEntity<ArrayList<Turno>> altaTurno(@RequestBody ArrayList<Turno> turnos) {
+    public ResponseEntity<ArrayList<Turno>> altaTurnos(@RequestBody ArrayList<Turno> turnos) {
         ArrayList<Turno> turnosNew = new ArrayList<>();
 
         for(Turno turno : turnos){
@@ -64,7 +64,7 @@ public class TurnoController {
 
 
     @GetMapping("/verTurnos")
-    public ResponseEntity<List<Turno>> verTurnos(@RequestParam long id){
+    public ResponseEntity<List<Turno>> verTurnos(@RequestParam("id") long id){
         return ResponseEntity.ok(turnoService.verTurnos(id));
     }
 
