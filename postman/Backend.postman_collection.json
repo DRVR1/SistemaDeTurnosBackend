@@ -75,7 +75,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\":\"Odontologo\"\r\n}\r\n",
+					"raw": "{\r\n    \"nombre\":\"Dermatólogo\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -103,7 +103,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"dni\": \"123445\",\r\n  \"telefono\": \"12345647890\",\r\n  \"nombre\": \"Elon\",\r\n  \"apellido\": \"Moks\",\r\n  \"email\": \"medico2@gmail.com\",\r\n  \"password\": \"123451\",\r\n  \"especialidad\":{\r\n    \"id\":\"1\"\r\n  }\r\n}\r\n",
+					"raw": "{\r\n  \"dni\": \"123425671\",\r\n  \"telefono\": \"123145671\",\r\n  \"nombre\": \"Arturo\",\r\n  \"apellido\": \"Moran\",\r\n  \"email\": \"arturo@gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"especialidad\":{\r\n    \"id\":\"3\"\r\n  }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -187,7 +187,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"fecha\": \"2024-10-12T08:15:00\",\r\n  \"medico\": {\r\n    \"id\":1\r\n  }\r\n}\r\n",
+					"raw": "{\r\n  \"fecha\": \"2024-10-25T08:15:00\",\r\n  \"medico\": {\r\n    \"id\":1\r\n  }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -203,6 +203,34 @@
 					"path": [
 						"api",
 						"altaTurno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta turnos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"fecha\": \"2024-10-23T08:30:00\",\r\n        \"medico\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-24T09:15:00\",\r\n        \"medico\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-25T15:30:00\",\r\n        \"medico\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-26T08:30:00\",\r\n        \"medico\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-30T10:30:00\",\r\n        \"medico\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-23T16:30:00\",\r\n        \"medico\": {\r\n            \"id\": 2\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-24T08:00:00\",\r\n        \"medico\": {\r\n            \"id\": 2\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-25T13:30:00\",\r\n        \"medico\": {\r\n            \"id\": 2\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-26T14:45:00\",\r\n        \"medico\": {\r\n            \"id\": 2\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-30T17:00:00\",\r\n        \"medico\": {\r\n            \"id\": 2\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-23T09:30:00\",\r\n        \"medico\": {\r\n            \"id\": 3\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-24T11:30:00\",\r\n        \"medico\": {\r\n            \"id\": 3\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-25T12:15:00\",\r\n        \"medico\": {\r\n            \"id\": 3\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-26T15:30:00\",\r\n        \"medico\": {\r\n            \"id\": 3\r\n        }\r\n    },\r\n    {\r\n        \"fecha\": \"2024-10-30T16:30:00\",\r\n        \"medico\": {\r\n            \"id\": 3\r\n        }\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/altaTurnos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"altaTurnos"
 					]
 				}
 			},
