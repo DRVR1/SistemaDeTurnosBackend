@@ -1,18 +1,15 @@
 
 async function main(){
-  turnos = null;
-  try{
-    turnos = await api_queryTurnos(localStorage.getItem('especialidadId'));
-  }catch(e){
-    
-  }
-  if(turnos != null){
+  turnos = await api_queryTurnos(localStorage.getItem('especialidadId'));
+
+  if(turnos.length === 0){
+    popup("No hay turnos disponibles, vuelva en otro momento.");
+  }else{
     generarTurnos(turnos,true);
     setCalendarioTurnosList(turnos);
-  }else{
-    popup("No hay turnos disponibles, vuelva en otro momento.");
+    generarCalendario();
   }
-  generarCalendario();
+  
 }
   
 main();
