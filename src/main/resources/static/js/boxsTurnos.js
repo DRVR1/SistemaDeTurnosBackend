@@ -1,4 +1,5 @@
 // Como la tabla de turnos, muestra turnos pero en forma de box. Es mas compatible con mobile
+// Para depurar, se puede ejecutar generarTurnos(null,true) o generarTurnos(null,false) 
 
 /*
 

@@ -26,7 +26,6 @@ async function api_queryTurnos(especialidadID) {
         listaTurnos = data;
         return listaTurnos;
   } catch (error) {
-        popupLoadingOff();
         console.error('Error:', error);
         popup("No se pudo conectar con el servidor, inténtelo más tarde." + url);
   }
@@ -47,7 +46,6 @@ async function api_queryTurnosReservados(pacienteId) {
         listaTurnos = data;
         return listaTurnos;
     } catch (error) {
-        popupLoadingOff();
         console.error('Error:', error);
         popup("No se pudo conectar con el servidor, inténtelo más tarde." + url);
     }
@@ -72,7 +70,6 @@ async function api_queryEspecialidades() {
         const data = await response.json();
         return data; 
     } catch (error) {
-        popupLoadingOff();
         console.error('Error:', error);
         popup("No se pudo conectar con el servidor, inténtelo más tarde.");
     }

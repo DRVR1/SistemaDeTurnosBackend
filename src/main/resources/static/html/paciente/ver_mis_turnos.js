@@ -1,7 +1,13 @@
 async function main(){
     pacienteId = localStorage.getItem('userId');
-    turnosList = await api_queryTurnosReservados(pacienteId);  // Si no le doy turnos, buscar en los reservados
-    generarTurnos(turnosList,false);
+    turnosList=[];
+
+    turnosList =  await api_queryTurnosReservados(pacienteId); 
+    if(turnosList.length === 0){
+      popup("No hay turnos para mostrar.");
+    }else{
+      generarTurnos(turnosList,false);
+    }
 }
 
 main();

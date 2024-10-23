@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -32,6 +34,23 @@ public class TurnoController {
         return ResponseEntity.ok(nuevoTurno);
     }
 
+    @PostMapping("/altaTurnos")
+    public ResponseEntity<ArrayList<Turno>> altaTurnos(@RequestBody ArrayList<Turno> turnos) {
+        ArrayList<Turno> turnosNew = new ArrayList<>();
+
+        for(Turno turno : turnos){
+            Turno nuevoTurno = turnoService.altaTurno(
+                    turno.getFecha(),
+                    turno.getPaciente(),
+                    turno.getMedico());
+
+            turnosNew.add(nuevoTurno);
+
+        }
+        return ResponseEntity.ok(turnosNew);
+
+    }
+
     @PostMapping("/reservarTurno")
     public ResponseEntity<Turno> reservarTurno(@RequestBody Turno turno) {
         return (ResponseEntity<Turno>) turnoService.reservarTurno(turno);
@@ -45,12 +64,12 @@ public class TurnoController {
 
 
     @GetMapping("/verTurnos")
-    public ResponseEntity<List<Turno>> verTurnos(@RequestParam long id){
+    public ResponseEntity<List<Turno>> verTurnos(@RequestParam("id") long id){
         return ResponseEntity.ok(turnoService.verTurnos(id));
     }
 
     @GetMapping("/verTurnosReservados")
-    public ResponseEntity<List<Turno>> verTurnosReservados(@RequestParam long pacienteId){
+    public ResponseEntity<List<Turno>> verTurnosReservados(@RequestParam("pacienteId") long pacienteId){
         return ResponseEntity.ok(turnoService.verTurnosReservados(pacienteId));
     }
 
