@@ -15,17 +15,20 @@ function cargarToken() {
 async function api_queryTurnos(especialidadID) {
   var listaTurnos = [];
   try {
-      url = app_url + '/api/verTurnos?id=' + especialidadID
-      const response = await fetch(url);
-      if (!response.ok) {
-          throw new Error('Error en la respuesta del servidor');
-      }
-      const data = await response.json();
-      listaTurnos = data;
-      return listaTurnos;
+        popupLoadingOn();
+        url = app_url + '/api/verTurnos?id=' + especialidadID
+        const response = await fetch(url);
+        popupLoadingOff();
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+        const data = await response.json();
+        listaTurnos = data;
+        return listaTurnos;
   } catch (error) {
-      console.error('Error:', error);
-      popup("No se pudo conectar con el servidor, inténtelo más tarde." + url);
+        popupLoadingOff();
+        console.error('Error:', error);
+        popup("No se pudo conectar con el servidor, inténtelo más tarde." + url);
   }
 }
 
@@ -33,8 +36,10 @@ async function api_queryTurnos(especialidadID) {
 async function api_queryTurnosReservados(pacienteId) {
     var listaTurnos = [];
     try {
+        popupLoadingOn();
         url = app_url + '/api/verTurnosReservados?pacienteId=' + pacienteId
         const response = await fetch(url);
+        popupLoadingOff();
         if (!response.ok) {
             throw new Error('Error en la respuesta del servidor');
         }
@@ -42,6 +47,7 @@ async function api_queryTurnosReservados(pacienteId) {
         listaTurnos = data;
         return listaTurnos;
     } catch (error) {
+        popupLoadingOff();
         console.error('Error:', error);
         popup("No se pudo conectar con el servidor, inténtelo más tarde." + url);
     }
@@ -49,6 +55,7 @@ async function api_queryTurnosReservados(pacienteId) {
 
 async function api_queryEspecialidades() {
     try {
+        popupLoadingOn();
         const url = app_url +'/api/verEspecialidades';
 
         const response = await fetch(url, {
@@ -57,7 +64,7 @@ async function api_queryEspecialidades() {
                 'Content-Type': 'application/json' // Este header es opcional pero recomendable
             }
         });
-
+        popupLoadingOff();
         if (!response.ok) {
             throw new Error('Error en la respuesta del servidor: ' + response.statusText);
         }
@@ -65,8 +72,9 @@ async function api_queryEspecialidades() {
         const data = await response.json();
         return data; 
     } catch (error) {
+        popupLoadingOff();
         console.error('Error:', error);
-        popup("No se pudo conectar con el servidor, inténtelo más tarde. " + url);
+        popup("No se pudo conectar con el servidor, inténtelo más tarde.");
     }
 }
 
@@ -81,6 +89,7 @@ function api_reservarTurno(id,pacienteId) {
                     id: pacienteId
                 }
             };
+            
             fetch(app_url+"/api/reservarTurno", {
                 method: "POST",
                 headers: {
@@ -88,11 +97,15 @@ function api_reservarTurno(id,pacienteId) {
                 },
                 body: JSON.stringify(turno)
             })
+            .then(popupLoadingOn())
             .then(response => response.json()) //Convertir respuesta a json
-            .then(data => {                    //El json.message imprimirlo en el popup
+            .then(data => {     
+                popupLoadingOff();
                 popup(data.message);
             })
             .catch(error => {
+                popupLoadingOff();
+                popup(error);
                 console.error("Error:", error);
             });
         }
@@ -115,11 +128,15 @@ function api_cancelarTurno(id) {
                     },
                     body: JSON.stringify(turno)
                 })
+                .then(popupLoadingOn())
                 .then(response => response.json()) //Convertir respuesta a json
-                .then(data => {                    //El json.message imprimirlo en el popup
+                .then(data => {
+                    popupLoadingOff();                    //El json.message imprimirlo en el popup
                     popup(data.message);
                 })
                 .catch(error => {
+                    popupLoadingOff();     
+                    popup(error);
                     console.error("Error:", error);
                 });
             }

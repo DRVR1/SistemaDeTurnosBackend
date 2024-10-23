@@ -1,4 +1,5 @@
-/* Estilos que se aplican en muchos html y js a la vez */
+/* Este css debe estar en todos los  html. Son los estilos de los
+modulos de javascript y un estilo base de cada pagina */
 
 /* cuerpo de todos los html */
 body {
@@ -32,9 +33,8 @@ body {
 }
 
 .navbar button {
-  font-size: 20px;
-  height: 60px;
-  width:200px;
+  font-size: 1.3rem;
+  width:15rem;
   border: none;
   margin:1rem;
   background-color: #dddddd;
@@ -50,7 +50,7 @@ body {
   background-color: #ffffff;
 }
 
-@media (max-width: 970px) {
+@media (max-width: 1089px) {
   .navbar {
       flex-direction: column;
       height: auto;    
@@ -137,6 +137,15 @@ body {
   border: 0.2rem solid black;
 }
 
+/*Popups de carga*/
+.loadingBox{
+  z-index: 9999;
+}
+
+
+
+
+
 
 /*Botones de cancelar y de aceptar*/
 .cancelarAceptarBoton{
@@ -176,6 +185,10 @@ body {
   }
 
 }
+
+
+
+
 
 
 /*boxsTurnos.js*/

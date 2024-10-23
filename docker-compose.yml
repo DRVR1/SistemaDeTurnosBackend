@@ -22,4 +22,4 @@ services:
       - sql-server
 
 volumes:
-  sql_data:  # Este volumen se usará para el servicio de SQL Server
+  sql_data:

@@ -70,3 +70,44 @@ function popup(message,aceptar,cancelar) {
         popupOverlay.style.display = "flex";
     });
 }
+
+function popupLoadingOn() {
+    // Crear el contenedor principal
+    const loadingContainer = document.createElement('div');
+    loadingContainer.id='loadingContainerId';
+    loadingContainer.className = 'popup-overlay';
+    
+    // Crear la caja de carga
+    const loadingBox = document.createElement('div');
+    loadingBox.className = 'loadingBox';
+    
+    // Crear el spinner
+    const spinner = document.createElement('div');
+    spinner.className = 'spinner-border text-success';
+    spinner.style.width = '7rem';
+    spinner.style.height = '7rem';
+    spinner.setAttribute('role', 'status');
+    
+    // Crear el texto para lectores de pantalla
+    const srOnlyText = document.createElement('span');
+    srOnlyText.className = 'sr-only';
+    srOnlyText.innerText = 'Loading...';
+    
+    // Añadir el texto dentro del spinner
+    spinner.appendChild(srOnlyText);
+    
+    // Añadir el spinner dentro de la caja de carga
+    loadingBox.appendChild(spinner);
+    
+    // Añadir la caja de carga dentro del contenedor principal
+    loadingContainer.appendChild(loadingBox);
+    
+    // Añadir el contenedor dentro del body
+    document.body.appendChild(loadingContainer);
+}
+
+function popupLoadingOff(){
+    container = document.getElementById('loadingContainerId');
+    container.remove();
+}
+
