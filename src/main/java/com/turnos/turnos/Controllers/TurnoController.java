@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -30,6 +32,23 @@ public class TurnoController {
                 turno.getPaciente(),
                 turno.getMedico());
         return ResponseEntity.ok(nuevoTurno);
+    }
+
+    @PostMapping("/altaTurnos")
+    public ResponseEntity<ArrayList<Turno>> altaTurno(@RequestBody ArrayList<Turno> turnos) {
+        ArrayList<Turno> turnosNew = new ArrayList<>();
+
+        for(Turno turno : turnos){
+            Turno nuevoTurno = turnoService.altaTurno(
+                    turno.getFecha(),
+                    turno.getPaciente(),
+                    turno.getMedico());
+
+            turnosNew.add(nuevoTurno);
+
+        }
+        return ResponseEntity.ok(turnosNew);
+
     }
 
     @PostMapping("/reservarTurno")
