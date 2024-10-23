@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selector de Día y Hora</title>
-
-    <link rel="stylesheet" href="../../css/base.css">
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="../../css/paciente/ver_turnos_disponibles.css">
     
   </head>
@@ -22,8 +22,7 @@
         <button id="cerrarSesion" onclick=cerrarSesion()> Cerrar sesion </button>
     </div>
     <div class="allContainer">
-      <h1>Seleccione dia, mes y año:</h1>
-      <p>*Los dias resaltados en verde poseen turnos disponibles</p>
+      <h1>Seleccione mes y año</h1>
       <div class="calendar-container">
         <div class="filters">
             <label for="year">Año:</label>
@@ -36,7 +35,7 @@
                 <!-- Se generarán dinámicamente los meses -->
             </select>
         </div>
-
+        <p>*Los dias resaltados en verde poseen turnos disponibles</p>
         <div class="calendar-grid" id="calendar">
             <!-- Aquí se mostrarán los días del calendario -->
         </div>

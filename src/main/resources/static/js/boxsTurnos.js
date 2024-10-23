@@ -7,10 +7,6 @@
 */
 
 
-
-
-
-
 async function generarTurnos(turnosList, reservar) {
     if(!turnosList){
         popup("Error de conexion, mostrando turnos de prueba");
@@ -24,21 +20,21 @@ async function generarTurnos(turnosList, reservar) {
         li.id = 'li'+turno.id;
         if(!reservar){
             li.innerHTML = `
-            <p><strong>Turno ID:</strong> ${turno.id}</p>
+            <p><strong>Código del turno:</strong> ${turno.id}</p>
             <p><strong>Fecha del turno:</strong> ${convertirFecha(turno.fecha)}</p>
             <p><strong>Hora del turno:</strong> ${convertirHora(turno.fecha)}</p>
             <p><strong>Médico asignado:</strong> ${turno.medico.nombre} ${turno.medico.apellido}</p>
             <p><strong>Especialidad del Médico:</strong> ${turno.medico.especialidad.nombre}</p>
-            <button class="cancelarBoton" onclick="api_cancelarTurno(${turno.id})">Cancelar turno</button>
+            <button class="cancelarBoton cancelarAceptarBoton" onclick="api_cancelarTurno(${turno.id})">Cancelar turno</button>
         `;
         }else{
             li.innerHTML = `
-            <p><strong>Turno ID:</strong> ${turno.id}</p>
+            <p><strong>Código del turno:</strong> ${turno.id}</p>
             <p><strong>Fecha del turno:</strong> ${convertirFecha(turno.fecha)}</p>
             <p><strong>Hora del turno:</strong> ${convertirHora(turno.fecha)}</p>
             <p><strong>Médico asignado:</strong> ${turno.medico.nombre} ${turno.medico.apellido}</p>
             <p><strong>Especialidad del Médico:</strong> ${turno.medico.especialidad.nombre}</p>
-            <button class="aceptarBoton" onclick="api_reservarTurno(${turno.id},${localStorage.getItem("userId")})">Reservar turno</button>
+            <button class="aceptarBoton cancelarAceptarBoton" onclick="api_reservarTurno(${turno.id},${localStorage.getItem("userId")})">Reservar turno</button>
         `;
         }
 

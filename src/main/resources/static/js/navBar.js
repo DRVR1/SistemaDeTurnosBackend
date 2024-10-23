@@ -1,6 +1,6 @@
 
 function cerrarSesion(){
-    pop1("¿Desea cerrar sesion?","Continuar","Cancelar").then((result) => {
+    popup("¿Desea cerrar sesion?","Continuar","Cancelar").then((result) => {
         if (result) {
             localStorage.clear(); window.location.href = app_url;
         }else{

@@ -1,83 +1,80 @@
+/* Este css debe estar en todos los  html. Son los estilos de los
+modulos de javascript y un estilo base de cada pagina */
+
+/* cuerpo de todos los html */
 body {
     text-align: center;
     margin:0;
-    background-color:#f2f2f2;
+    background-color:#e4e4e4;
     font-family: sans-serif;
 }
 
-/* navbar */
 
-/* Estilos generales */
+
+
+/* navbar */
 .navbar{
-  background-color: #006004;
-  height:100px;
+  background-color: #112210;
+  height:6rem;
   margin:0;
+  padding-left: 4rem;
+  padding-right: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
   font-family: sans-serif;
+  
 }
 
 .navbar h1{
   color:#ffffff;
-  font-size: 50px;
+  font-size: 3rem;
+  cursor:pointer;
 }
 
 .navbar button {
-  font-size: 20px;
-  height: 60px;
-  width:200px;
-  margin-left: 50px;
+  font-size: 1.3rem;
+  width:15rem;
   border: none;
-  background-color: #ffffff;
+  margin:1rem;
+  background-color: #dddddd;
   color:#000000;
   border-radius: 10px;
   border: 2px solid black;
   padding: 10px;
-  box-shadow: 5px 5px #000000; 
+  box-shadow: 0.1rem 0.1rem #000000; 
   cursor: pointer;
 }
 
 .navbar button:hover {
-  background-color: #0a8400;
+  background-color: #ffffff;
 }
 
-/* Media queries para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
+@media (max-width: 1089px) {
   .navbar {
-      flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
-      height: auto;    /* Ajusta la altura dinámica según el contenido */
+      flex-direction: column;
+      height: auto;    
       justify-content: space-around;
       padding: 10px;
   }
 
   .navbar h1 {
-      font-size: 30px; /* Reduce el tamaño del título */
-      margin-bottom: 10px; /* Añade espacio entre el título y los botones */
+      font-size: 30px; 
+      margin-bottom: 10px; 
   }
 
   .navbar button {
 
       margin-left: 0;
-      margin-bottom: 10px; /* Añade espacio entre botones */
-  }
-}
-
-/* Media queries para pantallas extra pequeñas (menos de 480px) */
-@media (max-width: 480px) {
-  .navbar h1 {
-
-  }
-
-  .navbar button {
-
+      margin-bottom: 10px; 
   }
 }
 
 
-/* botones */
 
+
+
+/* home_opciones.html */
 .boton_opciones_home{
     border-left: 10px solid rgba(255, 255, 255, 0);
     justify-content: center;
@@ -111,41 +108,90 @@ body {
   transform: scale(1);
 }
 
-.cancelarBoton{
-  background-color: rgb(199, 0, 0);
-  color: white;
+
+
+
+/*popups.js, boxsTurnos.js*/
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-content {
+  font-size: 1.4rem;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  max-width: 80%;
+  border: 0.2rem solid black;
+}
+
+/*Popups de carga*/
+.loadingBox{
+  z-index: 9999;
+}
+
+
+
+
+
+
+/*Botones de cancelar y de aceptar*/
+.cancelarAceptarBoton{
+  font-size: 1.4rem;
   border: none;
   padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
 }
 
 .aceptarBoton{
-    background-color: #4CAF50;
+    background-color: #175c1a;
     color: white;
-    border: none;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+}
+.aceptarBoton:hover{
+  background-color: #479549;
+}
+.cancelarBoton{
+  background-color: #670000;
+  color: white;
+  margin-left: 1rem;
+}
+.cancelarBoton:hover{
+  background-color: #b60707;
+}
+@media(max-width:400px){
+  .popup-content{
+    display: flex;
+    flex-direction: column;
+  }
+  .cancelarBoton{
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+
 }
 
-@media (max-width: 600px) {
-    .boton_opciones_home{
-        
-    }
-}
 
 
+
+
+
+/*boxsTurnos.js*/
 #turnosList { 
   list-style-type: none; 
   padding: 0; 
@@ -153,9 +199,10 @@ body {
 
 #turnosList li { 
   text-align: center;
+  font-size: 1.1rem;
   background: #f4f4f4; 
   margin: 20px 0; 
   padding: 10px; 
-  border-radius: 30px; 
-  border: 1px solid #000000;
+  border-radius: 2rem; 
+  border: 0.1rem solid #000000;
 }

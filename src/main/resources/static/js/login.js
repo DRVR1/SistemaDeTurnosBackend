@@ -72,12 +72,15 @@ document.getElementById('registerBtn').addEventListener('click', function () {
         },
         body: JSON.stringify(pacienteData)
     })
+    .then(popupLoadingOn())
     .then(response => response.json())
     .then(data => {
+        popupLoadingOff();
         popup(data.message);
     })
     .catch(error => {
-        popup('Error:', error);
+        popupLoadingOff();
+        popup(error);
         // Manejo de errores
     });
 });
@@ -91,7 +94,7 @@ document.getElementById('loginBtn').addEventListener('click', function () {
         email: email,
         password: password
     };
-
+    
     fetch(app_url+'/auth/login', {
         method: 'POST',
         headers: {
@@ -99,6 +102,7 @@ document.getElementById('loginBtn').addEventListener('click', function () {
         },
         body: JSON.stringify(loginData)
     })
+    .then(popupLoadingOn())
     .then(response => {
         if (response.status === 403) {
             throw new Error('Credenciales inválidas'); // Lanza un error para manejarlo en el catch
@@ -106,12 +110,14 @@ document.getElementById('loginBtn').addEventListener('click', function () {
         return response.json()})
 
     .then(data => {
+        popupLoadingOff();
         localStorage.setItem('accessToken',data.accessToken);
         localStorage.setItem('role',data.role);
         localStorage.setItem('userId',data.userId);
         location.reload();
     })
     .catch(error => {
+        popupLoadingOff()
         popup(error)
     });
 });
