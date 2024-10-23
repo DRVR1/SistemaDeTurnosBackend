@@ -37,7 +37,7 @@ public class PacienteService {
 
         // Validar que el email tenga al menos un valor antes y después del arroba
         if (!email.matches("^[^@]+@[^@]+$")) {
-            return ResponseEntity.badRequest().body(new ResponseMessage("Formato de email inválido. EJemplo: ejemplo@gmail.com"));
+            return ResponseEntity.badRequest().body(new ResponseMessage("Formato de email inválido. Ejemplo: ejemplo@gmail.com"));
         }
 
         // Verificar que la contraseña tenga al menos 5 caracteres
