@@ -1,13 +1,15 @@
-/* Estilos generales */
+*{
+    padding: 0;
+    margin: 0;
+}
+
 html, body {
     height: 100%;
     width: 100%;
-    padding: 0;
-    margin:0;
 }
 body {
     font-family: sans-serif;
-    background: #4d764b;
+    background: #ccdbcc;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -26,6 +28,8 @@ body {
 
 #icono_hosital_img{
     height: 3rem;
+    width: 4rem;
+    align-self: center;
 }
 
 .box h2 {
@@ -36,7 +40,6 @@ body {
 .form_container{
     width:100%;
     display: flex;
-    justify-content: center;
     align-items: center;
     border: 3px solid white;
     background-color: white;
@@ -44,7 +47,6 @@ body {
 }
 
 form {
-    background-color: rgba(237, 237, 237, 0);
     padding: 2rem;
     width:100%;
     margin-top: auto;
@@ -55,41 +57,22 @@ form {
 
 @media (max-width: 490px) {
     .form_container{
-        height: 55rem;
+        height: 100vh;
         border-radius: 0;
     }
 }
 
-label {
- margin: 0;
-  padding: 0;
-}
 
 input {
     font-size: 1.2rem;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-radius: 5px;
 }
 
 input:hover{
     background-color: rgb(247, 247, 247);
-}
-
-.showPasswordDiv{
-    display: flex;
-    align-items: center;
-}
-
-
-#showPasswordLabel{
-    margin-left: 0.5rem;
-    text-align: center;
-    justify-content: center;
-    color:rgb(0, 0, 0);
-    pointer-events: none;
-    user-select: none;
 }
 
 button {
@@ -105,14 +88,42 @@ button {
 button:hover {
     background-color: #192519;
 }
-.toggler{
-    background-color: #104156;
-    margin-top: 20px;
-    max-width: 10rem;
+
+h6{
+    font-size: 15px;
+    text-align: center;
+}
+h6 button{
+    background-color: rgba(247, 247, 247, 0);
+    color: #006004;
+    font-size: 15px;
+    border-radius: 0;
+    padding: 5px;
 }
 
-
+h6 button:hover {
+    background-color: rgba(247, 247, 247, 0);
+    color: black;
+    text-decoration: underline;
+}
 
 .hidden {
     display: none;
+}
+
+#loginShowPasswordDiv{
+    margin-left: 20px;
+}
+
+#loginShowPasswordDiv input:hover{
+    cursor: pointer;
+}
+
+
+button:active{
+    border-style: none;
+}
+
+label{
+    margin-bottom: 0;
 }
