@@ -7,7 +7,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - sql_turnos:/var/opt/mssql
+      - sql_turnos:/var/lib/postgresql/data
     # set shared memory limit when using docker-compose
     shm_size: 128mb
     # or set shared memory limit when deploy via swarm stack
