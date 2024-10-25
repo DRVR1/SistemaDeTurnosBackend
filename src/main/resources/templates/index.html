@@ -6,20 +6,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+		<link rel="stylesheet" href="/css/base.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/login/login.css"> <!--Para visual, agregar ../static al principio-->
 
-		<link rel="stylesheet" type="text/css" href="/css/login/login.css">
-		<link rel="stylesheet" type="text/css" href="/css/base.css">
 	</head>
 	<body>
         <div class="box" id="loginBox">
 			<div class="form_container">
 				<form>
-					<h2><img id="icono_hosital_img" src="/images/hospital2.png"> Iniciar sesión</h2>
-					<label id="ini" for="loginEmail">Correo electrónico</label>
+					<img id="icono_hosital_img" src="../static/images/hospital2.png"> <!--Para visual, agregar ../static al principio-->
+					<h2> Iniciar sesión</h2>
 					<input id="loginEmail" type="email" name="email" placeholder="Correo electrónico" required>
 
-					<label for="loginPassword">Contraseña</label>
 					<input id="loginPassword" type="password" name="pswd" placeholder="Contraseña" required>
+
 					<div id="loginShowPasswordDiv" class="showPasswordDiv">
 						<input id="loginShowPasswordInput" class="form-check-input" type="checkbox" value="ver">					
 						<label id="showPasswordLabel" for="loginShowPasswordInput">Mostrar contraseña</label>
@@ -27,7 +27,7 @@
 
 
 					<button type="button" id="loginBtn">Iniciar sesión</button>
-					<button type="button" class="toggler" id="toggleRegister">Registrarse</button>
+					<h6>¿No tenes una cuenta?<button type="button" class="toggler" id="toggleRegister">Registrate acá</button></h6>
 				</form>
 			</div>
         </div>
@@ -61,15 +61,14 @@
 
 
 					<button type="button" id="registerBtn">Registrarse</button>
-					<button type="button" class="toggler" id="toggleLogin">Iniciar sesion</button>
-
+					<h6>¿Ya tenes cuenta?<button type="button" class="toggler" id="toggleLogin">Ingresa acá</button></h6>
 				</form>
 			</div>
 
         </div>
  	
-		<script src="/js/api.js"></script>
-		<script src="/js/popups.js"></script>
-		<script src="/js/login.js"></script>
+		<script src="../static/js/api.js"></script> <!--Para visual, agregar ../static al principio-->
+		<script src="../static/js/popups.js"></script> <!--Para visual, agregar ../static al principio-->
+		<script src="../static/js/login.js"></script> <!--Para visual, agregar ../static al principio-->
 	</body>
 </html>

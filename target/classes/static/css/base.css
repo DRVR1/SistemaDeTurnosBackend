@@ -1,38 +1,161 @@
 /* Este css debe estar en todos los  html. Son los estilos de los
 modulos de javascript y un estilo base de cada pagina */
 
+/* Transiciones al final del doc */
+
+
 /* cuerpo de todos los html */
-body {
-    text-align: center;
-    margin:0;
-    background-color:#e4e4e4;
-    font-family: sans-serif;
-}
-
-
-
-
-/* navbar */
-.navbar{
-  background-color: #112210;
-  height:6rem;
-  margin:0;
-  padding-left: 4rem;
-  padding-right: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+*{
+  margin: 0;
+  padding: 0;
   font-family: sans-serif;
-  
+  cursor: default;
+  transition: all 0.3s;
 }
 
-.navbar h1{
+body {
+    background-color:#ccdbcc;
+}
+
+/* -----------------menu desplegable ----------------------*/
+
+.menuDesp {
+  top: 0;
+  position: fixed;
+  width: 18rem;
+  height: 100%;
+  background: #558557;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0px 1px 2px black;
+  transform: translateX(-100%);
+  z-index: 20; /* Asegura que el menú esté sobre el overlay */
+}
+
+/* Mostrar el menú */
+.menuDesp.open {
+  transform: translateX(0); /* Hace visible el menú */
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 10; /* Asegura que el overlay esté sobre el contenido */
+}
+
+#bienvenido{
+  margin-top: 80px;
+  font-size: 40px;
+  margin-bottom: 40px;
+  color: white;
+  text-shadow: 0px 2px 5px rgb(50, 50, 50) ;
+}
+ul{
+  border: white;
+}
+ul li {
+  line-height: 10px;
+  text-align: left;
+  margin: 15PX;
+  padding: 7px 13px;
+  text-decoration: none;
+  list-style-type: none;
+  display: block;
+}
+
+ul li a {
+  text-shadow: 0px 2px 3px rgb(50, 50, 50) ;
+  color: white;
+  font-size: 200%;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #192519;
+
+  cursor: pointer;
+}
+
+#cerrarSesion{
+  position: absolute;
+  bottom: 2%;
+}
+
+/* -----------------------------Boton 3 lineas --------------------------------*/
+
+
+/* Estilos básicos para las líneas */
+.line {
+  width: 60%;
+  height: 3px;
+  background-color: rgb(255, 255, 255);
+  margin: 6px;
+  position: absolute;
+  left: 4px;
+  cursor: pointer;
+}
+
+/* Posiciones iniciales */
+.line1 { top: 9px; }
+.line2 { top: 17px; }
+.line3 { top: 25px; }
+
+/* Transformación a cruz cuando el menú está abierto */
+#checkbox:checked + .checkbtn .line1 {
+  transform: rotate(45deg);
+  top: 14px;
+}
+
+#checkbox:checked + .checkbtn .line2 {
+  opacity: 0; /* Desaparece la línea del medio */
+}
+
+#checkbox:checked + .checkbtn .line3 {
+  transform: rotate(-45deg);
+  top: 14px;
+}
+
+
+#checkbox {
+  display: none;
+
+}
+
+#checkMenu {
+  top: 0;
+  background-color: #558557;
+  padding: 25px;
+  border: 2px #558557 solid;
+  border-radius: 100%;
+  position: fixed;
+  cursor: pointer;
+  z-index: 30;
+  margin-left: 10px;
+}
+
+/* -----------------------------header --------------------------------*/
+header{
+  background-color: #558557;
+  height:max-content ;
+  width: 100%;
+  text-align: end;
+  box-shadow: 0px 1px 2px black;
+}
+
+header h1{
   color:#ffffff;
-  font-size: 3rem;
   cursor:pointer;
+  display: inline;
+  margin-right: 20px;
+  font-size: 3rem;
 }
-
-.navbar button {
+/* ---------
+header button {
   font-size: 1.3rem;
   width:15rem;
   border: none;
@@ -46,35 +169,12 @@ body {
   cursor: pointer;
 }
 
-.navbar button:hover {
+header button:hover {
   background-color: #ffffff;
 }
 
-@media (max-width: 1089px) {
-  .navbar {
-      flex-direction: column;
-      height: auto;    
-      justify-content: space-around;
-      padding: 10px;
-  }
-
-  .navbar h1 {
-      font-size: 30px; 
-      margin-bottom: 10px; 
-  }
-
-  .navbar button {
-
-      margin-left: 0;
-      margin-bottom: 10px; 
-  }
-}
 
 
-
-
-
-/* home_opciones.html */
 .boton_opciones_home{
     border-left: 10px solid rgba(255, 255, 255, 0);
     justify-content: center;
@@ -109,7 +209,7 @@ body {
 }
 
 
-
+----*/
 
 /*popups.js, boxsTurnos.js*/
 
@@ -274,4 +374,57 @@ background-color: #11c900;
 color:rgb(255, 255, 255);
 }
 
+
+
+/*----------------------------Transiciones------------------------------------*/
+
+@media (max-width: 1089px) { /*-------------------------------Cuando es muy chico----------------------------*/
+  /*Menu desplegable*/
+
+  ul li a {
+      font-size: 15px; 
+  }
+  #bienvenido{
+    font-size: 20px;
+  }
+  .menuDesp{
+    width: 160px;
+  }
+
+  /*header*/
+ 
+
+  header {
+    flex-direction: column;
+    height: auto;    
+    justify-content: space-around;
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 30px; 
+    margin-bottom: 10px; 
+  }
+
+  header button {
+    margin-left: 0;
+    margin-bottom: 10px; 
+  }
+
+}
+
+
+@media (min-width: 2000px) { /*---------------Cuando es muy grande------------------------*/
+  /*Menu desplegable*/
+  ul li a {
+      font-size: 45px;
+  }
+  #bienvenido{
+    margin-top: 100px;
+    font-size: 50px;
+  }
+  .menuDesp {
+    width: 330px;
+  }
+}
 
