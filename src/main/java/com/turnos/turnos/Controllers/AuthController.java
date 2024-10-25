@@ -1,7 +1,9 @@
-package com.turnos.turnos.Login;
+package com.turnos.turnos.Controllers;
 
 import com.turnos.turnos.DTOs.ResponseMessage;
 import com.turnos.turnos.Entities.Turno;
+import com.turnos.turnos.Login.LoginRequest;
+import com.turnos.turnos.Login.LoginResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
