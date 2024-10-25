@@ -11,12 +11,38 @@
     
 </head>
 <body>
-    <div id="navBar" class="navbar">
-        <h1 id="navTitulo">Bienvenido</h1>
-        <button id="botonReservarTurno"> Reservar un turno</button>
-        <button id="botonVerTurnosReservados"> Ver turnos reservados</button>
-        <button id="cerrarSesion" onclick=cerrarSesion()> Cerrar sesion </button>
+    <!-----------------------------Encabezado------------------------------------>
+
+   <header>     
+    <h1 id="nombre">Sistema de turnos</h1>
+</header>
+
+<!-----------------------------Menu desplegable------------------------------------>
+<input type="checkbox" id="checkbox">
+<label for="checkbox" class="checkbtn">
+    <div id="checkMenu">
+        <span class="line line1"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
     </div>
+</label>
+
+<!-- Menú desplegable -->
+<div class="menuDesp" id="menuDesp">
+    <ul>
+        <li id="bienvenido">Bienvenid@</li>
+        <li><a href="home_opciones.html">Inicio</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+        <li><a href="seleccionar_especialidad.html">Reservar turno</a></li>
+        <li><a href="#">Médicos</a></li>
+        <li><a href="ver_mis_turnos.html">Mis turnos</a></li>
+        <li id="cerrarSesion"><a onclick=cerrarSesion()>Cerrar sesion</a></li>
+    </ul> 
+</div>
+
+<div id="overlay"></div>
+<!-----------------------------Especialidad------------------------------------>
+
     <main>
         <section class="formulario-turno">
             <h2>Selecciona tu Especialidad</h2>
@@ -35,7 +61,7 @@
     <script src="../../js/popups.js"></script>
     <script src="../../js/api.js"></script>
     <script src="../../js/navBar.js"></script>
-
+    <script src="../../js/menuDesp.js"></script>
     <script src="seleccionar_especialidad.js"></script>
 </body>
 </html>
