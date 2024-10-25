@@ -25,3 +25,7 @@ cargarEspecialidades();
 function guardarId(){
     localStorage.setItem('especialidadId',select.value);
 }
+
+function goBack() {
+    window.history.back();
+}
