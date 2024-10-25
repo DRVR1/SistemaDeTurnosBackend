@@ -1,0 +1,277 @@
+/* Este css debe estar en todos los  html. Son los estilos de los
+modulos de javascript y un estilo base de cada pagina */
+
+/* cuerpo de todos los html */
+body {
+    text-align: center;
+    margin:0;
+    background-color:#e4e4e4;
+    font-family: sans-serif;
+}
+
+
+
+
+/* navbar */
+.navbar{
+  background-color: #112210;
+  height:6rem;
+  margin:0;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  
+}
+
+.navbar h1{
+  color:#ffffff;
+  font-size: 3rem;
+  cursor:pointer;
+}
+
+.navbar button {
+  font-size: 1.3rem;
+  width:15rem;
+  border: none;
+  margin:1rem;
+  background-color: #dddddd;
+  color:#000000;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 10px;
+  box-shadow: 0.1rem 0.1rem #000000; 
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  background-color: #ffffff;
+}
+
+@media (max-width: 1089px) {
+  .navbar {
+      flex-direction: column;
+      height: auto;    
+      justify-content: space-around;
+      padding: 10px;
+  }
+
+  .navbar h1 {
+      font-size: 30px; 
+      margin-bottom: 10px; 
+  }
+
+  .navbar button {
+
+      margin-left: 0;
+      margin-bottom: 10px; 
+  }
+}
+
+
+
+
+
+/* home_opciones.html */
+.boton_opciones_home{
+    border-left: 10px solid rgba(255, 255, 255, 0);
+    justify-content: center;
+    align-content: center;
+    width: 170px;
+    height: 170px;
+    margin:30px;
+    margin-top: 20px;
+    background-color: #ededed;
+    color: #000000;
+    padding: 10px 15px;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: 3px solid rgb(0, 0, 0);
+    box-shadow: 10px 10px 1px rgb(0, 0, 0);
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+
+.boton_opciones_home p {
+  margin: auto;
+}
+
+.boton_opciones_home:hover{
+  transform: scale(1.1);
+  border-left: 10px solid #408d49;
+}
+.boton_opciones_home:active{
+  transform: scale(1);
+}
+
+
+
+
+/*popups.js, boxsTurnos.js*/
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-content {
+  font-size: 1.4rem;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  max-width: 80%;
+  border: 0.2rem solid black;
+}
+
+/*Popups de carga*/
+.loadingBox{
+  z-index: 9999;
+}
+
+
+
+
+
+
+/*Botones de cancelar y de aceptar*/
+.cancelarAceptarBoton{
+  font-size: 1.4rem;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.aceptarBoton{
+    background-color: #175c1a;
+    color: white;
+}
+.aceptarBoton:hover{
+  background-color: #479549;
+}
+.cancelarBoton{
+  background-color: #670000;
+  color: white;
+  margin-left: 1rem;
+}
+.cancelarBoton:hover{
+  background-color: #b60707;
+}
+@media(max-width:400px){
+  .popup-content{
+    display: flex;
+    flex-direction: column;
+  }
+  .cancelarBoton{
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+
+}
+
+
+
+
+
+
+/*boxsTurnos.js*/
+#turnosList { 
+  list-style-type: none; 
+  padding: 0; 
+}
+
+#turnosList li { 
+  text-align: center;
+  font-size: 1.1rem;
+  background: #f4f4f4; 
+  margin: 20px 0; 
+  padding: 10px; 
+  border-radius: 2rem; 
+  border: 0.1rem solid #000000;
+}
+
+/*calendario*/
+
+.calendar-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+}
+
+.calendar-grid div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px;
+  height: 50px;
+}
+
+@media(max-width:500px){
+  .calendar-grid{
+    grid-gap: 0px;
+  }
+  .calendar-grid div{
+    border-radius: 0;
+  }
+  
+}
+.calendar-grid div:nth-child(7n) {
+  color: red; /* Domingo */
+}
+
+
+.dayDiv {
+  background-color: rgb(225, 225, 225);
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  user-select: none;
+}
+
+.dayDiv:hover{
+  background-color: rgb(175, 175, 175);
+}
+
+.dayDiv:active{
+  transform: scale(0.9)
+}
+
+.day-available {
+background-color: #096900;
+color:rgb(255, 255, 255);
+}
+
+.day-available:hover {
+background-color: #11c900;
+color:rgb(255, 255, 255);
+}
+
+

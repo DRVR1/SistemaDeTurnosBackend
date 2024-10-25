@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario con Replicación</title>
+    <link rel="stylesheet" href="seleccionador.css">
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th><input type="checkbox" checked> Lun</th>
+        <th><input type="checkbox" checked> Mar</th>
+        <th><input type="checkbox" checked> Mié</th>
+        <th><input type="checkbox" checked> Jue</th>
+        <th><input type="checkbox" checked> Vie</th>
+        <th><input type="checkbox"> Sáb</th>
+        <th><input type="checkbox"> Dom</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td>
+        <td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td><td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td><td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td><td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td><td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td><td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+    <script>
+const dayCheckboxes = document.querySelectorAll('thead th input[type="checkbox"]');
+const tableBody = document.querySelector('tbody');
+
+dayCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        const day = checkbox.closest('th');
+        const checkboxesInDay = day.parentNode.nextElementSibling.querySelectorAll('input[type="checkbox"]');
+
+        checkboxesInDay.forEach(checkbox => {
+            checkbox.checked = checkbox.closest('th').querySelector('input[type="checkbox"]').checked;
+        });
+
+        // Agregar elementos <input type="time"> a la columna correspondiente
+        const columnIndex = Array.from(day.parentNode.children).indexOf(day);
+        const row = tableBody.querySelector(`tr:nth-child(${columnIndex + 1})`);
+        row.querySelector('td').insertAdjacentHTML('beforeend', `
+            <input type="time" value="09:00">
+            <input type="time" value="13:00">
+        `);
+    });
+});
+
+const replicarButtons = document.querySelectorAll('.replicar');
+
+replicarButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const cell = button.closest('td');
+    const timeInputs = cell.querySelectorAll('input[type="time"]');
+
+    const timeValues = Array.from(timeInputs).map(input => input.value);
+
+    const allCells = document.querySelectorAll('tbody td');
+
+    allCells.forEach(targetCell => {
+      if (targetCell !== cell) {
+        const targetTimeInputs = targetCell.querySelectorAll('input[type="time"]');
+        targetTimeInputs.forEach((input, index) => {
+          input.value = timeValues[index];
+        });
+      }
+    });
+  });
+});
+
+</script>
+</body>
+</html>

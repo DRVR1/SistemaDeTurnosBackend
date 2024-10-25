@@ -10,7 +10,14 @@ powershell -Command "docker images"
 
 powershell -Command "docker rmi turnosbackend"
 
-powershell -Command "docker build -t turnosbackend ."
+
+
+
+
+
+
+
+powershell -Command "docker build -t requerimientosbackend ."
 
 powershell -Command "docker-compose up -d"
 
