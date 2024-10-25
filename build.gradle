@@ -29,13 +29,15 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // Añadido para Thymeleaf
 	implementation 'com.auth0:java-jwt:4.4.0'
+	implementation 'org.postgresql:postgresql:42.6.0'  // o la versión más reciente
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation 'com.microsoft.sqlserver:mssql-jdbc:10.2.0.jre11'  // Conector para SQL Server
+	//implementation 'com.microsoft.sqlserver:mssql-jdbc:10.2.0.jre11'  // Conector para SQL Server
 	implementation 'org.springframework.boot:spring-boot-starter-security'  // Para seguridad con Spring
+	
 }
 
 tasks.named('test') {
