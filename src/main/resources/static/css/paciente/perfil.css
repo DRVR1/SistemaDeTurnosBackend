@@ -1,10 +1,17 @@
 /* Estilos generales */
 
-main {
+main{
+    display: flex;
+    justify-content: center; /* Alineación horizontal */
+    align-items: center;
+    
+}
+
+#contenedor{
     background-color: white;
     padding: 20px;
-    max-width: 900px;
-    margin: auto;
+    max-width: 1000px;
+    margin: 100px;
 }
 
 /* Sección de perfil */
@@ -65,7 +72,7 @@ label {
     border: 1px solid #cccccc;
     border-radius: 4px;
     background-color: rgb(222, 222, 222);
-
+    overflow:hidden;
 }
 
 

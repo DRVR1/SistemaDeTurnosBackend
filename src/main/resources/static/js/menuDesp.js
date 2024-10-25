@@ -2,6 +2,8 @@ const checkbox = document.getElementById("checkbox");
 const overlay = document.getElementById("overlay");
 const menu = document.getElementById("menuDesp");
 
+checkbox.checked = false
+
 // Detecta el cambio de estado del checkbox para abrir/cerrar el menú
 checkbox.addEventListener("change", toggleMenu);
 
