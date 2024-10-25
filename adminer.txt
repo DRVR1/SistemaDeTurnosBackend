@@ -1,0 +1,7 @@
+#Instanciar en docker en caso de necesitar administrar la db (es una especie de ssms)  
+ 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"

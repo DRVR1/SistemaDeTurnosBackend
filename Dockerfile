@@ -1,23 +1,20 @@
-# Etapa de construcción
-FROM eclipse-temurin:21 as build
-
-# Establece el directorio de trabajo
+#
+# Build stage
+#
+FROM eclipse-temurin:22-jdk-jammy AS build
 WORKDIR /app
-
-# Copia el archivo gradlew y gradle.properties primero para aprovechar la caché de Docker
-COPY gradlew gradlew
-COPY gradle gradle
-RUN chmod +x gradlew
-
-# Copia el código fuente
+RUN apt-get update && apt-get install -y dos2unix
 COPY . .
-
-# Compila el proyecto
-RUN ./gradlew clean build -x test
-
-# Etapa de ejecución
-FROM eclipse-temurin:21
+RUN chmod +x mvnw
+RUN dos2unix mvnw
+RUN ls
+RUN ./mvnw dependency:go-offline
+RUN ./mvnw clean package -DskipTests
+#
+# Package stage
+#
+FROM eclipse-temurin:22-jre-jammy 
 WORKDIR /app
-COPY --from=build /app/build/libs/*.jar /app/app.jar
+COPY --from=build /app/target/*.jar /app/app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
