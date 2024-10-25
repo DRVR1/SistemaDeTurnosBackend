@@ -20,10 +20,6 @@ Sistema de turnos medicos que permite registrarse, iniciar sesion, seleccionar u
   
 `docker-compose up -d`
 
-### Cuando la base de datos este corriendo ejecutar:
-
-`sqlcmd -S localhost -U sa -P YourStrong@Passw0rd -Q "CREATE DATABASE turnos;"`
-
 ### Ya deberia estar funcionando el sistema en localhost:8080 y en la red lan. 192.168.X.X:8080
 
 ### Comandos utiles (no obligatorios): 

@@ -1,0 +1,118 @@
+/* Estilos generales */
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin:0;
+}
+body {
+    font-family: sans-serif;
+    background: #4d764b;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: auto;
+    margin-top: auto;
+    width:30rem;
+}
+
+#icono_hosital_img{
+    height: 3rem;
+}
+
+.box h2 {
+    text-align: center;
+    margin: 10px;
+}
+
+.form_container{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    background-color: white;
+    border-radius: 3rem;
+}
+
+form {
+    background-color: rgba(237, 237, 237, 0);
+    padding: 2rem;
+    width:100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 490px) {
+    .form_container{
+        height: 55rem;
+        border-radius: 0;
+    }
+}
+
+label {
+ margin: 0;
+  padding: 0;
+}
+
+input {
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input:hover{
+    background-color: rgb(247, 247, 247);
+}
+
+.showPasswordDiv{
+    display: flex;
+    align-items: center;
+}
+
+
+#showPasswordLabel{
+    margin-left: 0.5rem;
+    text-align: center;
+    justify-content: center;
+    color:rgb(0, 0, 0);
+    pointer-events: none;
+    user-select: none;
+}
+
+button {
+    background-color: #006004;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+button:hover {
+    background-color: #192519;
+}
+.toggler{
+    background-color: #104156;
+    margin-top: 20px;
+    max-width: 10rem;
+}
+
+
+
+.hidden {
+    display: none;
+}
