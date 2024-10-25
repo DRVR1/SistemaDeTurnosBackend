@@ -4,50 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Paciente</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../css/paciente/perfil.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    
 </head>
 <body>
-    <header>
-        <!-- El header está vacío para que puedas modificarlo -->
-        <button class="back-button" onclick="goBack()">← Volver</button>
+   <!-----------------------------Encabezado------------------------------------>
+
+   <header>     
+        <h1 id="nombre">Sistema de turnos</h1>
     </header>
 
+<!-----------------------------Menu desplegable------------------------------------>
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox" class="checkbtn">
+        <div id="checkMenu">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+        </div>
+    </label>
+
+    <!-- Menú desplegable -->
+    <div class="menuDesp" id="menuDesp">
+        <ul>
+            <li id="bienvenido">Bienvenid@</li>
+            <li><a href="home_opciones.html">Inicio</a></li>
+            <li><a href="perfil.html">Mi perfil</a></li>
+            <li><a href="seleccionar_especialidad.html">Reservar turno</a></li>
+            <li><a href="#">Médicos</a></li>
+            <li><a href="ver_mis_turnos.html">Mis turnos</a></li>
+            <li id="cerrarSesion"><a href="#">Cerrar sesion</a></li>
+        </ul> 
+    </div>
+
+    <div id="overlay"></div>
+<!-----------------------------Perfil------------------------------------>
     <main>
-        <section class="profile-section">
+
             <div class="profile-container">
-                <img src="https://via.placeholder.com/100" alt="Foto de perfil" class="profile-image">
-                <h1 class="profile-name">NOMBRE APELLIDO</h1>
-                <!--<div class="profile-options">
-                    <a href="#" class="message-icon">💬 MENSAJE</a>        
-
-                    <a href="#" class="contact-icon">📇 AÑADIR A CONTACTOS</a>
-                </div> -->
-            </div>
-        </section>
-
-        <section class="details-section">
-            <div class="details-container">
-                <div class="details-box">
-                    <h3>Detalles de contacto</h3>
-                    <p><strong>Dirección de correo:</strong><br>correo@outlook.com</p>
-                    <p><strong>Numero telefonico:</strong><br>2215378290</p>
-
-                </div>
-                <div class="details-box">
-                    <h3>Detalles de obra social</h3>
-                    <p><strong>Nombre:</strong><br>Osde</p>
-                    <p><strong>Categoria:</strong><br>210</p>
-
-                </div>
-                <div class="details-box">
-                    <h3>Detalles adicionales</h3>
-                    <p><strong>Edad:</strong><br>26</p>
-                    <p><strong>Domicilio:</strong><br>La Plata</p>
+                <img src="../../images/perfil.png" alt="perfil predet">
+                <h1 class="profile-name">NOMBRE</h1>
+                <h1 class="profile-name">APELLIDO</h1>
+                <div class="profile-options">
+                    <a href="#" class="message-icon">💬 ENVIAR MENSAJE</a>        
+                    <a href="#" class="contact-icon">📇 ENVIAR EMAIL</a>
                 </div>
             </div>
-        </section>
+
+            <div class="muestra-formulario">
+                <div id="personal" class="columna">
+                    <label for="dni-display">DNI:</label>
+                    <span id="dni-display" class="data-display">12345678</span>
+                    
+                    <label for="edad-display">Edad:</label>
+                    <span id="edad-display" class="data-display">35</span>
+
+                    <label for="direccion-display">Dirección:</label>
+                    <span id="direccion-display" class="data-display">Calle 16 1230</span>
+
+                    <label for="contraseña-display">Contraseña:</label>
+                    <span id="contraseña-display" class="data-display">**************</span>
+
+                    
+                </div>
+                <div id="contacto" class="columna">
+                    <label for="email-display">Email:</label>
+                    <span id="email-display" class="data-display">bgcg@gmail.com</span>
+
+                    <label for="telefono-display">Telefono:</label>
+                    <span id="telefono-display" class="data-display">+5491135589980</span>
+                </div>
+
+                <div id="obraSocial" class="columna">
+                    <label for="OS-display">Obra social:</label>
+                    <span id="OS-display" class="data-display">Osde</span>
+
+                    <label for="nroSocio-display">Numero de socio:</label>
+                    <span id="nroSocio-display" class="data-display">61556525702</span>
+                </div>
+            </div>
     </main>
 
+    
+    <script src="../../js/popups.js"></script>
+
+    <script src="../../js/navBar.js"></script>
+    <script src="../../js/menuDesp.js"></script>
     <script src="seleccionar_especialidad.js"></script>
+    <script src="home_opciones.js"></script>
+
 </body>
 </html>
+
+    
