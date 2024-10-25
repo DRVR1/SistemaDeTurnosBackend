@@ -16,10 +16,10 @@ public class MedicoController {
     private MedicoService medicoService;
 
     @PostMapping("/altaMedico")
-    public ResponseEntity<Medico> altaMedico(@RequestBody Medico medico) {
+    public ResponseEntity<Medico> altaMedico(@RequestBody Medico medico, @RequestParam Long obraSocialId) {
         Medico nuevoMedico = medicoService.altaMedico(medico.getDni(), medico.getTelefono(),
-                medico.getNombre(), medico.getApellido(), medico.getEmail(), medico.getPassword(),medico.getEspecialidad());
+                medico.getNombre(), medico.getApellido(), medico.getEmail(), medico.getPassword(),
+                medico.getEspecialidad(), obraSocialId);
         return ResponseEntity.ok(nuevoMedico);
     }
-
 }

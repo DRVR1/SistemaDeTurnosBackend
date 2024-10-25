@@ -14,13 +14,18 @@ public class Medico extends Persona {
     @JoinColumn(name = "especialidad_id", referencedColumnName = "id")
     private Especialidad especialidad;
 
+    @ManyToOne
+    @JoinColumn(name = "obra_social_id", referencedColumnName = "id")
+    private ObraSocial obraSocial;
+
     public Medico() {
         super();
     }
 
-    public Medico(String dni, String telefono, String nombre, String apellido, String email, String password, Especialidad especialidad) {
-        super(dni, telefono, nombre, apellido, email, password,"ROLE_MEDICO");
+    public Medico(String dni, String telefono, String nombre, String apellido, String email, String password, Especialidad especialidad, ObraSocial obraSocial) {
+        super(dni, telefono, nombre, apellido, email, password, "ROLE_MEDICO");
         this.especialidad = especialidad;
+        this.obraSocial = obraSocial;
     }
 
     public Especialidad getEspecialidad(){

@@ -1,19 +1,25 @@
 package com.turnos.turnos.Services;
 
 import com.turnos.turnos.DTOs.ResponseMessage;
+import com.turnos.turnos.Entities.ObraSocial;
 import com.turnos.turnos.Entities.Paciente;
+import com.turnos.turnos.Repositories.ObraSocialRepository; // Asegúrate de tener este repositorio
 import com.turnos.turnos.Repositories.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class PacienteService {
 
     @Autowired
     private PacienteRepository pacienteRepository;
+
+    @Autowired
+    private ObraSocialRepository obraSocialRepository; // Añadido para acceder a las obras sociales
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -23,7 +29,8 @@ public class PacienteService {
                                                         String nombre,
                                                         String apellido,
                                                         String email,
-                                                        String password) {
+                                                        String password,
+                                                        Long obraSocialId) { // Añadido parámetro obraSocialId
 
         // Verificar que ninguno de los campos sea nulo o esté vacío
         if (dni == null || dni.isBlank() ||
@@ -45,15 +52,20 @@ public class PacienteService {
             return ResponseEntity.badRequest().body(new ResponseMessage("Por su seguridad, la contraseña debe tener al menos 5 caracteres"));
         }
 
-        try{
+        // Verificar si la obra social existe
+        Optional<ObraSocial> obraSocialOptional = obraSocialRepository.findById(obraSocialId);
+        if (obraSocialOptional.isEmpty()) {
+            return ResponseEntity.badRequest().body(new ResponseMessage("Obra social no encontrada."));
+        }
+
+        try {
             String encodedPass = passwordEncoder.encode(password);
-            Paciente paciente = new Paciente(dni, telefono, nombre, apellido, email, encodedPass);
+            Paciente paciente = new Paciente(dni, telefono, nombre, apellido, email, encodedPass, obraSocialOptional.get());
             pacienteRepository.save(paciente);
-            return ResponseEntity.ok().body(new ResponseMessage("Registro exitoso, ya puede iniciar sesion con su mail y contraseña."));
+            return ResponseEntity.ok().body(new ResponseMessage("Registro exitoso, ya puede iniciar sesión con su mail y contraseña."));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new ResponseMessage("Error al registrarse: El correo ya fue registrado."));
         }
-
     }
 
     public Paciente obtenerPacientePorDni(String dni) {

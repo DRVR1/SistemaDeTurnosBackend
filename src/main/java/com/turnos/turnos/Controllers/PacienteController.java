@@ -15,9 +15,9 @@ public class PacienteController {
     private PacienteService pacienteService;
 
     @PostMapping("/altaPaciente")
-    public ResponseEntity<ResponseMessage> altaPaciente(@RequestBody Paciente paciente) {
+    public ResponseEntity<ResponseMessage> altaPaciente(@RequestBody Paciente paciente, @RequestParam Long obraSocialId) {
         return pacienteService.altaPaciente(paciente.getDni(), paciente.getTelefono(),
-                paciente.getNombre(), paciente.getApellido(), paciente.getEmail(), paciente.getPassword());
+                paciente.getNombre(), paciente.getApellido(), paciente.getEmail(), paciente.getPassword(), obraSocialId);
     }
 
     @GetMapping("/{dni}")
