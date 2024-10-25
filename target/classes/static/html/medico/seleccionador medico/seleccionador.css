@@ -1,0 +1,25 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px auto;
+    background-color: #f0f0f0;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    width: 50px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.replicar {
+    background-color: #32ac51;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
