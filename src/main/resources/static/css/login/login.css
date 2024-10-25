@@ -9,7 +9,7 @@ html, body {
 }
 body {
     font-family: sans-serif;
-    background: #ccdbcc;
+    background: #ccdccb;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -86,7 +86,7 @@ button {
     margin-top: 10px;
 }
 button:hover {
-    background-color: #192519;
+    background-color: #116114;
 }
 
 h6{
