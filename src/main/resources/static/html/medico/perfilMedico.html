@@ -11,13 +11,9 @@
     
 </head>
 <body>
-<!-----------------------------Encabezado------------------------------------>
+<!-----------------------------Agregar a todas las pag de medico------------------------------------>
+    <my-header></my-header>
 
-   <header>     
-        <h1 id="nombre">Sistema de turnos</h1>
-    </header>
-
-<!-----------------------------Menu desplegable------------------------------------>
     <input type="checkbox" id="checkbox">
     <label for="checkbox" class="checkbtn">
         <div id="checkMenu">
@@ -26,21 +22,14 @@
             <span class="line line3"></span>
         </div>
     </label>
-
-    <!-- Menú desplegable -->
-    <div class="menuDesp" id="menuDesp">
-        <ul>
-            <li id="bienvenido">Bienvenid@</li>
-            <li><a href="home_opciones.html">Inicio</a></li>
-            <li><a href="perfilMedico.html">Mi perfil</a></li>
-            <li><a href="publicar_turno.html">Publicar turno</a></li>
-            <li><a href="#">Médicos</a></li>
-            <li><a href="../paciente/ver_turnos_disponibles.html">Ver mis turnos</a></li>
-            <li id="cerrarSesion"><a href="#" onclick=cerrarSesion()>Cerrar sesion</a></li>
-        </ul> 
-    </div>
-
+    
     <div id="overlay"></div>
+    
+    <div class="menuDesp" id="menuDesp">
+        <my-menu-med></my-menu-med>
+    </div>
+<!-----------------------------Fin agregar------------------------------------>
+    
 <!-----------------------------Perfil------------------------------------>
     <main>
         <div id="contenedor">
@@ -96,6 +85,8 @@
     <script src="../../js/menuDesp.js"></script>
     <script src="../../js/api.js"></script>
     <script src="home_opciones.js"></script>
+    <script src="../../js/header.js"></script>
+    <script src="../../js/menuHamMed.js"></script>
 
 </body>
 </html>

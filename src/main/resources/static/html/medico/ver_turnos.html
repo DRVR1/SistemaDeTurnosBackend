@@ -9,15 +9,25 @@
 </head>
 
 <body>
-    <div id="navBar" class="navbar">
-        <h1 id="navTitulo">Bienvenido</h1>
-        <button id="botonReservarTurno"> Reservar un turno</button>
-        <button id="botonVerTurnosReservados"> Ver turnos reservados</button>
-        <button id="cerrarSesion" onclick=cerrarSesion()> Cerrar sesion </button>
-    </div>
-  <div class="container">
-    </div>
+    <!-----------------------------Agregar a todas las pag de medico------------------------------------>
+    <my-header></my-header>
 
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox" class="checkbtn">
+        <div id="checkMenu">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+        </div>
+    </label>
+    
+    <div id="overlay"></div>
+    
+    <div class="menuDesp" id="menuDesp">
+        <my-menu-med></my-menu-med>
+    </div>
+<!-----------------------------Fin agregar------------------------------------>
+    
 	<h1>Turnos publicados</h1>
 
 
