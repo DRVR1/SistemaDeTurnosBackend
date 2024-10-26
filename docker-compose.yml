@@ -1,0 +1,35 @@
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker-compose
+    ports:
+      - "5432:5432"
+    volumes:
+      - sql_turnos:/var/lib/postgresql/data
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_PASSWORD: YourStrong@Passw0rd
+      POSTGRES_USER: sa
+      POSTGRES_DB: turnos
+
+  app:
+    image: turnosbackend
+    environment:
+      - SPRING_DATASOURCE_PASSWORD=YourStrong@Passw0rd
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/turnos
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+volumes:
+  sql_turnos:

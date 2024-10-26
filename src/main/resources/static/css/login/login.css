@@ -1,0 +1,129 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    font-family: sans-serif;
+    background: #ccdccb;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: auto;
+    margin-top: auto;
+    width:30rem;
+}
+
+#icono_hosital_img{
+    height: 3rem;
+    width: 4rem;
+    align-self: center;
+}
+
+.box h2 {
+    text-align: center;
+    margin: 10px;
+}
+
+.form_container{
+    width:100%;
+    display: flex;
+    align-items: center;
+    border: 3px solid white;
+    background-color: white;
+    border-radius: 3rem;
+}
+
+form {
+    padding: 2rem;
+    width:100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 490px) {
+    .form_container{
+        height: 100vh;
+        border-radius: 0;
+    }
+}
+
+
+input {
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+input:hover{
+    background-color: rgb(247, 247, 247);
+}
+
+button {
+    background-color: #006004;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+button:hover {
+    background-color: #116114;
+}
+
+h6{
+    font-size: 15px;
+    text-align: center;
+}
+h6 button{
+    background-color: rgba(247, 247, 247, 0);
+    color: #006004;
+    font-size: 15px;
+    border-radius: 0;
+    padding: 5px;
+}
+
+h6 button:hover {
+    background-color: rgba(247, 247, 247, 0);
+    color: black;
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+#loginShowPasswordDiv{
+    margin-left: 20px;
+}
+
+#loginShowPasswordDiv input:hover{
+    cursor: pointer;
+}
+
+
+button:active{
+    border-style: none;
+}
+
+label{
+    margin-bottom: 0;
+}

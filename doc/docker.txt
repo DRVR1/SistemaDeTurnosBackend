@@ -1,0 +1,25 @@
+# Posicionarse en la carpeta raiz del proyecto, y ejecutar los siguientes comandos:
+
+# descargar sql server
+docker pull mcr.microsoft.com/mssql/server:2022-latest
+
+# Correr la base de datos [contraseña, puerto, nombre del contenedor]
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=YourStrong@Passw0rd" -p 1433:1433 --name sqlserverName -d mcr.microsoft.com/mssql/server:2022-latest
+
+# Cuando la base de datos este corriendo ejecutar:
+sqlcmd -S localhost -U sa -P YourStrong@Passw0rd -Q "CREATE DATABASE turnos;"
+
+# Construir la imagen del backend
+docker build -t turnosbackend .
+
+# En la carpeta raiz del proyecto ejecutar:
+docker-compose up -d
+
+# Ya deberia estar funcionando el sistema en localhost:8080 y en la red lan. 192.168.X.X:8080
+
+#Comandos utiles (no obligatorios): 
+docker ps # mostrar los contenedores que estan corriendo 
+docker stop [nombre del proceso] # detener un contenedor
+docker rm # borrar contenedor
+docker images # ver imagenes
+docker rmi [nombre] # borrar imagenes
