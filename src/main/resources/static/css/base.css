@@ -185,7 +185,7 @@ header h1{
 
 /*Popups de carga*/
 .loadingBox{
-  z-index: 9999;
+  z-index: 8000;
 }
 
 
