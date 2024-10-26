@@ -126,17 +126,6 @@ a:hover {
 
 }
 
-#checkMenu {
-  top: 0;
-  background-color: #558557;
-  padding: 25px;
-  border: 2px #558557 solid;
-  border-radius: 100%;
-  position: fixed;
-  cursor: pointer;
-  z-index: 30;
-  margin-left: 10px;
-}
 
 /* -----------------------------header --------------------------------*/
 header{
@@ -319,6 +308,7 @@ color:rgb(255, 255, 255);
 background-color: #11c900;
 color:rgb(255, 255, 255);
 }
+
 
 
 /*----------------------------Transiciones------------------------------------*/
