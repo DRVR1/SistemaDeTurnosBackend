@@ -63,3 +63,4 @@ public class PacienteService {
         return pacienteRepository.findByDni(dni); // Método a implementar en el repositorio
     }
 }
+//

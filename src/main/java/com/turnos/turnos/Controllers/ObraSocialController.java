@@ -26,4 +26,4 @@ public class ObraSocialController {
         return ResponseEntity.ok(obrasocialService.verObraSocial());
     }
 
-}
+}//

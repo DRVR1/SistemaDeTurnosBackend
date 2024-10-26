@@ -37,3 +37,4 @@ public class Paciente extends Persona {
     }
     // Métodos adicionales o específicos de Paciente
 }
+//
