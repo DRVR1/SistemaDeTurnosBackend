@@ -1,8 +1,3 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-
 html, body {
     height: 100%;
     width: 100%;
@@ -57,11 +52,10 @@ form {
 
 @media (max-width: 490px) {
     .form_container{
-        height: 100vh;
+        height: 100%;
         border-radius: 0;
     }
 }
-
 
 input {
     font-size: 1.2rem;
@@ -86,7 +80,7 @@ button {
     margin-top: 10px;
 }
 button:hover {
-    background-color: #116114;
+    background-color: #0c470e;
 }
 
 h6{
@@ -111,19 +105,12 @@ h6 button:hover {
     display: none;
 }
 
-#loginShowPasswordDiv{
-    margin-left: 20px;
+#showPasswordLabel{
+    margin-left: 0.5rem;
+    text-align: center;
+    justify-content: center;
+    color:rgb(0, 0, 0);
+    pointer-events: none;
+    user-select: none;
 }
 
-#loginShowPasswordDiv input:hover{
-    cursor: pointer;
-}
-
-
-button:active{
-    border-style: none;
-}
-
-label{
-    margin-bottom: 0;
-}

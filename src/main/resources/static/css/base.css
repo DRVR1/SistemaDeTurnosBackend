@@ -9,8 +9,6 @@ modulos de javascript y un estilo base de cada pagina */
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  cursor: default;
-  transition: all 0.3s;
 }
 
 body {
