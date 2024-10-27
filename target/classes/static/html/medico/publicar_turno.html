@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario publicar turno</title>
+    <title>Publicar turno</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/paciente/perfil.css">
     <link rel="stylesheet" href="../../css/base.css">
@@ -13,8 +13,6 @@
 <body>
   <!-----------------------------Agregar a todas las pag de medico------------------------------------>
   <my-header></my-header>
-
-  <p>Los turnos seran agregados para un mes entero, repitiendose las semanas. La duracion de cada turno es: </p>
   <input type="checkbox" id="checkbox">
   <label for="checkbox" class="checkbtn">
       <div id="checkMenu">
@@ -47,48 +45,48 @@
         <td>
           <input type="time" value="09:00">
           <input type="time" value="13:00">
-          &nbsp;
           <button class="replicar">Replicar</button>
         </td>
         <td>
           <input type="time" value="09:00">
           <input type="time" value="13:00">
-          &nbsp;
           <button class="replicar">Replicar</button>
         </td>
         <td>
           <input type="time" value="09:00">
           <input type="time" value="13:00">
-          &nbsp;
           <button class="replicar">Replicar</button>
         </td>
         <td>
           <input type="time" value="09:00">
           <input type="time" value="13:00">
-          &nbsp;
           <button class="replicar">Replicar</button>
         </td>
         <td>
           <input type="time" value="09:00">
           <input type="time" value="13:00">
-          &nbsp;
           <button class="replicar">Replicar</button>
         </td>
         <td>
           <input type="time" value="09:00">
           <input type="time" value="13:00">
-          &nbsp;
           <button class="replicar">Replicar</button>
         </td>
         <td>
           <input type="time" value="09:00">
           <input type="time" value="13:00">
-          &nbsp;
           <button class="replicar">Replicar</button>
         </td>
       </tr>
     </tbody>
   </table>
+  <div class="preguntas">
+    <label for="duracion">Minutos por turno:</label>
+    <input type="text" id="duracion" name="duracion">
+    <label for="semanas">Semanas a publicar:</label>
+    <input type="text" id="semanas" name="semanas">
+</div>
+<br>
   <div class="contenedor">
   <button id="enviarTurnos" class="cancelarAceptarBoton aceptarBoton">Enviar Turnos</button>
   </div>
@@ -96,6 +94,7 @@
   <script>
     const dayCheckboxes = document.querySelectorAll('thead th input[type="checkbox"]');
     const tableBody = document.querySelector('tbody');
+    medicoId = localStorage.getItem('userId');
     
     dayCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {
@@ -142,8 +141,11 @@
     document.getElementById('enviarTurnos').addEventListener('click', () => {
         const turnos = [];
         const dias = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
+        const duracion = parseInt(document.getElementById('duracion').value) || 0; 
+        const semanas = parseInt(document.getElementById('semanas').value) || 0;
         
         const currentDate = new Date();
+        const currentTime = currentDate.getTime(); // Tiempo actual en milisegundos
         const currentMonth = currentDate.getMonth();
         const currentYear = currentDate.getFullYear();
         
@@ -162,22 +164,22 @@
                     const [horaIngreso, minutoIngreso] = ingreso.split(':').map(Number);
                     const [horaSalida, minutoSalida] = salida.split(':').map(Number);
                     
-                    // Calcular la fecha base para el día
-                    for (let week = 0; week < 4; week++) {
-                        const nextDate = new Date(currentYear, currentMonth, currentDate.getDate() + (week * 7) + ((index + 1 - currentDate.getDay() + 7) % 7));
-                        
-                        // Generar turnos de 15 minutos
+                    // Calcular próxmo día
+                    for (let week = 0; week < semanas; week++) {
+                      const nextDate = new Date(currentYear, currentMonth, currentDate.getDate() + (week * 7) + ((index + 1 - currentDate.getDay() + 7) % 7));
+
+                        // Generar turnos de x minutos
                         for (let h = horaIngreso; h < horaSalida; h++) {
-                            for (let m = 0; m < 60; m += 15) {
+                            for (let m = 0; m < 60; m += duracion) {
                                 const turnoHora = new Date(nextDate);
                                 turnoHora.setHours(h);
                                 turnoHora.setMinutes(m);
     
-                                // Solo agregar turnos que estén antes de la hora de salida
-                                if (turnoHora < new Date(nextDate.getFullYear(), nextDate.getMonth(), nextDate.getDate(), horaSalida, minutoSalida)) {
+                                // Solo agregar turnos a futuro
+                                if (turnoHora.getTime() > currentTime) {
                                     turnos.push({
                                         fecha: `${turnoHora.toISOString().split('T')[0]}T${turnoHora.toTimeString().split(' ')[0]}`,
-                                        medico: { id: 4 } // Cambia el ID del médico según sea necesario
+                                        medico: { id: medicoId } 
                                     });
                                 }
                             }
@@ -188,7 +190,7 @@
         });
     
         // Imprimir el JSON en la consola antes de enviar
-        console.log(JSON.stringify(turnos, null, 2)); // Imprime el JSON de manera legible
+        console.log(JSON.stringify(turnos, null, 2)); 
     
         // Enviar los turnos al servidor
         popupLoadingOn();
@@ -217,6 +219,7 @@
           popupLoadingOff();
         });
       });
+      console.log('mi id de medico es', medicoId);
       </script>
       <script src="../../js/popups.js"></script>
 

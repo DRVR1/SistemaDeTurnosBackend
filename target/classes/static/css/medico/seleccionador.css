@@ -17,8 +17,8 @@ tr:nth-child(even) {
 }
 
 .replicar {
-    display: none; /*display nulo hasta que tengan funcionalidad*/
-    background-color: #2f6f31;
+   /* display: none; display nulo hasta que tengan funcionalidad*/
+    background-color: #55024a;
     color: white;
     border-radius: 5px;
     padding: 5px 10px;
@@ -29,4 +29,10 @@ tr:nth-child(even) {
     margin-top: 10px;
     text-align: center;
     margin: 0 auto;
+}
+
+.preguntas {
+
+    text-align: center;
+
 }
