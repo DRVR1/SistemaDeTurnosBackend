@@ -1,6 +1,7 @@
 package com.turnos.turnos.Services;
 
 import com.turnos.turnos.DTOs.ResponseMessage;
+import com.turnos.turnos.Entities.ObraSocial;
 import com.turnos.turnos.Entities.Paciente;
 import com.turnos.turnos.Repositories.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,10 @@ public class PacienteService {
                                                         String nombre,
                                                         String apellido,
                                                         String email,
-                                                        String password) {
+                                                        String password,
+                                                        ObraSocial obrasocial) {
 
+//---------- soy marce: aca es solo verificaciones? porque puede no tener obra social
         // Verificar que ninguno de los campos sea nulo o esté vacío
         if (dni == null || dni.isBlank() ||
                 telefono == null || telefono.isBlank() ||
@@ -47,7 +50,7 @@ public class PacienteService {
 
         try{
             String encodedPass = passwordEncoder.encode(password);
-            Paciente paciente = new Paciente(dni, telefono, nombre, apellido, email, encodedPass);
+            Paciente paciente = new Paciente(dni, telefono, nombre, apellido, email, encodedPass,obrasocial);
             pacienteRepository.save(paciente);
             return ResponseEntity.ok().body(new ResponseMessage("Registro exitoso, ya puede iniciar sesion con su mail y contraseña."));
         } catch (Exception e) {
@@ -60,3 +63,4 @@ public class PacienteService {
         return pacienteRepository.findByDni(dni); // Método a implementar en el repositorio
     }
 }
+//

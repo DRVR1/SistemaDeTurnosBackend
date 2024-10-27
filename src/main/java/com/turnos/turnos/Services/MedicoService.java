@@ -2,11 +2,9 @@ package com.turnos.turnos.Services;
 
 import com.turnos.turnos.Entities.Especialidad;
 import com.turnos.turnos.Entities.Medico;
-import com.turnos.turnos.Entities.Paciente;
+import com.turnos.turnos.Entities.ObraSocial;
 import com.turnos.turnos.Repositories.MedicoRepository;
-import com.turnos.turnos.Repositories.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -25,10 +23,11 @@ public class MedicoService {
                              String apellido,
                              String mail,
                              String password,
-                             Especialidad especialidad) {
+                             Especialidad especialidad,
+                             ObraSocial obrasocial) {
 
         String encodedPass = passwordEncoder.encode(password);
-        Medico medico = new Medico(dni,telefono,nombre,apellido,mail,encodedPass,especialidad);
+        Medico medico = new Medico(dni,telefono,nombre,apellido,mail,encodedPass,especialidad,obrasocial);
         return medicoRepository.save(medico);
     }
 
@@ -40,3 +39,4 @@ public class MedicoService {
         return medicoRepository.findByEmail(email);
     }
 }
+//
