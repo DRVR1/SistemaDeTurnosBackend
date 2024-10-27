@@ -4,9 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendario publicar turno</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/paciente/perfil.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/medico/baseMedico.css">
     <link rel="stylesheet" href="../../css/medico/seleccionador.css">
 </head>
 <body>
+  <!-----------------------------Agregar a todas las pag de medico------------------------------------>
+  <my-header></my-header>
+
+  <p>Los turnos seran agregados para un mes entero, repitiendose las semanas. La duracion de cada turno es: </p>
+  <input type="checkbox" id="checkbox">
+  <label for="checkbox" class="checkbtn">
+      <div id="checkMenu">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+      </div>
+  </label>
+  
+  <div id="overlay"></div>
+  
+  <div class="menuDesp" id="menuDesp">
+      <my-menu-med></my-menu-med>
+  </div>
+<!-----------------------------Fin agregar------------------------------------>
   <table>
     <thead>
       <tr>
@@ -67,7 +90,7 @@
     </tbody>
   </table>
   <div class="contenedor">
-  <button id="enviarTurnos">Enviar Turnos</button>
+  <button id="enviarTurnos" class="cancelarAceptarBoton aceptarBoton">Enviar Turnos</button>
   </div>
 
   <script>
@@ -154,7 +177,7 @@
                                 if (turnoHora < new Date(nextDate.getFullYear(), nextDate.getMonth(), nextDate.getDate(), horaSalida, minutoSalida)) {
                                     turnos.push({
                                         fecha: `${turnoHora.toISOString().split('T')[0]}T${turnoHora.toTimeString().split(' ')[0]}`,
-                                        medico: { id: 2 } // Cambia el ID del médico según sea necesario
+                                        medico: { id: 4 } // Cambia el ID del médico según sea necesario
                                     });
                                 }
                             }
@@ -168,6 +191,7 @@
         console.log(JSON.stringify(turnos, null, 2)); // Imprime el JSON de manera legible
     
         // Enviar los turnos al servidor
+        popupLoadingOn();
         fetch('http://localhost:8080/api/altaTurnos', {
             method: 'POST',
             headers: {
@@ -183,13 +207,24 @@
         })
         .then(data => {
             console.log('Éxito:', data);
-            alert("Turnos enviados con éxito");
+            popup("Turnos enviados con éxito.");
         })
         .catch(error => {
             console.error('Error:', error);
-            alert("Hubo un error al enviar los turnos");
+            popup("Error al enviar turnos.");
+        })
+        .finally(()=>{
+          popupLoadingOff();
         });
       });
       </script>
+      <script src="../../js/popups.js"></script>
+
+      <script src="../../js/navBar.js"></script>
+      <script src="../../js/menuDesp.js"></script>
+      <script src="../../js/api.js"></script>
+      <script src="home_opciones.js"></script>
+      <script src="../../js/header.js"></script>
+      <script src="../../js/menuHamMed.js"></script>
 </body>
 </html>
