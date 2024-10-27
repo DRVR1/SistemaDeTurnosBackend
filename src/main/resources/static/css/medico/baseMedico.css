@@ -25,3 +25,34 @@ body {
 header{
   background-color: #855555;
 }
+
+/* -----------------------------Calendario ver turnos --------------------------------*/
+
+.fc-scrollgrid-sync-inner{
+  background-color: #855555;
+}
+
+.fc-daygrid-day-frame{
+  background-color: #f3f3f3;
+}
+
+.fc .fc-button-primary {
+  background-color: #855555;
+}
+
+.fc .fc-button-primary:hover{
+  background-color: #573737;
+}
+
+.fc-daygrid-event-dot{
+  border-color: #855555;
+}
+
+/* -----------------------------Enviar turnos --------------------------------*/
+#enviarTurnos{
+  background-color: #855555;
+}
+
+#enviarTurnos:hover{
+  background-color: #573737;
+}

@@ -54,7 +54,7 @@ body {
   text-shadow: 0px 2px 5px rgb(50, 50, 50) ;
 }
 
-afecta al tamaño de los boxes, usar ids o clases
+
 .navbarLeftUl{
   border: white;
 }
@@ -222,7 +222,7 @@ header{
   background-color: #558557;
   height:max-content ;
   width: 100%;
-  text-align: end;
+  text-align: center;
   box-shadow: 0px 1px 2px black;
 }
 
@@ -404,4 +404,32 @@ background-color: #11c900;
 color:rgb(255, 255, 255);
 }
 
+/* -----------------------------Calendario ver turnos--------------------------------*/
 
+#calendario {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+}
+.fc-scrollgrid-sync-inner{
+  color: white;
+  background-color: #558557;
+}
+
+.fc-daygrid-day-frame{
+  color: black;
+  background-color: #f3f3f3;
+}
+
+.fc .fc-button-primary {
+  background-color:#006004;
+}
+
+.fc .fc-button-primary:hover{
+  background-color: #003a02;
+}
+
+.fc-daygrid-event-dot{
+  border-color: #558557;
+}
