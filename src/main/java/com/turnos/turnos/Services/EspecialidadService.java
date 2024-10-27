@@ -23,6 +23,7 @@ public class EspecialidadService {
     }
 
     public List<Especialidad> verEspecialidades(){
+
         return especialidadRepository.findAll();
     }
 
