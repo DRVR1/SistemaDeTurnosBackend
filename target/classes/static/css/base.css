@@ -74,17 +74,17 @@ ul li a {
   font-size: 200%;
 }
 
-a:hover {
-  text-decoration: underline;
-  color: #192519;
-
-  cursor: pointer;
-}
-
 #cerrarSesion{
   position: absolute;
   bottom: 2%;
 }
+
+a:hover {
+  text-decoration: underline;
+  color: #192519;
+  cursor: pointer;
+}
+
 
 /* -----------------------------Boton 3 lineas --------------------------------*/
 
@@ -138,6 +138,7 @@ a:hover {
   margin-left: 10px;
 }
 
+
 /* -----------------------------header --------------------------------*/
 header{
   background-color: #558557;
@@ -153,63 +154,9 @@ header h1{
   display: inline;
   margin-right: 20px;
   font-size: 3rem;
+  text-shadow: 0px 2px 3px rgb(50, 50, 50);
+  text-transform: uppercase;
 }
-/* ---------
-header button {
-  font-size: 1.3rem;
-  width:15rem;
-  border: none;
-  margin:1rem;
-  background-color: #dddddd;
-  color:#000000;
-  border-radius: 10px;
-  border: 2px solid black;
-  padding: 10px;
-  box-shadow: 0.1rem 0.1rem #000000; 
-  cursor: pointer;
-}
-
-header button:hover {
-  background-color: #ffffff;
-}
-
-
-
-.boton_opciones_home{
-    border-left: 10px solid rgba(255, 255, 255, 0);
-    justify-content: center;
-    align-content: center;
-    width: 170px;
-    height: 170px;
-    margin:30px;
-    margin-top: 20px;
-    background-color: #ededed;
-    color: #000000;
-    padding: 10px 15px;
-    font-size: 25px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    border: 3px solid rgb(0, 0, 0);
-    box-shadow: 10px 10px 1px rgb(0, 0, 0);
-    border-radius: 10px;
-    font-family: sans-serif;
-}
-
-.boton_opciones_home p {
-  margin: auto;
-}
-
-.boton_opciones_home:hover{
-  transform: scale(1.1);
-  border-left: 10px solid #408d49;
-}
-.boton_opciones_home:active{
-  transform: scale(1);
-}
-
-
-----*/
 
 /*popups.js, boxsTurnos.js*/
 

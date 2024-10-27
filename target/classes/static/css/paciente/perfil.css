@@ -1,101 +1,96 @@
 /* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+
+main{
+    display: flex;
+    justify-content: center; /* Alineación horizontal */
+    align-items: center;
+    
 }
 
-header {
-    padding: 10px;
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-}
-
-.back-button {
-    background-color: #f0f0f0;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.back-button:hover {
-    background-color: #ddd;
-}
-
-main {
-    background-color: #fff;
+#contenedor{
+    background-color: white;
     padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 1000px;
+    margin: 100px;
 }
 
 /* Sección de perfil */
-.profile-section {
+.profile-container{
+    display: block;
     text-align: center;
+    align-items: center;
     padding: 20px;
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #ddd;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    margin: 10px;
 }
 
-.profile-container {
-    display: inline-block;
-}
-
-.profile-image {
-    border-radius: 50%;
+img{
+    align-self: center;
+    display: inline;
     width: 100px;
     height: 100px;
+    background-color: rgb(222, 222, 222);
+    border-radius: 100%;
 }
 
 .profile-name {
-    margin-top: 10px;
-    font-size: 24px;
+    display: inline;
+    font-size: 40px;
     font-weight: bold;
-}
-
-.profile-options {
-    margin-top: 10px;
+    align-self: center;
 }
 
 .profile-options a {
+    margin-top: 10px;
     text-decoration: none;
     color: #555;
     font-size: 16px;
     margin-right: 20px;
 }
 
-/* Sección de detalles */
-.details-section {
-    margin-top: 30px;
+.muestra-formulario {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 10px;
+    gap: 10px;
 }
 
-.details-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+label {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: bold;
 }
 
-.details-box {
-    width: 30%;
-    background-color: #f7f7f7;
-    padding: 15px;
-    border: 1px solid #ddd;
-}
-
-.details-box h3 {
+.data-display {
     margin-bottom: 10px;
+    width: 100%;
+    height: 2em;
+    display: inline;
+    padding: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background-color: rgb(222, 222, 222);
+    overflow:hidden;
 }
 
-.details-box p {
-    margin: 5px 0;
+
+.columna {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5px;
+    width: auto;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background-color: rgb(247, 247, 247);
 }
+
 
 /* Responsive */
-@media (max-width: 768px) {
-    .details-container {
+@media (max-width: 1090px) {
+    .muestra-formulario {
         flex-direction: column;
     }
 
@@ -103,3 +98,4 @@ main {
         width: 100%;
     }
 }
+
