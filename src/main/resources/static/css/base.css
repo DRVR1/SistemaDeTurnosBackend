@@ -53,13 +53,13 @@ body {
   color: white;
   text-shadow: 0px 2px 5px rgb(50, 50, 50) ;
 }
-/*
+
 afecta al tamaño de los boxes, usar ids o clases
-ul{
+.navbarLeftUl{
   border: white;
 }
 
-ul li {
+.navbarLeftUl li {
   line-height: 10px;
   text-align: left;
   margin: 15PX;
@@ -70,12 +70,12 @@ ul li {
 }
 
 
-ul li a {
+.navbarLeftUl li a {
   text-shadow: 0px 2px 3px rgb(50, 50, 50) ;
   color: white;
   font-size: 200%;
 }
-*/
+
 
 #cerrarSesion{
   position: absolute;
@@ -87,6 +87,66 @@ a:hover {
   color: #192519;
   cursor: pointer;
 }
+
+
+
+@media (min-width: 2000px) { /*---------------Cuando es muy grande------------------------*/
+  /*Menu desplegable*/
+  /*
+  afecta al tamaño de los boxes, usar ids o clases
+  ul li a {
+      font-size: 45px;
+  }
+      */
+  #bienvenido{
+    margin-top: 100px;
+    font-size: 50px;
+  }
+  .menuDesp {
+    width: 330px;
+  }
+}
+
+
+/*----------------------------Transiciones------------------------------------*/
+
+@media (max-width: 400px) { /*-------------------------------Cuando es muy chico----------------------------*/
+  /*Menu desplegable*/
+  /*
+  afecta al tamaño de los boxes, usar ids o clases
+  ul li a {
+      font-size: 15px; 
+  }
+  */
+  #bienvenido{
+    font-size: 2rem;
+  }
+  .menuDesp{
+    width: 100%;
+  }
+
+  /*header*/
+ 
+
+  header {
+    flex-direction: column;
+    height: auto;    
+    justify-content: space-around;
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 30px; 
+    margin-bottom: 10px; 
+  }
+
+  header button {
+    margin-left: 0;
+    margin-bottom: 10px; 
+  }
+
+}
+
 
 
 /* -----------------------------Boton 3 lineas --------------------------------*/
@@ -141,7 +201,11 @@ a:hover {
 }
 
 
-/* -----------------------------header --------------------------------*/
+
+
+
+
+/* -----------------------------header (navbar) --------------------------------*/
 header{
   background-color: #558557;
   height:max-content ;
@@ -195,6 +259,7 @@ header h1{
 
 
 
+
 /*Botones de cancelar y de aceptar*/
 .cancelarAceptarBoton{
   font-size: 1.4rem;
@@ -233,6 +298,8 @@ header h1{
   }
 
 }
+
+
 
 
 
@@ -282,6 +349,10 @@ header h1{
   height: 50px;
 }
 
+.dayDiv{
+  box-sizing:content-box;
+}
+
 @media(max-width:500px){
   .calendar-grid{
     grid-gap: 0px;
@@ -321,62 +392,4 @@ background-color: #11c900;
 color:rgb(255, 255, 255);
 }
 
-
-
-/*----------------------------Transiciones------------------------------------*/
-
-@media (max-width: 1089px) { /*-------------------------------Cuando es muy chico----------------------------*/
-  /*Menu desplegable*/
-  /*
-  afecta al tamaño de los boxes, usar ids o clases
-  ul li a {
-      font-size: 15px; 
-  }
-  */
-  #bienvenido{
-    font-size: 20px;
-  }
-  .menuDesp{
-    width: 160px;
-  }
-
-  /*header*/
- 
-
-  header {
-    flex-direction: column;
-    height: auto;    
-    justify-content: space-around;
-    padding: 10px;
-  }
-
-  header h1 {
-    font-size: 30px; 
-    margin-bottom: 10px; 
-  }
-
-  header button {
-    margin-left: 0;
-    margin-bottom: 10px; 
-  }
-
-}
-
-
-@media (min-width: 2000px) { /*---------------Cuando es muy grande------------------------*/
-  /*Menu desplegable*/
-  /*
-  afecta al tamaño de los boxes, usar ids o clases
-  ul li a {
-      font-size: 45px;
-  }
-      */
-  #bienvenido{
-    margin-top: 100px;
-    font-size: 50px;
-  }
-  .menuDesp {
-    width: 330px;
-  }
-}
 
