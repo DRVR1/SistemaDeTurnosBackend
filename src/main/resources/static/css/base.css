@@ -11,6 +11,7 @@ modulos de javascript y un estilo base de cada pagina */
   font-family: sans-serif;
   cursor: default;
   transition: all 0.3s;
+  user-select: none;
 }
 
 body {
@@ -375,3 +376,8 @@ color:rgb(255, 255, 255);
   }
 }
 
+#calendario {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
