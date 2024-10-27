@@ -23,6 +23,7 @@ public class ObraSocialController {
 
     @GetMapping("/verObraSociales")
     public ResponseEntity<List<ObraSocial>> verObraSociales(){
+
         return ResponseEntity.ok(obrasocialService.verObraSocial());
     }
 
