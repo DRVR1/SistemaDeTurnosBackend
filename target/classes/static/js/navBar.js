@@ -4,8 +4,10 @@ function cerrarSesion(){
         if (result) {
             localStorage.clear(); window.location.href = app_url;
         }else{
+            
         }
     });
+    
 }
 
 

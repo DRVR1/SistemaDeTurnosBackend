@@ -17,9 +17,16 @@ tr:nth-child(even) {
 }
 
 .replicar {
-    background-color: #32ac51;
+    display: none; /*display nulo hasta que tengan funcionalidad*/
+    background-color: #2f6f31;
     color: white;
     border-radius: 5px;
     padding: 5px 10px;
     margin-top: 10px;
+}
+
+.contenedor {
+    margin-top: 10px;
+    text-align: center;
+    margin: 0 auto;
 }

@@ -12,13 +12,16 @@
   align-items: center;
   font-size: 2rem;
 }
-select{
+
+
+.dateSelect{
   margin-bottom: 1.5rem;
   width: 200px;
   height:50px;
   font-size: 20px;
   text-align: center;
 }
+
 
 
 /* tabla de turnos */
@@ -63,6 +66,8 @@ td:hover {
   border-radius: 10px;
 }
 
+/*
 p{
   text-align: left;
 }
+*/

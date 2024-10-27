@@ -3,109 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Calendario publicar turno</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/medico/publicar_turno.css">
+    <link rel="stylesheet" href="../../css/paciente/perfil.css">
     <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="../../css/medico/baseMedico.css">
-    
-    <title>tarjeta mila</title>
-    <style>
-        /* Inicialmente ocultamos el formulario */
-        #formularioHorario {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/medico/seleccionador.css">
 </head>
-
-
 <body>
-<body>
-    <!-----------------------------Agregar a todas las pag de medico------------------------------------>
-    <my-header></my-header>
+  <!-----------------------------Agregar a todas las pag de medico------------------------------------>
+  <my-header></my-header>
 
-    <input type="checkbox" id="checkbox">
-    <label for="checkbox" class="checkbtn">
-        <div id="checkMenu">
-            <span class="line line1"></span>
-            <span class="line line2"></span>
-            <span class="line line3"></span>
-        </div>
-    </label>
-    
-    <div id="overlay"></div>
-    
-    <div class="menuDesp" id="menuDesp">
-        <my-menu-med></my-menu-med>
-    </div>
+  <p>Los turnos seran agregados para un mes entero, repitiendose las semanas. La duracion de cada turno es: </p>
+  <input type="checkbox" id="checkbox">
+  <label for="checkbox" class="checkbtn">
+      <div id="checkMenu">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+      </div>
+  </label>
+  
+  <div id="overlay"></div>
+  
+  <div class="menuDesp" id="menuDesp">
+      <my-menu-med></my-menu-med>
+  </div>
 <!-----------------------------Fin agregar------------------------------------>
-    
-    
-    <!-- Input para seleccionar la fecha -->
-    <input type="date" id="fecha">
-    
-    <!-- Formulario oculto para seleccionar el horario -->
-    <div id="formularioHorario">
-        <h3 >Seleccionar Horario</h3>
-        <form action="#">
-            <select id="hora" name="hora">
-                <option value="00">00</option>
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-                <option value="06">06</option>
-                <option value="07">07</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-            </select>
+  <table>
+    <thead>
+      <tr>
+        <th><input type="checkbox" checked> Lun</th>
+        <th><input type="checkbox" checked> Mar</th>
+        <th><input type="checkbox" checked> Mié</th>
+        <th><input type="checkbox" checked> Jue</th>
+        <th><input type="checkbox" checked> Vie</th>
+        <th><input type="checkbox"> Sáb</th>
+        <th><input type="checkbox"> Dom</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td>
+        <td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td>
+        <td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td>
+        <td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td>
+        <td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td>
+        <td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td>
+        <td>
+          <input type="time" value="09:00">
+          <input type="time" value="13:00">
+          &nbsp;
+          <button class="replicar">Replicar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="contenedor">
+  <button id="enviarTurnos" class="cancelarAceptarBoton aceptarBoton">Enviar Turnos</button>
+  </div>
 
-            <select id="minutos" name="minutos">
-                <option value="00">00</option>
-                <option value="15">15</option>
-                <option value="30">30</option>
-                <option value="45">45</option>
-            </select>
-            <br>
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
-
-    <script>
-        // Obtener el campo de la fecha y el formulario
-        const inputFecha = document.getElementById('fecha');
-        const formularioHorario = document.getElementById('formularioHorario');
-
-        // Escuchar el evento 'change' en el campo de la fecha
-        inputFecha.addEventListener('change', function() {
-            // Verificar si se ha seleccionado una fecha válida
-            if (inputFecha.value) {
-                // Mostrar el formulario
-                formularioHorario.style.display = 'block';
-            }
+  <script>
+    const dayCheckboxes = document.querySelectorAll('thead th input[type="checkbox"]');
+    const tableBody = document.querySelector('tbody');
+    
+    dayCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const day = checkbox.closest('th');
+            const checkboxesInDay = day.parentNode.nextElementSibling.querySelectorAll('input[type="checkbox"]');
+    
+            checkboxesInDay.forEach(checkbox => {
+                checkbox.checked = checkbox.closest('th').querySelector('input[type="checkbox"]').checked;
+            });
+    
+            // Agregar elementos <input type="time"> a la columna correspondiente
+            const columnIndex = Array.from(day.parentNode.children).indexOf(day);
+            const row = tableBody.querySelector(`tr:nth-child(${columnIndex + 1})`);
+            row.querySelector('td').insertAdjacentHTML('beforeend', `
+                <input type="time" value="09:00">
+                <input type="time" value="13:00">
+            `);
         });
-    </script>
-    <script src="../../js/popups.js"></script>
+    });
+    
+    const replicarButtons = document.querySelectorAll('.replicar');
+    
+    replicarButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const cell = button.closest('td');
+        const timeInputs = cell.querySelectorAll('input[type="time"]');
+    
+        const timeValues = Array.from(timeInputs).map(input => input.value);
+    
+        const allCells = document.querySelectorAll('tbody td');
+    
+        allCells.forEach(targetCell => {
+          if (targetCell !== cell) {
+            const targetTimeInputs = targetCell.querySelectorAll('input[type="time"]');
+            targetTimeInputs.forEach((input, index) => {
+              input.value = timeValues[index];
+            });
+          }
+        });
+      });
+    });
+    
+    // Función para enviar los turnos
+    document.getElementById('enviarTurnos').addEventListener('click', () => {
+        const turnos = [];
+        const dias = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
+        
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth();
+        const currentYear = currentDate.getFullYear();
+        
+        const rows = tableBody.querySelectorAll('tr');
+    
+        rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            cells.forEach((cell, index) => {
+                const timeInputs = cell.querySelectorAll('input[type="time"]');
+                const dayCheckbox = dayCheckboxes[index];
+    
+                if (dayCheckbox.checked) {
+                    const ingreso = timeInputs[0].value; // Hora de ingreso
+                    const salida = timeInputs[1].value; // Hora de salida
+                    
+                    const [horaIngreso, minutoIngreso] = ingreso.split(':').map(Number);
+                    const [horaSalida, minutoSalida] = salida.split(':').map(Number);
+                    
+                    // Calcular la fecha base para el día
+                    for (let week = 0; week < 4; week++) {
+                        const nextDate = new Date(currentYear, currentMonth, currentDate.getDate() + (week * 7) + ((index + 1 - currentDate.getDay() + 7) % 7));
+                        
+                        // Generar turnos de 15 minutos
+                        for (let h = horaIngreso; h < horaSalida; h++) {
+                            for (let m = 0; m < 60; m += 15) {
+                                const turnoHora = new Date(nextDate);
+                                turnoHora.setHours(h);
+                                turnoHora.setMinutes(m);
+    
+                                // Solo agregar turnos que estén antes de la hora de salida
+                                if (turnoHora < new Date(nextDate.getFullYear(), nextDate.getMonth(), nextDate.getDate(), horaSalida, minutoSalida)) {
+                                    turnos.push({
+                                        fecha: `${turnoHora.toISOString().split('T')[0]}T${turnoHora.toTimeString().split(' ')[0]}`,
+                                        medico: { id: 4 } // Cambia el ID del médico según sea necesario
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    
+        // Imprimir el JSON en la consola antes de enviar
+        console.log(JSON.stringify(turnos, null, 2)); // Imprime el JSON de manera legible
+    
+        // Enviar los turnos al servidor
+        popupLoadingOn();
+        fetch('http://localhost:8080/api/altaTurnos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(turnos)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta de la red');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Éxito:', data);
+            popup("Turnos enviados con éxito.");
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            popup("Error al enviar turnos.");
+        })
+        .finally(()=>{
+          popupLoadingOff();
+        });
+      });
+      </script>
+      <script src="../../js/popups.js"></script>
 
-    <script src="../../js/navBar.js"></script>
-    <script src="../../js/menuDesp.js"></script>
-    <script src="../../js/api.js"></script>
-    <script src="../../js/header.js"></script>
-    <script src="../../js/menuHamMed.js"></script>
+      <script src="../../js/navBar.js"></script>
+      <script src="../../js/menuDesp.js"></script>
+      <script src="../../js/api.js"></script>
+      <script src="../../js/header.js"></script>
+      <script src="../../js/menuHamMed.js"></script>
 </body>
 </html>
