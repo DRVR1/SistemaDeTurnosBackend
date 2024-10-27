@@ -12,6 +12,13 @@ main{
     padding: 20px;
     max-width: 1000px;
     margin: 100px;
+    display: flex;
+    flex-direction: column;
+}
+@media(max-width:900px){
+    #contenedor{
+        margin: 0px;
+    }
 }
 
 /* Sección de perfil */
@@ -55,6 +62,8 @@ img{
     grid-template-columns: repeat(3,1fr);
     margin: 10px;
     gap: 10px;
+
+    display: flex;
 }
 
 label {
