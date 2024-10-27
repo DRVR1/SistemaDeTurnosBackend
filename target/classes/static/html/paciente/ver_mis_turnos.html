@@ -11,24 +11,42 @@
     
 </head>
 <body>
-    <div id="navBar" class="navbar">
-        <h1 id="navTitulo">Bienvenido</h1>
-        <button id="botonReservarTurno"> Reservar un turno</button>
-        <button id="botonVerTurnosReservados"> Ver turnos reservados</button>
-        <button id="cerrarSesion" onclick=cerrarSesion()> Cerrar sesion </button>
+    <!-----------------------------Agregar a todas las pag de paciente------------------------------------>
+    <my-header></my-header>
+
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox" class="checkbtn">
+        <div id="checkMenu">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+        </div>
+    </label>
+
+    <div id="overlay"></div>
+
+    <div class="menuDesp" id="menuDesp">
+        <my-menu-pac></my-menu-pac>
     </div>
+    <!-----------------------------Fin agregar------------------------------------>
+
+<!-----------------------------Turno------------------------------------>
+
 <div class="container">
     <ul id="turnosList"></ul>
 </div>
 
 <script src="../../js/popups.js"></script>
-<script src="../../js/api.js"></script>
+
 <script src="../../js/navBar.js"></script>
 <script src="../../js/turnosListTest.js"></script>
 <script src="../../js/fechaIso.js"></script>
 <script src="../../js/boxsTurnos.js"></script>
-
+<script src="../../js/menuDesp.js"></script>
+<script src="../../js/api.js"></script>
 <script src="ver_mis_turnos.js"></script>
+<script src="../../js/menuHamPac.js"></script>
+<script src="../../js/header.js"></script>
 
 
 </body>

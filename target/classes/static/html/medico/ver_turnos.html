@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,21 +6,31 @@
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/medico/baseMedico.css">
 	
 </head>
 
 <body>
-    <div id="navBar" class="navbar">
-        <h1 id="navTitulo">Bienvenido</h1>
-        <button id="botonReservarTurno"> Reservar un turno</button>
-        <button id="botonVerTurnosReservados"> Ver turnos reservados</button>
-        <button id="cerrarSesion" onclick=cerrarSesion()> Cerrar sesion </button>
-    </div>
-  <div class="container">
-    </div>
+    <!-----------------------------Agregar a todas las pag de medico------------------------------------>
+    <my-header></my-header>
 
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox" class="checkbtn">
+        <div id="checkMenu">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+        </div>
+    </label>
+    
+    <div id="overlay"></div>
+    
+    <div class="menuDesp" id="menuDesp">
+        <my-menu-med></my-menu-med>
+    </div>
+<!-----------------------------Fin agregar------------------------------------>
+    
 	<h1>Turnos publicados</h1>
-
 
   <script>
 	// Obtener una referencia al elemento input de tipo date
@@ -87,6 +98,9 @@ inputFecha.addEventListener('change', buscarTurnosPorFecha);
   </script>
     <script src="../../js/popups.js"></script>
     <script src="../../js/api.js"></script>
-     <script src="../../js/navBar.js"></script> 
+    <script src="../../js/navBar.js"></script> 
+    <script src="../../js/header.js"></script>
+    <script src="../../js/menuHamMed.js"></script>
+	<script src="../../js/menuDesp.js"></script>
 </body>
 </html>
