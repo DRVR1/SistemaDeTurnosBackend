@@ -18,7 +18,6 @@ body {
 /* -----------------menu desplegable ----------------------*/
 
 .menuDesp {
-  transition: all 0.3s;
   top: 0;
   position: fixed;
   width: 18rem;
