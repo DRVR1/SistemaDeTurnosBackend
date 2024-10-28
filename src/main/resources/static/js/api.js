@@ -11,6 +11,42 @@ function cargarToken() {
 }
 
 
+async function api_queryPaciente(id){
+    try {
+        popupLoadingOn(); 
+        url = app_url + '/api/verDatosPaciente?id=' + id
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+        const data = await response.json();
+        return data;
+  } catch (error) {
+        console.error('Error:', error);
+        popup("No se pudo conectar con el servidor, inténtelo más tarde." + url);
+  }finally{
+    popupLoadingOff(); 
+  }
+}
+
+async function api_queryMedico(id){
+    try {
+        popupLoadingOn(); 
+        url = app_url + '/api/verDatosMedico?id=' + id
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+        const data = await response.json();
+        return data;
+  } catch (error) {
+        console.error('Error:', error);
+        popup("No se pudo conectar con el servidor, inténtelo más tarde." + url);
+  }finally{
+    popupLoadingOff(); 
+  }
+}
+
 async function api_queryTurnos(especialidadID) {
   var listaTurnos = [];
   try {
