@@ -201,19 +201,12 @@
             },
             body: JSON.stringify(turnos)
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la respuesta de la red');
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log('Éxito:', data);
-            popup("Turnos enviados con éxito.");
+            popup(data.message);
         })
         .catch(error => {
-            console.error('Error:', error);
-            popup("Error al enviar turnos.");
+            popup(error);
         })
         .finally(()=>{
           popupLoadingOff();

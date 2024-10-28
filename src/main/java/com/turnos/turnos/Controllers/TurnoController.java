@@ -35,7 +35,7 @@ public class TurnoController {
     }
 
     @PostMapping("/altaTurnos")
-    public ResponseEntity<ArrayList<Turno>> altaTurnos(@RequestBody ArrayList<Turno> turnos) {
+    public ResponseEntity<ResponseMessage> altaTurnos(@RequestBody ArrayList<Turno> turnos) {
         ArrayList<Turno> turnosNew = new ArrayList<>();
 
         for(Turno turno : turnos){
@@ -47,7 +47,11 @@ public class TurnoController {
             turnosNew.add(nuevoTurno);
 
         }
-        return ResponseEntity.ok(turnosNew);
+        if(turnosNew.isEmpty()){
+            return ResponseEntity.ok(new ResponseMessage("No se publicaron turnos nuevos, revisar la configuracion"));
+        }
+        String cantidadPublicados = String.valueOf(turnosNew.size());
+        return ResponseEntity.ok(new ResponseMessage(cantidadPublicados + " turnos publicados con exito."));
 
     }
 
