@@ -5,7 +5,7 @@ email = document.getElementById('email-display');
 telefono = document.getElementById('telefono-display');
 
 paciente = api_queryPaciente(localStorage.getItem('userId')).then((paciente)=> {
-    nombre.textContent = paciente.nombre + ", "
+    nombre.textContent = paciente.nombre + ", ";
     apellido.textContent = paciente.apellido;
     dni.textContent = paciente.dni;
     email.textContent = paciente.email;

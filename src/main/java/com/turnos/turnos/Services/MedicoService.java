@@ -47,7 +47,6 @@ public class MedicoService {
         }else{
             return ResponseEntity.badRequest().body(new ResponseMessage("El medico proporcionado no existe."));
         }
-
     }
 
     public Medico findByEmail(String email){
