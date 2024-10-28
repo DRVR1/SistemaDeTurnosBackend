@@ -37,3 +37,11 @@ out/
 .vscode/
 .env
 /target
+*.class
+target/classes/com/turnos/turnos/Controllers/MedicoController.class
+target/classes/com/turnos/turnos/Controllers/PacienteController.class
+target/classes/com/turnos/turnos/Repositories/MedicoRepository.class
+target/classes/com/turnos/turnos/Repositories/PacienteRepository.class
+target/classes/com/turnos/turnos/Services/MedicoService.class
+target/classes/com/turnos/turnos/Services/PacienteService.class
+target/classes/com/turnos/turnos/Services/TurnoService.class

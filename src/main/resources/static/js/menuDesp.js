@@ -20,3 +20,4 @@ overlay.addEventListener("click", () => {
     checkbox.checked = false; // Deselecciona el checkbox
     toggleMenu();
 });
+

@@ -4,7 +4,7 @@ dni = document.getElementById('dni-display');
 email = document.getElementById('email-display');
 telefono = document.getElementById('telefono-display');
 
-paciente = api_queryMedico(1).then((paciente)=> {
+paciente = api_queryMedico(localStorage.getItem('userId')).then((paciente)=> {
     nombre.textContent = paciente.nombre + ", "
     apellido.textContent = paciente.apellido;
     dni.textContent = paciente.dni;
