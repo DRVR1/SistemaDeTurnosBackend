@@ -22,4 +22,9 @@ public class MedicoController {
         return ResponseEntity.ok(nuevoMedico);
     }
 
+    @GetMapping("/verDatosMedico")
+    public ResponseEntity<?> obtenerMedicoPorId(@RequestParam Long id) {
+        return medicoService.obtenerMedicoPorId(id);
+    }
+
 }

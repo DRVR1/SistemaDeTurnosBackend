@@ -20,6 +20,11 @@ public class PacienteController {
                 paciente.getNombre(), paciente.getApellido(), paciente.getEmail(), paciente.getPassword(),paciente.getObrasocial());
     }
 
+    @GetMapping("/verDatosPaciente")
+    public ResponseEntity<?> obtenerPacientePorId(@RequestParam Long id) {
+        return pacienteService.obtenerPacientePorId(id);
+    }
+
     @GetMapping("/{dni}")
     public ResponseEntity<Paciente> obtenerPacientePorDni(@PathVariable String dni) {
         Paciente paciente = pacienteService.obtenerPacientePorDni(dni);

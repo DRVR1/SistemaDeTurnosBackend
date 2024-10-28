@@ -10,6 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PacienteService {
 
@@ -59,8 +61,19 @@ public class PacienteService {
 
     }
 
+
     public Paciente obtenerPacientePorDni(String dni) {
         return pacienteRepository.findByDni(dni); // Método a implementar en el repositorio
+    }
+
+    public ResponseEntity<?> obtenerPacientePorId(Long id){
+        Optional<Paciente> op = pacienteRepository.findById(id);
+        if(op.isPresent()){
+            return ResponseEntity.ok(op.get());
+        }else{
+            return ResponseEntity.badRequest().body(new ResponseMessage("El paciente proporcionado no existe."));
+        }
+
     }
 }
 //
