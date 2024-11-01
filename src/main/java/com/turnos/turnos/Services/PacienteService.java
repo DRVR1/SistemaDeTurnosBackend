@@ -10,6 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PacienteService {
 
@@ -18,6 +20,10 @@ public class PacienteService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    public List<Paciente> obtenerTodosLosPacientes() {
+        return pacienteRepository.findAll(); // Asumiendo que tienes un método findAll() en el repositorio
+    }
 
     public ResponseEntity<ResponseMessage> altaPaciente(String dni,
                                                         String telefono,
@@ -62,5 +68,8 @@ public class PacienteService {
     public Paciente obtenerPacientePorDni(String dni) {
         return pacienteRepository.findByDni(dni); // Método a implementar en el repositorio
     }
+
+
+
 }
 //

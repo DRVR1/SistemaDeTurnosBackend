@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MedicoService {
 
@@ -24,10 +26,12 @@ public class MedicoService {
                              String mail,
                              String password,
                              Especialidad especialidad,
-                             ObraSocial obrasocial) {
+                             List<ObraSocial> obrasSociales) {
 
         String encodedPass = passwordEncoder.encode(password);
-        Medico medico = new Medico(dni,telefono,nombre,apellido,mail,encodedPass,especialidad,obrasocial);
+        Medico medico = new Medico(dni, telefono, nombre, apellido, mail, encodedPass, especialidad);
+        medico.setObrasociales(obrasSociales); // Asignar la lista de obras sociales
+
         return medicoRepository.save(medico);
     }
 
@@ -35,7 +39,7 @@ public class MedicoService {
         return medicoRepository.findByDni(dni); // Método a implementar en el repositorio
     }
 
-    public Medico findByEmail(String email){
+    public Medico findByEmail(String email) {
         return medicoRepository.findByEmail(email);
     }
 }
