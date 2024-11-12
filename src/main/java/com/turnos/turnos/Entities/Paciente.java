@@ -12,6 +12,7 @@ import lombok.Setter;
 @Getter
 @Table(name = "Pacientes")  // Nombre de la tabla específica de Paciente
 public class Paciente extends Persona {
+
     @ManyToOne
     @JoinColumn(name = "obrasocial_id", referencedColumnName = "id")
     private ObraSocial obrasocial;

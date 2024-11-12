@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 import java.util.Optional;
 
 @Service
@@ -29,10 +31,12 @@ public class MedicoService {
                              String mail,
                              String password,
                              Especialidad especialidad,
-                             ObraSocial obrasocial) {
+                             List<ObraSocial> obrasSociales) {
 
         String encodedPass = passwordEncoder.encode(password);
-        Medico medico = new Medico(dni,telefono,nombre,apellido,mail,encodedPass,especialidad,obrasocial);
+        Medico medico = new Medico(dni, telefono, nombre, apellido, mail, encodedPass, especialidad);
+        medico.setObrasociales(obrasSociales); // Asignar la lista de obras sociales
+
         return medicoRepository.save(medico);
     }
 
@@ -51,6 +55,10 @@ public class MedicoService {
 
     public Medico findByEmail(String email){
         return medicoRepository.findByEmail(email);
+    }
+
+    public List<Medico> obtenerTodosLosMedicos() {
+        return medicoRepository.findAll(); // Asumiendo que tienes un método findAll() en el repositorio
     }
 }
 //

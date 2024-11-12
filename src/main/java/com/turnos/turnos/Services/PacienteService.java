@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+import java.util.List;
+
 @Service
 public class PacienteService {
 
@@ -20,6 +22,10 @@ public class PacienteService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    public List<Paciente> obtenerTodosLosPacientes() {
+        return pacienteRepository.findAll(); // Asumiendo que tienes un método findAll() en el repositorio
+    }
 
     public ResponseEntity<ResponseMessage> altaPaciente(String dni,
                                                         String telefono,
@@ -75,5 +81,8 @@ public class PacienteService {
         }
 
     }
+
+
+
 }
 //
