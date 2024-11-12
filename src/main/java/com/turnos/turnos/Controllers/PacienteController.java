@@ -18,8 +18,14 @@ public class PacienteController {
 
     @PostMapping("/altaPaciente")
     public ResponseEntity<ResponseMessage> altaPaciente(@RequestBody Paciente paciente) {
-        return pacienteService.altaPaciente(paciente.getDni(), paciente.getTelefono(),
-                paciente.getNombre(), paciente.getApellido(), paciente.getEmail(), paciente.getPassword(),paciente.getObrasocial());
+        return pacienteService.altaPaciente(
+                paciente.getDni(),
+                paciente.getTelefono(),
+                paciente.getNombre(),
+                paciente.getApellido(),
+                paciente.getEmail(),
+                paciente.getPassword(),
+                paciente.getObrasocial());
     }
 
     @GetMapping("/{dni}")

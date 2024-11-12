@@ -3,6 +3,7 @@ package com.turnos.turnos.Services;
 import com.turnos.turnos.Entities.Especialidad;
 import com.turnos.turnos.Entities.Medico;
 import com.turnos.turnos.Entities.ObraSocial;
+import com.turnos.turnos.Entities.Paciente;
 import com.turnos.turnos.Repositories.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -41,6 +42,10 @@ public class MedicoService {
 
     public Medico findByEmail(String email) {
         return medicoRepository.findByEmail(email);
+    }
+
+    public List<Medico> obtenerTodosLosMedicos() {
+        return medicoRepository.findAll(); // Asumiendo que tienes un método findAll() en el repositorio
     }
 }
 //

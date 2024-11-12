@@ -27,9 +27,20 @@ public class Medico extends Persona {
         super();
     }
 
-    public Medico(String dni, String telefono, String nombre, String apellido, String email, String password, Especialidad especialidad) {
+    public Medico(String dni,
+                  String telefono,
+                  String nombre,
+                  String apellido,
+                  String email,
+                  String password,
+                  Especialidad especialidad) {
+
+
         super(dni, telefono, nombre, apellido, email, password, "ROLE_MEDICO");
         this.especialidad = especialidad;
+        this.obrasociales = obrasociales;
     }
+
+
 }
 //

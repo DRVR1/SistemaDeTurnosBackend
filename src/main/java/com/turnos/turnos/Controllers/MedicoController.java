@@ -1,10 +1,13 @@
 package com.turnos.turnos.Controllers;
 
 import com.turnos.turnos.Entities.Medico;
+import com.turnos.turnos.Entities.Paciente;
 import com.turnos.turnos.Services.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -27,4 +30,8 @@ public class MedicoController {
         );
         return ResponseEntity.ok(nuevoMedico);
     }
+    @GetMapping("/verMedicos") // Nuevo endpoint para ver todos los pacientes
+    public ResponseEntity<List<Medico>> verMedicos() {
+        List<Medico> medicos = medicoService.obtenerTodosLosMedicos();
+        return ResponseEntity.ok(medicos);}
 }
