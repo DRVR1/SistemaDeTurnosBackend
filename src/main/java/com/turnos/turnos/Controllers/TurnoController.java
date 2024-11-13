@@ -68,8 +68,19 @@ public class TurnoController {
 
 
     @GetMapping("/verTurnos")
-    public ResponseEntity<List<Turno>> verTurnos(@RequestParam("id") long id){
-        return ResponseEntity.ok(turnoService.verTurnos(id));
+    public ResponseEntity<List<Turno>> verTurnos(
+            @RequestParam("especialidadId") long especialidadId,
+            @RequestParam(value = "obrasocialId", required = false) Long obrasocialId) {
+
+        List<Turno> turnos;
+        if (obrasocialId != null) {
+            // Filtrar por especialidad y obra social si ambos están presentes
+            turnos = turnoService.verTurnosPorEspecialidadYObraSocial(especialidadId, obrasocialId);
+        } else {
+            // Filtrar solo por especialidad cuando obra social no está presente
+            turnos = turnoService.verTurnos(especialidadId);
+        }
+        return ResponseEntity.ok(turnos);
     }
 
     @GetMapping("/verTurnosReservados")

@@ -182,3 +182,15 @@ function api_cancelarTurno(id) {
 }
 
 
+async function api_queryObrasSociales() {
+    try {
+        const response = await fetch('/api/verObrasSociales'); // Ajusta el endpoint según tu backend
+        if (!response.ok) {
+            throw new Error('Error al obtener las obras sociales');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error en api_queryObrasSociales:', error);
+        return [];
+    }
+}

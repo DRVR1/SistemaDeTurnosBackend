@@ -1,31 +1,56 @@
-select = document.getElementById('especialidad');
+// Obtener el elemento del select
+const selectEspecialidad = document.getElementById('especialidad');
+const selectObraSocial = document.getElementById('obrasocial');
 
-opciones = [];
-async function cargarEspecialidades(){
+opcionesEspecialidad = [];
+opcionesObraSocial = [];
+
+// Cargar especialidades
+async function cargarEspecialidades() {
     let listaEspecialidades = await api_queryEspecialidades();
-
     listaEspecialidades.forEach(especialidad => {
-        opciones.push({key:especialidad.id, value:especialidad.nombre});
+        opcionesEspecialidad.push({ key: especialidad.id, value: especialidad.nombre });
     });
-    populateSelect();
+    populateSelectEspecialidad();
 }
 
-function populateSelect(){
-    // Agregamos las opciones al <select>
-    opciones.forEach(opcion => {
-      const newOption = document.createElement('option'); // Creamos un nuevo <option>
-      newOption.value = opcion.key; // Asignamos el valor del option
-      newOption.textContent = opcion.value; // Asignamos el texto que verá el usuario
-      select.appendChild(newOption); // Lo añadimos al <select>
+// Cargar obras sociales
+async function cargarObrasSociales() {
+    let listaObrasSociales = await api_queryObrasSociales();
+    listaObrasSociales.forEach(obraSocial => {
+        opcionesObraSocial.push({ key: obraSocial.id, value: obraSocial.nombre });
+    });
+    populateSelectObraSocial();
+}
+
+// Poblar select de especialidades
+function populateSelectEspecialidad() {
+    opcionesEspecialidad.forEach(opcion => {
+        const newOption = document.createElement('option');
+        newOption.value = opcion.key;
+        newOption.textContent = opcion.value;
+        selectEspecialidad.appendChild(newOption);
     });
 }
 
+// Poblar select de obras sociales
+function populateSelectObraSocial() {
+    opcionesObraSocial.forEach(opcion => {
+        const newOption = document.createElement('option');
+        newOption.value = opcion.key;
+        newOption.textContent = opcion.value;
+        selectObraSocial.appendChild(newOption);
+    });
+}
+
+// Guardar selección en localStorage
+function guardarSeleccion() {
+    const especialidadId = selectEspecialidad.value;
+    const obrasocialId = selectObraSocial.value || null; // Si no se selecciona obra social, se guarda como null
+    localStorage.setItem('especialidadId', especialidadId);
+    localStorage.setItem('obrasocialId', obrasocialId);
+}
+
+// Llamar las funciones para cargar datos
 cargarEspecialidades();
-
-function guardarId(){
-    localStorage.setItem('especialidadId',select.value);
-}
-
-function goBack() {
-    window.history.back();
-}
+cargarObrasSociales();
