@@ -48,24 +48,25 @@ async function api_queryMedico(id){
 }
 
 async function api_queryTurnos(especialidadID) {
-  var listaTurnos = [];
-  try {
-        popupLoadingOn(); 
-        url = app_url + '/api/verTurnos?id=' + especialidadID
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error('Error en la respuesta del servidor');
-        }
-        const data = await response.json();
-        listaTurnos = data;
-        return listaTurnos;
-  } catch (error) {
-        console.error('Error:', error);
-        popup("No se pudo conectar con el servidor, inténtelo más tarde." + url);
-  }finally{
-    popupLoadingOff(); 
+    var listaTurnos = [];
+    try {
+          popupLoadingOn(); 
+          url = app_url + '/api/verTurnos?id=' + especialidadID
+          const response = await fetch(url);
+          if (!response.ok) {
+              throw new Error('Error en la respuesta del servidor');
+          }
+          const data = await response.json();
+          listaTurnos = data;
+          return listaTurnos;
+    } catch (error) {
+          console.error('Error:', error);
+          popup("No se pudo conectar con el servidor, inténtelo más tarde." + url);
+    }finally{
+      popupLoadingOff(); 
+    }
   }
-}
+  
 
 //hardcoded
 async function api_queryTurnosReservados(pacienteId) {

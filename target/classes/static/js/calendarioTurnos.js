@@ -50,6 +50,142 @@ function generarCalendario() {
     generateCalendar(currentYear, currentMonth);
 }
 
+function convertirFechaTurno(fechaTurno) {
+    // Extraer la parte de la fecha (YYYY-MM-DD) de la fecha completa (YYYY-MM-DDTHH:mm:ss)
+    const fecha = fechaTurno.split('T')[0]; // Tomamos solo la fecha (YYYY-MM-DD)
+    return fecha;
+}
+
+// Función para ocultar turnos que no coinciden con la fecha seleccionada
+function ocultarTurnosDeOtrosDias(fechaSeleccionada) {
+    const rows = document.querySelectorAll("#turnosList li");  // Aquí usamos <li> porque los turnos están en una lista <ul>
+
+    // Convertimos la fecha seleccionada a un objeto Date para comparaciones
+    const fechaSeleccionadaDate = new Date(fechaSeleccionada);  // Convertimos la fecha seleccionada a un objeto Date
+
+    rows.forEach(row => {
+        const fechaTurno = row.querySelector(".turnoFecha").textContent.trim(); // Suponemos que la fecha del turno está en un elemento con clase 'turnoFecha'
+
+        const fechaTurnoDate = new Date(fechaTurno);  // Convertimos la fecha del turno en un objeto Date
+
+        // Comparamos las fechas: si coinciden, mostramos el turno; si no, lo ocultamos
+        if (fechaSeleccionadaDate.getFullYear() === fechaTurnoDate.getFullYear() &&
+            fechaSeleccionadaDate.getMonth() === fechaTurnoDate.getMonth() &&
+            fechaSeleccionadaDate.getDate() === fechaTurnoDate.getDate()) {
+            row.style.display = '';  // Si las fechas coinciden, mostramos el turno
+        } else {
+            row.style.display = 'none';  // Si no coinciden, ocultamos el turno
+        }
+    });
+}
+// Función para mostrar los turnos del día
+async function mostrarTurnosDelDia(fechaSeleccionada) {
+    try {
+        // Obtener todos los turnos de la API (puedes modificar esta función para que obtenga los turnos según la especialidad o los parámetros que necesites)
+        const especialidadID = localStorage.getItem('especialidadId');  // Asegúrate de que este valor esté correctamente definido en el localStorage
+        if (!especialidadID) {
+            console.error("Error: especialidadID no está definido");
+            popup("No se ha seleccionado una especialidad válida.");
+            return;  // Salimos de la función si no hay especialidad
+        }
+
+        const turnos = await api_queryTurnos(especialidadID);  // Obtener los turnos para la especialidad seleccionada
+
+        // Filtrar los turnos que coinciden con la fecha seleccionada
+        const turnosFiltrados = turnos.filter(turno => {
+            const fechaTurno = compararFecha(turno.fecha);  // Convierte la fecha del turno a formato YYYY-MM-DD
+            return fechaTurno === fechaSeleccionada;  // Compara solo la parte de la fecha (sin la hora)
+        });
+
+        // Limpiar la lista de turnos mostrados antes de agregar los nuevos turnos filtrados
+        const turnosList = document.querySelector("#turnosList");
+        turnosList.innerHTML = '';  // Limpiar los turnos previos
+
+        // Verificamos si hay turnos disponibles para la fecha seleccionada
+        if (turnosFiltrados.length > 0) {
+            console.log('Turnos filtrados:', turnosFiltrados);
+
+            // Agregar los turnos filtrados a la lista existente
+            turnosFiltrados.forEach(turno => {
+                // Extraer los datos del turno
+                const turnoId = turno.id;
+                const fechaIso = turno.fecha;
+                const fechaDate = new Date(fechaIso);
+                const medicoNombre = turno.medico.nombre;
+                const medicoApellido = turno.medico.apellido;
+                const especialidadNombre = turno.medico.especialidad.nombre;
+
+                // Formato día/mes/año
+                const dia = fechaDate.getDate();
+                const mes = fechaDate.getMonth();
+                const año = fechaDate.getFullYear();
+                const fechaFormateada = getfechaDDMMAAAA(dia, mes, año);
+
+                // Hora
+                const horaFormateada = convertirHora(fechaIso);
+
+                // Crear el item de lista <li>
+                const li = document.createElement("li");
+                li.classList.add("turno-item");  // Agregar una clase CSS para estilizar el <li>
+
+                // Crear el contenido HTML para el turno
+                const turnoContent = `
+                    <div class="turno-info">
+                        <p><strong>Medico:</strong> ${medicoNombre} ${medicoApellido}</p>
+                        <p><strong>Especialidad:</strong> ${especialidadNombre}</p>
+                        <p><strong>Fecha:</strong> ${fechaFormateada}</p>
+                        <p><strong>Hora:</strong> ${horaFormateada}</p>
+                    </div>
+                    <div class="turno-action">
+                        <button class="aceptarBoton" data-turno-id="${turnoId}">Reservar</button>
+                    </div>
+            `;
+
+                // Asignar el contenido HTML al <li>
+                li.innerHTML = turnoContent;
+
+                // Agregar el <li> a la lista
+                turnosList.appendChild(li);
+
+                // Agregar evento al botón "Reservar"
+                const button = li.querySelector(".aceptarBoton");
+                button.addEventListener("click", function () {
+                    api_reservarTurno(turnoId, localStorage.getItem('userId'));
+                });
+            });
+        } else {
+            // Si no hay turnos disponibles, mostramos un mensaje
+            popup("No hay turnos disponibles para esta fecha.");
+        }
+
+    } catch (error) {
+        console.error("Error al mostrar los turnos:", error);
+        popup("No se pudieron obtener los turnos para esta fecha.");
+    }
+}
+
+
+function compararFecha(fechaConHora) {
+    // Usamos la función Date para crear un objeto Date y luego formateamos a 'YYYY-MM-DD'
+    const fecha = new Date(fechaConHora);
+    const año = fecha.getFullYear();
+    const mes = String(fecha.getMonth() + 1).padStart(2, '0');  // Mes comienza desde 0, por eso sumamos 1
+    const dia = String(fecha.getDate()).padStart(2, '0');  // Aseguramos que el día tenga 2 dígitos
+    return `${año}-${mes}-${dia}`;
+}
+
+
+function convertirFechaSeleccionada(dia, mes, anio) {
+    // Recordemos que el mes en JavaScript es de 0 a 11, así que restamos 1 al mes seleccionado
+    const mesAjustado = mes-1;  // Ajuste del mes (1 -> 0, 11 -> 10)
+    
+    const fecha = new Date(anio, mesAjustado, dia); // Usamos Date para construir la fecha correctamente
+    const fechaFormateada = fecha.toISOString().split('T')[0]; // Formato: YYYY-MM-DD
+    
+    return fechaFormateada;
+}
+
+
 
 // Generar el calendario según el año y el mes
 function generateCalendar(year, month) {
@@ -90,10 +226,30 @@ function generateCalendar(year, month) {
             dayDiv.classList.remove('day-available');
         }
 
-        //agregar un listener al div
-        dayDiv.onclick = function(){
-            
+// Agregar el listener para capturar el día seleccionado
+dayDiv.onclick = function() {
+    const dia = i;  // 'i' es el día actual en el bucle de generación del calendario
+    const mes = parseInt(monthSelect.value, 10) + 1; 
+    const anio = yearSelect.value; // El año seleccionado
+
+        // Obtener especialidadID de localStorage dentro del onclick
+        const especialidadID = localStorage.getItem('especialidadId');
+    
+        // Si especialidadID es nulo o indefinido, mostrar error y no continuar
+        if (!especialidadID) {
+            console.error("Error: especialidadID no está definido");
+            popup("No se ha seleccionado una especialidad válida.");
+            return; // Terminar la función si no se encuentra especialidadID
         }
+    
+    
+    // Ahora convertimos esa fecha seleccionada a formato YYYY-MM-DD
+    const fechaSeleccionada = convertirFechaSeleccionada(dia, mes, anio);
+    
+    
+    // Mostrar los turnos disponibles para esa fecha
+    mostrarTurnosDelDia(fechaSeleccionada,especialidadID);
+}
 
         calendarGrid.appendChild(dayDiv);
     }
