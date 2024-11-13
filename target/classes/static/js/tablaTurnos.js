@@ -21,10 +21,13 @@
 </div>
 
 */
+function llenarTurnosDisponibles(turnos) {
+    const turnosList = document.querySelector("#turnosList");
+    
+    // Limpiar la lista antes de agregar los nuevos turnos
+    turnosList.innerHTML = '';  
 
-function llenarTurnosDisponibles(turnos){
     turnos.forEach(turno => {
-
         var turnoId = turno.id;
         var fechaIso = turno.fecha;
         var fechaDate = new Date(fechaIso);
@@ -33,16 +36,48 @@ function llenarTurnosDisponibles(turnos){
         var especialidadNombre = turno.medico.especialidad.nombre;
 
         // Formato día/mes/año
-        const dia = fechaDate.getDate()
-        const mes = fechaDate.getMonth()
+        const dia = fechaDate.getDate();
+        const mes = fechaDate.getMonth();
         const año = fechaDate.getFullYear();
-        fechaFormateada = getfechaDDMMAAAA(dia,mes,año);
+        const fechaFormateada = getfechaDDMMAAAA(dia, mes, año);
 
         // hora
-        const horaFormateada = convertirFecha(fechaIso); 
-        agregarFilaTabla(turnoId,medicoNombre,medicoApellido,especialidadNombre,fechaFormateada,horaFormateada);
+        const horaFormateada = convertirFecha(fechaIso);
+
+        // Crear el item de lista
+        const li = document.createElement("li");
+        li.classList.add("turno-item");  // Se puede agregar una clase para aplicar estilos si es necesario
+
+        // Crear el contenido del turno
+        const turnoContent = `
+            <div class="turno-info">
+                <p><strong>Medico:</strong> ${medicoNombre} ${medicoApellido}</p>
+                <p><strong>Especialidad:</strong> ${especialidadNombre}</p>
+                <p><strong>Fecha:</strong> ${fechaFormateada}</p>
+                <p><strong>Hora:</strong> ${horaFormateada}</p>
+            </div>
+            <div class="turno-action">
+                <button class="aceptarBoton" data-turno-id="${turnoId}">Reservar</button>
+            </div>
+        `;
+
+        // Asignar el contenido al <li>
+        li.innerHTML = turnoContent;
+
+        // Agregar el elemento <li> a la lista
+        turnosList.appendChild(li);
+
+        // Agregar el evento de click al botón de reservar
+        const button = li.querySelector(".aceptarBoton");
+        button.addEventListener("click", function () {
+            api_reservarTurno(turnoId, localStorage.getItem('userId'));
+        });
     });
+
+    // Asegurarse de actualizar algún indicador si es necesario
+    actualizarIndicador();
 }
+
 
 function agregarFilaTabla(turnoId, medicoNombre,medicoApellido,especialidadNombre,fechaFormateada,horaFormateada){
         // Obtener la tabla donde se insertarán los datos
@@ -89,6 +124,7 @@ function agregarFilaTabla(turnoId, medicoNombre,medicoApellido,especialidadNombr
         tableBody.appendChild(row);
         actualizarIndicador();
 }
+
 
 
 
