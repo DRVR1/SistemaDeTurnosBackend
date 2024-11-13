@@ -308,3 +308,4 @@ function selectDay(cell, day) {
 function isAvaliable(fechaDDMMAAAA) { // formato DD/MM/AAAA
     return turnosList.some(turno => convertirFecha(turno.fecha) === fechaDDMMAAAA);
 }
+

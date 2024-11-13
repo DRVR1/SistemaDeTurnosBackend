@@ -194,3 +194,4 @@ async function api_queryObrasSociales() {
         return [];
     }
 }
+

@@ -29,15 +29,21 @@ public class TurnoService {
         return turnoRepository.save(turno);
     }
 
-    public List<Turno> verTurnos(long especialidadId) {
-        // Filtrar solo por especialidad
-        return turnoRepository.findByMedicoEspecialidadIdAndPacienteIsNullAndFechaAfterOrderByFechaAsc(especialidadId, LocalDateTime.now());
+    public List<Turno> verTurnosPorEspecialidad(long especialidadId) {
+            return turnoRepository.findByMedicoEspecialidadIdAndPacienteIsNullAndFechaAfterOrderByFechaAsc(especialidadId, LocalDateTime.now());
     }
 
-    public List<Turno> verTurnosPorEspecialidadYObraSocial(long especialidadId, long obrasocialId) {
-        // Filtrar por especialidad y obra social
-        return turnoRepository.findByMedicoEspecialidadIdAndMedicoObrasocialesIdAndPacienteIsNullAndFechaAfterOrderByFechaAsc(
-                especialidadId, obrasocialId, LocalDateTime.now());
+    public List<Turno> verTurnosPorEspecialidadYObraSocial(Long especialidadId, Long obrasocialId) {
+        if (obrasocialId != null) {
+            // Filtra por especialidad y obra social
+            return turnoRepository.findByMedicoEspecialidadIdAndMedicoObrasocialesIdAndPacienteIsNullAndFechaAfterOrderByFechaAsc(
+                    especialidadId, obrasocialId, LocalDateTime.now()
+            );
+        } else {
+            // Filtra solo por especialidad cuando no se especifica obra social
+            return turnoRepository.findByMedicoEspecialidadIdAndPacienteIsNullAndFechaAfterOrderByFechaAsc(especialidadId, LocalDateTime.now()
+            );
+        }
     }
 
     public List<Turno> verTurnosReservados(long id){

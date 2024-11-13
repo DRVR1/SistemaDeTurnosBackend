@@ -51,6 +51,7 @@ function guardarSeleccion() {
     localStorage.setItem('obrasocialId', obrasocialId);
 }
 
+
 // Llamar las funciones para cargar datos
 cargarEspecialidades();
 cargarObrasSociales();

@@ -23,11 +23,12 @@ async function main() {
 
 main();
 
+
 async function api_queryTurnos(especialidadId, obrasocialId) {
     let url = `/api/verTurnos?especialidadId=${especialidadId}`;
 
-    // Solo añadir obrasocialId si está definido
-    if (obrasocialId !== undefined && obrasocialId !== null) {
+    // Solo agrega `obrasocialId` al URL si tiene un valor válido (no es null ni una cadena vacía)
+    if (obrasocialId && obrasocialId !== "null" && obrasocialId !== "") {
         url += `&obrasocialId=${obrasocialId}`;
     }
 

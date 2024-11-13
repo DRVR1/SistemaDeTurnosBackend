@@ -72,16 +72,28 @@ public class TurnoController {
             @RequestParam("especialidadId") long especialidadId,
             @RequestParam(value = "obrasocialId", required = false) Long obrasocialId) {
 
-        List<Turno> turnos;
-        if (obrasocialId != null) {
-            // Filtrar por especialidad y obra social si ambos están presentes
-            turnos = turnoService.verTurnosPorEspecialidadYObraSocial(especialidadId, obrasocialId);
-        } else {
-            // Filtrar solo por especialidad cuando obra social no está presente
-            turnos = turnoService.verTurnos(especialidadId);
-        }
+        List<Turno> turnos = turnoService.verTurnosPorEspecialidadYObraSocial(especialidadId, obrasocialId);
         return ResponseEntity.ok(turnos);
     }
+
+
+
+   /* @GetMapping("/verTurnos")
+    public ResponseEntity<List<Turno>> verTurnos(@RequestParam("especialidadId") Long especialidadId,
+                                                 @RequestParam("obrasocialId") String obrasocialId) {
+        if ("all".equals(obrasocialId)) {
+            // Si se pasa "all", obtener todos los turnos de la especialidad sin importar la obra social
+            List<Turno> turnos = turnoService.verTurnosPorEspecialidad(especialidadId);
+            return ResponseEntity.ok(turnos);
+        } else {
+            // Si se pasa una obra social específica, filtrar por ella
+            Long obraSocialId = Long.parseLong(obrasocialId); // Convierte la obra social seleccionada
+            List<Turno> turnos = turnoService.verTurnosPorEspecialidadYObraSocial(especialidadId, obraSocialId);
+            return ResponseEntity.ok(turnos);
+        }
+    }*/
+
+
 
     @GetMapping("/verTurnosReservados")
     public ResponseEntity<List<Turno>> verTurnosReservados(@RequestParam("pacienteId") long pacienteId){
