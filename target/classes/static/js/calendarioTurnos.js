@@ -130,15 +130,12 @@ async function mostrarTurnosDelDia(fechaSeleccionada) {
 
                 // Crear el contenido HTML para el turno
                 const turnoContent = `
-                    <div class="turno-info">
-                        <p><strong>Medico:</strong> ${medicoNombre} ${medicoApellido}</p>
-                        <p><strong>Especialidad:</strong> ${especialidadNombre}</p>
-                        <p><strong>Fecha:</strong> ${fechaFormateada}</p>
-                        <p><strong>Hora:</strong> ${horaFormateada}</p>
-                    </div>
-                    <div class="turno-action">
-                        <button class="aceptarBoton" data-turno-id="${turnoId}">Reservar</button>
-                    </div>
+       <p><strong>Código del turno:</strong> ${turno.id}</p>
+        <p><strong>Fecha del turno:</strong> ${convertirFecha(turno.fecha)}</p>
+        <p><strong>Hora del turno:</strong> ${convertirHora(turno.fecha)}</p>
+        <p><strong>Médico asignado:</strong> ${turno.medico.nombre} ${turno.medico.apellido}</p>
+        <p><strong>Especialidad del Médico:</strong> ${turno.medico.especialidad.nombre}</p>
+        <button class="aceptarBoton cancelarAceptarBoton" data-turno-id="${turno.id}">Reservar turno</button>
             `;
 
                 // Asignar el contenido HTML al <li>
@@ -148,7 +145,7 @@ async function mostrarTurnosDelDia(fechaSeleccionada) {
                 turnosList.appendChild(li);
 
                 // Agregar evento al botón "Reservar"
-                const button = li.querySelector(".aceptarBoton");
+                const button = li.querySelector("button");
                 button.addEventListener("click", function () {
                     api_reservarTurno(turnoId, localStorage.getItem('userId'));
                 });

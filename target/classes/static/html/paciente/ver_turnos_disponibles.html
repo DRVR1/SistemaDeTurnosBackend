@@ -42,11 +42,7 @@
       <div class="calendar-container">
         <h1 id="mesAño">Seleccione una fecha</h1>
         <div class="filters">
-            <label for="year">Año:</label>
-            <select class="dateSelect" id="year" onchange="updateFilter()">
-                <!-- Se generarán dinámicamente años -->
-            </select>
-            
+          <div class="filter-group">
             <label for="month">Mes</label>
             <select class="dateSelect" id="month" onchange="updateFilter()">
                 <!-- Se generarán dinámicamente los meses -->
@@ -55,6 +51,13 @@
 
 
         </div>
+          <div class="filter-group">
+            <label for="year">Año:</label>
+            <select class="dateSelect" id="year" onchange="updateFilter()">
+                <!-- Se generarán dinámicamente años -->
+            </select>
+          </div>
+      </div>
         <p>*Los dias resaltados en verde poseen turnos disponibles</p>
         <div class="calendar-grid" id="calendar">
             <!-- Aquí se mostrarán los días del calendario -->
