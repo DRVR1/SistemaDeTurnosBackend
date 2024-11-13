@@ -53,7 +53,6 @@ function generarCalendario() {
 function convertirFechaTurno(fechaTurno) {
     // Extraer la parte de la fecha (YYYY-MM-DD) de la fecha completa (YYYY-MM-DDTHH:mm:ss)
     const fecha = fechaTurno.split('T')[0]; // Tomamos solo la fecha (YYYY-MM-DD)
-    console.log("fecha:",fecha)
     return fecha;
 }
 
@@ -81,8 +80,6 @@ function ocultarTurnosDeOtrosDias(fechaSeleccionada) {
 }
 // Función para mostrar los turnos del día
 async function mostrarTurnosDelDia(fechaSeleccionada) {
-    console.log("Fecha seleccionada en mostrarTurnosDelDia:", fechaSeleccionada);  // Log para verificar la fecha
-
     try {
         // Obtener todos los turnos de la API (puedes modificar esta función para que obtenga los turnos según la especialidad o los parámetros que necesites)
         const especialidadID = localStorage.getItem('especialidadId');  // Asegúrate de que este valor esté correctamente definido en el localStorage
@@ -93,7 +90,6 @@ async function mostrarTurnosDelDia(fechaSeleccionada) {
         }
 
         const turnos = await api_queryTurnos(especialidadID);  // Obtener los turnos para la especialidad seleccionada
-        console.log("Turnos recibidos de la API:", turnos);
 
         // Filtrar los turnos que coinciden con la fecha seleccionada
         const turnosFiltrados = turnos.filter(turno => {
@@ -233,12 +229,11 @@ function generateCalendar(year, month) {
 // Agregar el listener para capturar el día seleccionado
 dayDiv.onclick = function() {
     const dia = i;  // 'i' es el día actual en el bucle de generación del calendario
-    const mes = parseInt(monthSelect.value, 10) + 1;    console.log("mes seleccionado",mes);
+    const mes = parseInt(monthSelect.value, 10) + 1; 
     const anio = yearSelect.value; // El año seleccionado
 
         // Obtener especialidadID de localStorage dentro del onclick
         const especialidadID = localStorage.getItem('especialidadId');
-        console.log("especialidadID dentro del onclick:", especialidadID);
     
         // Si especialidadID es nulo o indefinido, mostrar error y no continuar
         if (!especialidadID) {
@@ -251,10 +246,8 @@ dayDiv.onclick = function() {
     // Ahora convertimos esa fecha seleccionada a formato YYYY-MM-DD
     const fechaSeleccionada = convertirFechaSeleccionada(dia, mes, anio);
     
-    console.log("Fecha seleccionada:", fechaSeleccionada);  // Imprime la fecha seleccionada en formato YYYY-MM-DD
     
     // Mostrar los turnos disponibles para esa fecha
-    console.log("Fecha seleccionada antes de llamar a mostrarTurnosDelDia:", fechaSeleccionada);
     mostrarTurnosDelDia(fechaSeleccionada,especialidadID);
 }
 
