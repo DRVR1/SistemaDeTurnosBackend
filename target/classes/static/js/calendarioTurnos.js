@@ -131,16 +131,22 @@ async function mostrarTurnosDelDia(fechaSeleccionada) {
                 // Crear el contenido HTML para el turno
                 const turnoContent = `
                     <div class="turno-info">
-                        <p><strong>Medico:</strong> ${medicoNombre} ${medicoApellido}</p>
-                        <p><strong>Especialidad:</strong> ${especialidadNombre}</p>
-                        <p><strong>Fecha:</strong> ${fechaFormateada}</p>
-                        <p><strong>Hora:</strong> ${horaFormateada}</p>
+                                <p><strong>Código del turno:</strong> ${turno.id}</p>
+                                 <p><strong>Fecha del turno:</strong> ${fechaFormateada}</p>
+                        <p><strong>Hora del turno:</strong> ${horaFormateada}</p>
+                        <p><strong>Médico asignado:</strong> ${medicoNombre} ${medicoApellido}</p>
+                        <p><strong>Especialidad del Médico:</strong> ${especialidadNombre}</p>
                     </div>
                     <div class="turno-action">
-                        <button class="aceptarBoton" data-turno-id="${turnoId}">Reservar</button>
-                    </div>
-            `;
+                                <button class="aceptarBoton cancelarAceptarBoton" onclick="reservarTurno(${turno.id})">Reservar turno</button>
 
+                        </div>
+            `;
+            //                        <button class="aceptarBoton cancelarAceptarBoton" data-turno-id="${turnoId}">Reservar turno</button>
+// <div class="turno-action">
+//<button class="aceptarBoton" data-turno-id="${turnoId}">Reservar</button>
+//</div>
+          
                 // Asignar el contenido HTML al <li>
                 li.innerHTML = turnoContent;
 
@@ -150,7 +156,13 @@ async function mostrarTurnosDelDia(fechaSeleccionada) {
                 // Agregar evento al botón "Reservar"
                 const button = li.querySelector(".aceptarBoton");
                 button.addEventListener("click", function () {
+                    const turnoLi = document.getElementById('li' + turnoId);
                     api_reservarTurno(turnoId, localStorage.getItem('userId'));
+                    turnoLi.classList.add('turno-reservado');  // Agrega la clase para poner el fondo gris
+
+                    // 3. Ocultar el botón "Reservar turno"
+                    const botonReservar = turnoLi.querySelector('button');
+                    botonReservar.classList.add('ocultar');  // Oculta el botón de reservar turno
                 });
             });
         } else {

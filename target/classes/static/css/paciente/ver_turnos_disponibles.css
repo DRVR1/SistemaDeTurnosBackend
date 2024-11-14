@@ -5,14 +5,30 @@
     margin: auto;
     text-align: center;
 }
+
 .filters {
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-  font-size: 2rem;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+  gap: 20px; /* Añade espacio entre los contenedores de los filtros */
 }
 
+.filter-item {
+  display: flex;
+  flex-direction: column; /* Los elementos dentro de cada item estarán en columna */
+  align-items: center; /* Alinea los elementos de cada item al centro */
+  font-size: 1.5rem; /* Ajusta el tamaño de fuente */
+}
+
+.filter-item label {
+  margin-bottom: 8px; /* Añade espacio entre el label y el select */
+}
+
+.filter-item select {
+  width: 150px; /* Ajusta el ancho del select */
+  padding: 8px;
+  font-size: 1rem;
+}
 
 .dateSelect{
   margin-bottom: 1.5rem;

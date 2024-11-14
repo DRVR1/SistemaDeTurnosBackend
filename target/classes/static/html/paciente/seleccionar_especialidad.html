@@ -34,7 +34,7 @@
 
     <main>
         <section class="formulario-turno">
-            <h2>Selecciona tu Especialidad</h2>
+            <h2>Selecciona una Especialidad</h2>
             <form id="form-turno">
                 <label for="especialidad">Especialidad Médica:</label>
                 <select id="especialidad" name="especialidad">
@@ -43,7 +43,8 @@
 
 
             </form>
-            <button class="aceptarBoton cancelarAceptarBoton" onclick="guardarId();location.href='ver_turnos_disponibles.html'">Buscar Turno</button>
+            <button class="aceptarBoton cancelarAceptarBoton" id="aceptarbutton">Buscar turnos</button>
+            <!--<button class="aceptarBoton cancelarAceptarBoton" onclick="guardarId();location.href='ver_turnos_disponibles.html'">Buscar Turno</button> -->
             <div id="resultado"></div>
         </section>
     </main>

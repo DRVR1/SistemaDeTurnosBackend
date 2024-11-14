@@ -10,24 +10,38 @@ function cerrarSesion(){
     
 }
 
-
 document.addEventListener('DOMContentLoaded', function() {
-    const titulo = document.getElementById('navTitulo');
-    const botonReservarTurno = document.getElementById('botonReservarTurno');
-    const botonVerTurnosReservados = document.getElementById('botonVerTurnosReservados');
+    const selectEspecialidad = document.getElementById('especialidad');
+    const aceptarButton = document.getElementById('aceptarbutton');
 
-    titulo.addEventListener('click', function() {
-        window.location.href = app_url;
+    // Agregar eventListener para guardar el especialidadId cuando el usuario selecciona una especialidad
+    selectEspecialidad.addEventListener('change', function() {
+        const especialidadId = selectEspecialidad.value;
+        localStorage.setItem('especialidadId', especialidadId);  // Guardamos el especialidadId en localStorage
     });
 
-
-    botonReservarTurno.addEventListener('click', function() {
-        window.location.href = app_url+'/html/paciente/seleccionar_especialidad.html';
+    // Manejar el clic en "Buscar Turno"
+    aceptarButton.addEventListener('click', async function(event) {
+        const hayTurnos = await verificarTurnosDisponibles();
+        if (!hayTurnos) {
+            popup("No hay turnos disponibles, vuelva en otro momento.");
+            return;  // No redirigir si no hay turnos
+        } else {
+            window.location.href = app_url + '/html/paciente/ver_turnos_disponibles.html';  // Redirigir si hay turnos
+        }
     });
-
-    botonVerTurnosReservados.addEventListener('click', function() {
-        window.location.href = app_url+'/html/paciente/ver_mis_turnos.html';
-    });
-
 });
 
+// Función para verificar si hay turnos disponibles
+async function verificarTurnosDisponibles() {
+    const especialidadId = localStorage.getItem('especialidadId');
+
+    if (!especialidadId) {
+        return false;  // Si no hay especialidadId, no se pueden mostrar los turnos
+    }
+
+    // Aquí se hace la consulta a la API para obtener los turnos según el especialidadId
+    let turnos = await api_queryTurnos(especialidadId);
+
+    return turnos.length > 0;  // Devuelve verdadero si hay turnos
+}
