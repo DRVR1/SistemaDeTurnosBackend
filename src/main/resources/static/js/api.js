@@ -148,11 +148,6 @@ function api_reservarTurno(id, pacienteId) {
                 popupLoadingOff(); // Asegurarse de que siempre se apague el popup de carga
             });
         }
-        // Espera de 5 segundos (5000 milisegundos)
-        setTimeout(function() {
-          location.reload();
-          // Aquí puedes colocar la acción que deseas ejecutar después de la espera
-        }, 5000);
     });
 }
 
@@ -182,12 +177,8 @@ function api_cancelarTurno(id) {
             })
             .finally(() => {popupLoadingOff()});
         }
-        // Espera de 5 segundos (5000 milisegundos)
-                    setTimeout(function() {
-                      location.reload();
-                      // Aquí puedes colocar la acción que deseas ejecutar después de la espera
-                    }, 5000);
     });
+
 }
 
 
