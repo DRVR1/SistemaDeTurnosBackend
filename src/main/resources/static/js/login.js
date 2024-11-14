@@ -77,6 +77,9 @@ document.getElementById('registerBtn').addEventListener('click', function () {
     .then(data => {
         popupLoadingOff();
         popup(data.message);
+            setTimeout(() => {
+                window.location.href = 'http://localhost:8080/'; 
+            }, 3000); // Espera 2 segundos antes de redirigir (para que el usuario vea el mensaje)
     })
     .catch(error => {
         popupLoadingOff();
