@@ -5,28 +5,28 @@
     margin: auto;
     text-align: center;
 }
-
 .filters {
-  display: flex;                    /* Hace que los elementos de .filters estén alineados en fila */
-  justify-content: center;           /* Centra los elementos horizontalmente */
-  align-items: center;               /* Centra los elementos verticalmente */
-  gap: 40px;                         /* Espacio entre los dos grupos (Año y Mes) */
-  font-size: 2rem;                   /* Ajusta el tamaño de la fuente */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+  gap: 20px; /* Añade espacio entre los contenedores de los filtros */
 }
 
-.filter-group {
-  display: flex;                     /* Hace que los elementos dentro de cada grupo se alineen en columna */
-  flex-direction: column;            /* Alinea el label encima del select */
-  align-items: center;               /* Centra los elementos dentro de cada grupo */
+.filter-item {
+  display: flex;
+  flex-direction: column; /* Los elementos dentro de cada item estarán en columna */
+  align-items: center; /* Alinea los elementos de cada item al centro */
+  font-size: 1.5rem; /* Ajusta el tamaño de fuente */
 }
 
-.filter-group label {
-  margin-bottom: 8px;                /* Espacio entre el label y el select */
+.filter-item label {
+  margin-bottom: 8px; /* Añade espacio entre el label y el select */
 }
 
-.filter-group select {
-  padding: 8px;                      /* Padding para mejorar el tamaño del select */
-  font-size: 1rem;                   /* Ajuste del tamaño de la fuente dentro del select */
+.filter-item select {
+  width: 150px; /* Ajusta el ancho del select */
+  padding: 8px;
+  font-size: 1rem;
 }
 
 .dateSelect{

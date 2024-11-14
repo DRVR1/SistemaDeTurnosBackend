@@ -81,12 +81,12 @@ function ocultarTurnosDeOtrosDias(fechaSeleccionada) {
 // Función para mostrar los turnos del día
 async function mostrarTurnosDelDia(fechaSeleccionada) {
     try {
-        // Obtener todos los turnos de la API (puedes modificar esta función para que obtenga los turnos según la especialidad o los parámetros que necesites)
-        const especialidadID = localStorage.getItem('especialidadId');  // Asegúrate de que este valor esté correctamente definido en el localStorage
+        // Obtener todos los turnos de la API
+        const especialidadID = localStorage.getItem('especialidadId');
         if (!especialidadID) {
             console.error("Error: especialidadID no está definido");
             popup("No se ha seleccionado una especialidad válida.");
-            return;  // Salimos de la función si no hay especialidad
+            return;
         }
 
         const turnos = await api_queryTurnos(especialidadID);  // Obtener los turnos para la especialidad seleccionada
@@ -126,20 +126,32 @@ async function mostrarTurnosDelDia(fechaSeleccionada) {
 
                 // Crear el item de lista <li>
                 const li = document.createElement("li");
+                li.id = 'li' + turnoId;  // Asignar un ID único para cada turno
                 li.classList.add("turno-item");  // Agregar una clase CSS para estilizar el <li>
 
                 // Crear el contenido HTML para el turno
                 const turnoContent = `
-       <p><strong>Código del turno:</strong> ${turno.id}</p>
-        <p><strong>Fecha del turno:</strong> ${convertirFecha(turno.fecha)}</p>
-        <p><strong>Hora del turno:</strong> ${convertirHora(turno.fecha)}</p>
-        <p><strong>Médico asignado:</strong> ${turno.medico.nombre} ${turno.medico.apellido}</p>
-        <p><strong>Especialidad del Médico:</strong> ${turno.medico.especialidad.nombre}</p>
-        <button class="aceptarBoton cancelarAceptarBoton" data-turno-id="${turno.id}">Reservar turno</button>
-            `;
+                    <div class="turno-info">
+                        <p><strong>Código del turno:</strong> ${turno.id}</p>
+                        <p><strong>Fecha del turno:</strong> ${fechaFormateada}</p>
+                        <p><strong>Hora del turno:</strong> ${horaFormateada}</p>
+                        <p><strong>Médico asignado:</strong> ${medicoNombre} ${medicoApellido}</p>
+                        <p><strong>Especialidad del Médico:</strong> ${especialidadNombre}</p>
+                    </div>
+                    <div class="turno-action">
+                        <button class="aceptarBoton cancelarAceptarBoton" onclick="api_reservarTurno(${turno.id}, '${localStorage.getItem('userId')}')">Reservar turno</button>
+                    </div>
+                `;
 
                 // Asignar el contenido HTML al <li>
                 li.innerHTML = turnoContent;
+
+                // Si el turno ya está reservado (suponiendo que la API devuelve un campo "reservado")
+                if (turno.reservado) {  // Verifica si el turno está reservado
+                    li.classList.add("reservado");  // Agregar la clase de fondo gris
+                    const boton = li.querySelector(".aceptarBoton");
+                    if (boton) boton.classList.add("ocultar-btn");  // Ocultar el botón de "Reservar"
+                }
 
                 // Agregar el <li> a la lista
                 turnosList.appendChild(li);
@@ -160,7 +172,6 @@ async function mostrarTurnosDelDia(fechaSeleccionada) {
         popup("No se pudieron obtener los turnos para esta fecha.");
     }
 }
-
 
 function compararFecha(fechaConHora) {
     // Usamos la función Date para crear un objeto Date y luego formateamos a 'YYYY-MM-DD'
@@ -305,4 +316,6 @@ function selectDay(cell, day) {
 function isAvaliable(fechaDDMMAAAA) { // formato DD/MM/AAAA
     return turnosList.some(turno => convertirFecha(turno.fecha) === fechaDDMMAAAA);
 }
+
+//aca se reserva luego de filtrar los turnos. Deberían unirse con el prefiltrado.
 

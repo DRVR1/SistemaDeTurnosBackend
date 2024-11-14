@@ -5,7 +5,6 @@
     margin: auto;
     text-align: center;
 }
-
 .filters {
   display: flex;                    /* Hace que los elementos de .filters estén alineados en fila */
   justify-content: center;           /* Centra los elementos horizontalmente */
