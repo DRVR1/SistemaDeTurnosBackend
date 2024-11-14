@@ -156,6 +156,11 @@ function api_reservarTurno(id, pacienteId) {
             // Si el usuario cancela, no hacemos nada
             console.log("Reserva cancelada");
         }
+        // Espera de 5 segundos (5000 milisegundos)
+        setTimeout(function() {
+          //location.reload();
+          // Aquí puedes colocar la acción que deseas ejecutar después de la espera
+        }, 7500);
     });
 }
 
@@ -191,8 +196,12 @@ function api_cancelarTurno(id) {
             })
             .finally(() => {popupLoadingOff()});
         }
+        // Espera de 7 segundos (5000 milisegundos)
+                    setTimeout(function() {
+                      location.reload();
+                      // Aquí puedes colocar la acción que deseas ejecutar después de la espera
+                    }, 7500);
     });
-
 }
 
 

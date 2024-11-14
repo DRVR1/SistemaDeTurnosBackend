@@ -89,7 +89,7 @@ public class TurnoService {
             // Enviar correo al paciente informando que el turno fue cancelado
             String email = paciente.getEmail();
             String subject = "Confirmación de Cancelación de Turno";
-            String body = "Hola " + paciente.getNombre() + ", tu turno ha sido cancelado con éxito.";
+            String body = "Hola " + paciente.getNombre() + ", tu turno ha sido cancelado con éxito." ;
             emailService.sendEmail(email, subject, body);
 
             return ResponseEntity.ok(new ResponseMessage("Turno cancelado con éxito"));
@@ -136,11 +136,31 @@ public class TurnoService {
                 turno.setPaciente(pacienteOptional.get());
                 turnoRepository.save(turno);
 
+                Medico medico = turno.getMedico();
                 // Envía el correo al paciente
                 String email = pacienteOptional.get().getEmail();
                 String subject = "Confirmación de Reserva de Turno";
-                String body = "Hola " + pacienteOptional.get().getNombre() + ", tu turno ha sido reservado con éxito.";
+                String body = "Hola " + pacienteOptional.get().getNombre() + ", tu turno ha sido reservado con éxito. \n" +
+                        "Fecha del turno: " + turno.getFecha() + "\n" +
+                        "Medico: " + medico.getNombre() + " " + medico.getApellido() + "\n" +
+                        "Especialidad: " + medico.getEspecialidad().getNombre() + "\n\n" +
+                        "Gracias por confiar en nosotros.";
+
                 emailService.sendEmail(email, subject, body);
+                /*// Detalles del turno
+                String fecha = turno.getFecha();  // Asegúrate de que existe un campo `fecha`
+                String hora = turno.getHora();    // Asegúrate de que existe un campo `hora`
+                String ubicacion = turno.getUbicacion(); // Campo `ubicacion` si lo tienes
+
+                // Envía el correo al paciente
+                String email = pacienteOptional.get().getEmail();
+                String subject = "Confirmación de Reserva de Turno";
+                String body = "Hola " + pacienteOptional.get().getNombre() + ",\n\n" +
+                        "Tu turno ha sido reservado con éxito. Aquí tienes los detalles:\n\n" +
+                        "Fecha: " + fecha + "\n" +
+                        "Hora: " + hora + "\n" +
+                        "Ubicación: " + ubicacion + "\n\n" +
+                        "Gracias por confiar en nosotros.";*/
 
                 return ResponseEntity.ok(new ResponseMessage("Turno reservado con éxito. Puede visualizarlo en la pestaña de turnos reservados."));
             } else {
