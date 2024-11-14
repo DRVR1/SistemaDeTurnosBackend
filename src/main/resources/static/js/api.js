@@ -139,6 +139,12 @@ function api_reservarTurno(id, pacienteId) {
             .then(response => response.json()) // Convertir respuesta a JSON
             .then(data => {     
                 popup(data.message);
+                const li = document.getElementById('li' + id);
+                const botonCancelar = li.querySelector(".cancelarBoton");
+                li.classList.add("cancelado");  // Aplicamos fondo gris
+                botonCancelar.classList.add("ocultar-btn");  // Ocultamos el botón "Cancelar turno"
+                botonCancelar.disabled = true; // Deshabilitar el botón
+                botonCancelar.textContent = "Turno cancelado";
             })
             .catch(error => {
                 popup("No se pudo conectar con el servidor, inténtelo más tarde.");
@@ -175,6 +181,12 @@ function api_cancelarTurno(id) {
             .then(response => response.json()) //Convertir respuesta a json
             .then(data => {
                 popup(data.message);
+                const li = document.getElementById('li' + id);
+                const botonCancelar = li.querySelector(".cancelarBoton");
+                li.classList.add("cancelado");  // Aplicamos fondo gris
+                botonCancelar.classList.add("ocultar-btn");  // Ocultamos el botón "Cancelar turno"
+                botonCancelar.disabled = true; // Deshabilitar el botón
+                botonCancelar.textContent = "Turno cancelado";
             })
             .catch(error => {
                 popup(error);

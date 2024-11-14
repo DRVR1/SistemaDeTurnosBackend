@@ -130,6 +130,32 @@ async function mostrarTurnosDelDia(fechaSeleccionada) {
 
                 // Crear el contenido HTML para el turno
                 const turnoContent = `
+                <div class="turno-info">
+                    <p><strong>Código del turno:</strong> ${turno.id}</p>
+                    <p><strong>Fecha del turno:</strong> ${fechaFormateada}</p>
+                    <p><strong>Hora del turno:</strong> ${horaFormateada}</p>
+                    <p><strong>Médico asignado:</strong> ${medicoNombre} ${medicoApellido}</p>
+                    <p><strong>Especialidad del Médico:</strong> ${especialidadNombre}</p>
+                </div>
+                    <div class="turno-action">
+                        <button class="aceptarBoton cancelarAceptarBoton" onclick="api_reservarTurno(${turno.id}, '${localStorage.getItem('userId')}')">Reservar turno</button>
+                    </div>
+                `;
+
+                // Asignar el contenido HTML al <li>
+                li.innerHTML = turnoContent;
+
+                // Si el turno ya está reservado (suponiendo que la API devuelve un campo "reservado")
+                if (turno.reservado) {  // Verifica si el turno está reservado
+                    li.classList.add("reservado");  // Agregar la clase de fondo gris
+                    const boton = li.querySelector(".aceptarBoton");
+                    if (boton) boton.classList.add("ocultar-btn");  // Ocultar el botón de "Reservar"
+                }
+
+                // Agregar el <li> a la lista
+                turnosList.appendChild(li);
+                });
+                /*
        <p><strong>Código del turno:</strong> ${turno.id}</p>
         <p><strong>Fecha del turno:</strong> ${convertirFecha(turno.fecha)}</p>
         <p><strong>Hora del turno:</strong> ${convertirHora(turno.fecha)}</p>
@@ -150,6 +176,9 @@ async function mostrarTurnosDelDia(fechaSeleccionada) {
                     api_reservarTurno(turnoId, localStorage.getItem('userId'));
                 });
             });
+            */
+
+
         } else {
             // Si no hay turnos disponibles, mostramos un mensaje
             popup("No hay turnos disponibles para esta fecha.");
