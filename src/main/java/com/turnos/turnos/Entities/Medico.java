@@ -38,7 +38,7 @@ public class Medico extends Persona {
 
         super(dni, telefono, nombre, apellido, email, password, "ROLE_MEDICO");
         this.especialidad = especialidad;
-
+        this.obrasociales = obrasociales;
     }
 
 

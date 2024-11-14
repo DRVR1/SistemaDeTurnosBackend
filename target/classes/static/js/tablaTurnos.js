@@ -55,11 +55,18 @@ function llenarTurnosDisponibles(turnos) {
                 <p><strong>Especialidad:</strong> ${especialidadNombre}</p>
                 <p><strong>Fecha:</strong> ${fechaFormateada}</p>
                 <p><strong>Hora:</strong> ${horaFormateada}</p>
+                <button class="aceptarBoton cancelarAceptarBoton" onclick="api_reservarTurno(${turno.id},${localStorage.getItem("userId")})">Reservar turno</button>
+
             </div>
-            <div class="turno-action">
-                <button class="aceptarBoton" data-turno-id="${turnoId}">Reservar</button>
-            </div>
+       
         `;
+/*esto estaba antes del div anterior:
+ <div class="turno-action">
+ <button class="aceptarBoton cancelarAceptarBoton" onclick="api_reservarTurno(${turno.id},${localStorage.getItem("userId")})">Reservar turno</button>
+ </div>*/
+
+
+
 
         // Asignar el contenido al <li>
         li.innerHTML = turnoContent;
