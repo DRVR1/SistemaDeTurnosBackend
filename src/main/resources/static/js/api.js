@@ -139,6 +139,11 @@ function api_reservarTurno(id, pacienteId) {
             .then(response => response.json()) // Convertir respuesta a JSON
             .then(data => {     
                 popup(data.message);
+                 // Cambiar el estilo del turno en la interfaz
+                 const li = document.getElementById('li' + id);
+                 const boton = li.querySelector('.aceptarBoton');
+                 li.classList.add("reservado");  // Agregar clase para el fondo gris
+                 boton.classList.add("ocultar-btn");  // Ocultar el botón de "Reservar"
             })
             .catch(error => {
                 popup("No se pudo conectar con el servidor, inténtelo más tarde.");
@@ -147,6 +152,9 @@ function api_reservarTurno(id, pacienteId) {
             .finally(() => {
                 popupLoadingOff(); // Asegurarse de que siempre se apague el popup de carga
             });
+        } else {
+            // Si el usuario cancela, no hacemos nada
+            console.log("Reserva cancelada");
         }
     });
 }
@@ -170,6 +178,12 @@ function api_cancelarTurno(id) {
             .then(response => response.json()) //Convertir respuesta a json
             .then(data => {
                 popup(data.message);
+                const li = document.getElementById('li' + id);
+                const botonCancelar = li.querySelector(".cancelarBoton");
+                li.classList.add("cancelado");  // Aplicamos fondo gris
+                botonCancelar.classList.add("ocultar-btn");  // Ocultamos el botón "Cancelar turno"
+                botonCancelar.disabled = true; // Deshabilitar el botón
+                botonCancelar.textContent = "Turno cancelado"; 
             })
             .catch(error => {
                 popup(error);
