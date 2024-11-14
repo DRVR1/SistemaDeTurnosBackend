@@ -19,6 +19,9 @@ import java.util.Optional;
 public class TurnoService {
 
     @Autowired
+    private EmailService emailService;
+
+    @Autowired
     private TurnoRepository turnoRepository;
 
     @Autowired
@@ -50,7 +53,7 @@ public class TurnoService {
         return turnoRepository.findByPacienteId(id);
     }
 
-    public ResponseEntity<ResponseMessage> cancelarTurno(Turno turnoDado){
+    /*public ResponseEntity<ResponseMessage> cancelarTurno(Turno turnoDado){
         long id = turnoDado.getId();
         Optional<Turno> turnoOptional = turnoRepository.findById(id);
         if (turnoOptional.isPresent()){
@@ -65,9 +68,38 @@ public class TurnoService {
             return ResponseEntity.status(404).body(new ResponseMessage("Turno no encontrado"));
         }
 
+    }*/
+    public ResponseEntity<ResponseMessage> cancelarTurno(Turno turnoDado) {
+        long id = turnoDado.getId();
+        Optional<Turno> turnoOptional = turnoRepository.findById(id);
+        if (turnoOptional.isPresent()) {
+            Turno turno = turnoOptional.get();
+
+            if (turno.getPaciente() == null) {
+                return ResponseEntity.ok(new ResponseMessage("El turno ya fue cancelado"));
+            }
+
+            // Guardamos el paciente actual antes de cancelar el turno
+            Paciente paciente = turno.getPaciente();
+
+            // Cancelamos el turno
+            turno.setPaciente(null);
+            turnoRepository.save(turno);
+
+            // Enviar correo al paciente informando que el turno fue cancelado
+            String email = paciente.getEmail();
+            String subject = "Confirmación de Cancelación de Turno";
+            String body = "Hola " + paciente.getNombre() + ", tu turno ha sido cancelado con éxito.";
+            emailService.sendEmail(email, subject, body);
+
+            return ResponseEntity.ok(new ResponseMessage("Turno cancelado con éxito"));
+        } else {
+            return ResponseEntity.status(404).body(new ResponseMessage("Turno no encontrado"));
+        }
     }
 
-    public ResponseEntity<?> reservarTurno(Turno turnoRecibido) {
+
+    /*public ResponseEntity<?> reservarTurno(Turno turnoRecibido) {
         Long pacienteId = turnoRecibido.getPaciente().getId();
         Long turnoId = turnoRecibido.getId();
 
@@ -88,6 +120,36 @@ public class TurnoService {
         } else {
             return ResponseEntity.status(404).body(new ResponseMessage("Turno no encontrado."));
         }
+    }*/
+    public ResponseEntity<?> reservarTurno(Turno turnoRecibido) {
+        Long pacienteId = turnoRecibido.getPaciente().getId();
+        Long turnoId = turnoRecibido.getId();
+
+        Optional<Turno> turnoOptional = turnoRepository.findById(turnoId);
+        if (turnoOptional.isPresent()) {
+            Turno turno = turnoOptional.get();
+            if (turno.getPaciente() != null) {
+                return ResponseEntity.status(409).body(new ResponseMessage("El turno ya está reservado."));
+            }
+            Optional<Paciente> pacienteOptional = pacienteRepository.findById(pacienteId);
+            if (pacienteOptional.isPresent()) {
+                turno.setPaciente(pacienteOptional.get());
+                turnoRepository.save(turno);
+
+                // Envía el correo al paciente
+                String email = pacienteOptional.get().getEmail();
+                String subject = "Confirmación de Reserva de Turno";
+                String body = "Hola " + pacienteOptional.get().getNombre() + ", tu turno ha sido reservado con éxito.";
+                emailService.sendEmail(email, subject, body);
+
+                return ResponseEntity.ok(new ResponseMessage("Turno reservado con éxito. Puede visualizarlo en la pestaña de turnos reservados."));
+            } else {
+                return ResponseEntity.status(404).body(new ResponseMessage("Paciente no encontrado."));
+            }
+        } else {
+            return ResponseEntity.status(404).body(new ResponseMessage("Turno no encontrado."));
+        }
     }
+
 
 }
