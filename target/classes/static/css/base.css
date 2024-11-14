@@ -433,3 +433,30 @@ color:rgb(255, 255, 255);
 .fc-daygrid-event-dot{
   border-color: #558557;
 }
+
+.reservado {
+  background-color: #d3d3d3; /* Fondo gris cuando el turno está reservado */
+  color: #777;  /* Color de texto gris para indicar que ya está reservado */
+}
+
+.ocultar-btn {
+  display: none;  /* Oculta el botón de reserva */
+}
+
+/* Estilo para turnos cancelados */
+.cancelado {
+  background-color: #d3d3d3;  /* Fondo gris para el turno cancelado */
+  color: #777;  /* Texto gris */
+}
+
+/* Ocultar el botón */
+.ocultar-btn {
+  display: none;  /* Oculta el botón */
+}
+
+/* Deshabilitar el botón */
+.canceladoBoton[disabled] {
+  background-color: #ccc;  /* Fondo gris para el botón deshabilitado */
+  color: #777;  /* Texto gris para el botón */
+  border: none;  /* Eliminar borde del botón deshabilitado */
+}

@@ -26,10 +26,6 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>6.2.7.Final</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -113,4 +109,3 @@
 		</plugins>
 	</build>
 </project>
-
