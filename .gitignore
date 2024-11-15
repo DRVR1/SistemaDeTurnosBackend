@@ -54,3 +54,5 @@ target/classes/com/turnos/turnos/Services/PacienteService.class
 target/classes/com/turnos/turnos/Services/TurnoService.class
 target/classes/static/html/medico/perfilMedico.html
 target/classes/static/html/paciente/perfilPaciente.html
+docker-compose.yml
+docker-compose.yml
