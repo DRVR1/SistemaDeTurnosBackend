@@ -27,6 +27,8 @@ services:
       - SPRING_DATASOURCE_PASSWORD=YourStrong@Passw0rd
       - SPRING_DATASOURCE_USERNAME=sa
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/turnos
+      - SPRING_DATASOURCE_PASSWORD_EMAIL=ywsj rwgr fcfr cwon
+      - SPRING_DATASOURCE_USERNAME_EMAIL=softwaredesarrollo077@gmail.com
     ports:
       - "8080:8080"
     depends_on:
