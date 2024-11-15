@@ -316,6 +316,3 @@ function selectDay(cell, day) {
 function isAvaliable(fechaDDMMAAAA) { // formato DD/MM/AAAA
     return turnosList.some(turno => convertirFecha(turno.fecha) === fechaDDMMAAAA);
 }
-
-//aca se reserva luego de filtrar los turnos. Deberían unirse con el prefiltrado.
-
