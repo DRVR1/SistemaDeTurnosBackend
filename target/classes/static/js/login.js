@@ -2,17 +2,12 @@
 /**
  * Presionar login en el register
  */
-
-function toggleLogin(){
+document.getElementById('toggleLogin').addEventListener('click', function () {
     var login_form = document.getElementById('loginBox');
     login_form.classList.remove('hidden');
 
     var register_form = document.getElementById('registerBox');
     register_form.classList.add('hidden');
-}
-
-document.getElementById('toggleLogin').addEventListener('click', function () {
-    toggleLogin();
 });
 
 
@@ -70,8 +65,6 @@ document.getElementById('registerBtn').addEventListener('click', function () {
         password: password
     };
 
-    exito = false;
-
     fetch(app_url+'/api/altaPaciente', {
         method: 'POST',
         headers: {
@@ -80,24 +73,13 @@ document.getElementById('registerBtn').addEventListener('click', function () {
         body: JSON.stringify(pacienteData)
     })
     .then(popupLoadingOn())
-    .then(response => {
-        if(response.ok){
-            exito=true;
-        }else{
-            exito=false;
-        }
-        return response.json()
-    })
+    .then(response => response.json())
     .then(data => {
         popupLoadingOff();
-        popup(data.message).then((result) => {
-            if(result){
-                console.log("estado: " + data.status)
-                if(exito){
-                    toggleLogin();
-                }
-            }
-        });        
+        popup(data.message);
+            setTimeout(() => {
+                window.location.href = 'http://localhost:8080/'; 
+            }, 3000); // Espera 2 segundos antes de redirigir (para que el usuario vea el mensaje)
     })
     .catch(error => {
         popupLoadingOff();
