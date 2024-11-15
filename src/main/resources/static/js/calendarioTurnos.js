@@ -126,29 +126,37 @@ async function mostrarTurnosDelDia(fechaSeleccionada) {
 
                 // Crear el item de lista <li>
                 const li = document.createElement("li");
-                li.classList.add("turno-item");  // Agregar una clase CSS para estilizar el <li>
-
-                // Crear el contenido HTML para el turno
+                //li.classList.add("turno-item");  // Agregar una clase CSS para estilizar el <li>
+                li.id = 'li'+turno.id;
+                /* Crear el contenido HTML para el turno
                 const turnoContent = `
-       <p><strong>Código del turno:</strong> ${turno.id}</p>
+        <p><strong>Código del turno:</strong> ${turno.id}</p>
         <p><strong>Fecha del turno:</strong> ${convertirFecha(turno.fecha)}</p>
         <p><strong>Hora del turno:</strong> ${convertirHora(turno.fecha)}</p>
         <p><strong>Médico asignado:</strong> ${turno.medico.nombre} ${turno.medico.apellido}</p>
         <p><strong>Especialidad del Médico:</strong> ${turno.medico.especialidad.nombre}</p>
-        <button class="aceptarBoton cancelarAceptarBoton" data-turno-id="${turno.id}">Reservar turno</button>
-            `;
+        <button class="aceptarBoton cancelarAceptarBoton" onclick="api_reservarTurno(${turno.id},${localStorage.getItem("userId")})">Reservar turno</button>
+            `;*/
+            li.innerHTML = `
+            <p><strong>Código del turno:</strong> ${turno.id}</p>
+            <p><strong>Fecha del turno:</strong> ${convertirFecha(turno.fecha)}</p>
+            <p><strong>Hora del turno:</strong> ${convertirHora(turno.fecha)}</p>
+            <p><strong>Médico asignado:</strong> ${turno.medico.nombre} ${turno.medico.apellido}</p>
+            <p><strong>Especialidad del Médico:</strong> ${turno.medico.especialidad.nombre}</p>
+            <button class="aceptarBoton cancelarAceptarBoton" onclick="api_reservarTurno(${turno.id},${localStorage.getItem("userId")})">Reservar turno</button>
+        `;
 
                 // Asignar el contenido HTML al <li>
-                li.innerHTML = turnoContent;
+               // li.innerHTML = turnoContent;
 
                 // Agregar el <li> a la lista
                 turnosList.appendChild(li);
 
-                // Agregar evento al botón "Reservar"
+                /* Agregar evento al botón "Reservar"
                 const button = li.querySelector("button");
                 button.addEventListener("click", function () {
                     api_reservarTurno(turnoId, localStorage.getItem('userId'));
-                });
+                });*/
             });
         } else {
             // Si no hay turnos disponibles, mostramos un mensaje

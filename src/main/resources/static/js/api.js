@@ -138,7 +138,7 @@ function api_reservarTurno(id, pacienteId) {
             })
             .then(response => response.json()) // Convertir respuesta a JSON
             .then(data => {     
-                popup("Turno cancelado con éxito");
+                popup("Turno reservado con éxito");
                 // Cambiar el estilo del turno en la interfaz
                 const li = document.getElementById('li' + id);
                 const boton = li.querySelector('.aceptarBoton');
