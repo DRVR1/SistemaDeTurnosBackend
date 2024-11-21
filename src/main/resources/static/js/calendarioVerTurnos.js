@@ -158,8 +158,8 @@ document.addEventListener('DOMContentLoaded', function() {
 */
 //agenda del medico
 
-//const listaPacientes = Array.from({ length: 25 }, (_, i) => i + 1); // Lista de pacientes del 1 a x
-const listaPacientes = [22,25]; // Ejemplo de lista de pacienteId
+const listaPacientes = Array.from({ length: 25 }, (_, i) => i + 1); // Lista de pacientes del 1 a x
+//const listaPacientes = [22,25]; // Ejemplo de lista de pacienteId
 // Función personalizada para mostrar el popup con los detalles de la agenda
 function popupAgenda(message) {
     return new Promise((resolve) => {
