@@ -15,7 +15,7 @@ Sistema de turnos medicos que permite registrarse, iniciar sesion, seleccionar u
 Posicionarse en la carpeta del proyecto clonado y ejecutar los siguientes comandos:
 
 
-`docker build -t turnosbackend .` (construye la imagen del backend)
+`docker build -t turnosbackend .` (debe ser el nombre de la imagen en dockerfile)
 
 ### Una vez se hayan creado las imagenes, en la carpeta raiz del proyecto ejecutar:
   
